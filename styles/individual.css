@@ -1,0 +1,163 @@
+@media (max-width: 576px) {
+    .movie-poster {
+      display: none;
+    }
+  }  
+
+/* Basic styles for the layout */
+body {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+}
+
+/* Navigation Bar */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #333;
+    color: white;
+    padding: 10px 20px;
+}
+
+.logo img {
+    max-width: 200px;
+}
+
+.nav-links {
+    list-style: none;
+    display: flex;
+}
+
+.nav-links li {
+    margin-right: 20px;
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: white;
+}
+
+.search-bar input[type="text"] {
+    padding: 5px;
+    border: none;
+    border-radius: 5px;
+}
+
+.search-bar button {
+    background-color: #FCCE32;
+    border: none;
+    border-radius: 5px;
+    color: black;
+    padding: 5px 10px;
+    cursor: pointer;
+}
+
+.sign-in button {
+    background-color: #fccd32;
+    border: none;
+    color: black;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+/* Movie Header */
+.movie-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-image: url('../assets/Jumanji\ back.jpg');
+    background-size: cover;
+    padding: 30px;
+    color: white;
+}
+
+.movie-poster img {
+    max-width: 300px;
+    height: auto;
+}
+
+.box-office-info {
+    background-color: rgba(0, 0, 0, 0.7);
+    padding: 10px;
+    border-radius: 5px;
+    color: white;
+}
+
+/* Movie Details and Trailer */
+.movie-details {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    padding: 30px;
+}
+
+.movie-info {
+    flex: 1;
+    padding-right: 30px;
+    padding-left: 40px;
+}
+
+.movie-info h1 {
+    font-size: 28px;
+    margin: 0;
+}
+
+.movie-info h3 {
+    font-size: 18px;
+    margin: 0;
+}
+
+.movie-info p {
+    margin: 10px 0;
+}
+
+.movie-info button {
+    background-color: #fccd32;
+    border: none;
+    color: black;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.viewer-rating {
+    font-size: 20px;
+    font-weight: bold;
+    color: #fccd32;
+}
+
+.movie-details button {
+    background-color: #fccd32;
+    border: none;
+    color: black;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.trailer {
+    flex: 1;
+}
+
+/* Footer */
+.footer {
+    background-color: #333;
+    color: white;
+    padding: 10px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.social-icons img {
+    width: 50px;
+    height: 50px;
+    margin-right: 10px;
+    justify-content: space-between;
+}
+
+.terms-conditions {
+    font-size: 14px;
+}

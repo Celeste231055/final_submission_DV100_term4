@@ -1,0 +1,23 @@
+#library-head{
+    text-align: center;
+}
+
+#filters{
+    height: 75px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.btn-filter{
+    width: 15% !important;
+    background: linear-gradient(90deg, #FCCE32 0, #F2941E 100%);
+    border-width: 1px;
+    border-radius: 10px;
+    padding-top: 4px;
+    align-items: center;
+    text-align: center;
+    margin-left: 5px;
+    margin-right: 5px;
+}
+

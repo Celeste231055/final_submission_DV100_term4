@@ -1,0 +1,62 @@
+/* Navigation bar styling */
+
+img{
+    width: 270px;
+    height: 90px;
+}
+
+.navbar-nav .nav-link.active{
+    color: white;
+    font-family: 'Poppins', sans-serif;
+    width: 150px;
+    font-size: 25px;
+}
+
+.sign-up{
+    width: 180px;
+    height: 47px;
+    border-radius: 10px;
+    background: linear-gradient(90deg, #FCCE32 0%, #F2941E 100%);
+    font-family: 'Poppins', sans-serif;
+    border: none;
+    margin-right: 15px;
+
+}
+
+/* Carousel styling */
+
+.carousel-item img{
+    width: 100%;
+    height: auto;
+}
+
+.carousel-caption h5{
+    font-family: 'Luckiest Guy', cursive;
+    font-size: 70px;
+    margin-top: -700px;
+}
+
+.carousel-caption p{
+    width: 700px;
+    font-size: 20px;
+}
+
+.form-control{
+    border-radius: 10px;
+    background-color: #BEBFC5A6;
+    border: none;
+}
+
+.form-control:focus{
+    background-color: #31313199;
+    
+}
+
+.form-control::placeholder{
+
+    font-size: 19px;
+
+}
+
+
+

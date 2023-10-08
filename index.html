@@ -13,9 +13,20 @@
     <!-- Internal -->
     <link href="styles/main.css" rel="stylesheet">
     <link href="styles/global.css" rel="stylesheet">
+
+    <!-- Poppins font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;1,600&family=Poppins&display=swap" rel="stylesheet">
     
+    <!-- Luckiest Guy Font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Luckiest+Guy&family=Playfair+Display:ital,wght@0,400;1,600&family=Poppins&display=swap" rel="stylesheet">
     
 </head>
+
+
 <body>
     
     <!-- Hi everyone! I just added some files so that there is something to commit. Everyone works differently 
@@ -24,7 +35,83 @@
     -->
 
 
+<header>
 
+    <!-- Navigation bar -->
+
+
+    <nav class="navbar navbar-expand-lg fixed-top">
+        <div class="container-fluid">
+          <a class="navbar-brand" href="#"><img src="/Assets/Tee-Hee TV Logo.png" alt="Tee-Hee TV Logo"></a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav  mx-auto">
+
+                <!-- Nav Links -->
+
+              <li class="nav-item">
+                <a class="nav-link active" aria-current="page" href="#" >Home</a>
+              </li>
+
+              <li class="nav-item">
+                <a class="nav-link active" aria-current="page" href="#">Movies</a>
+              </li>
+
+              <li class="nav-item">
+                <a class="nav-link active" aria-current="page" href="#">Watchlist</a>
+              </li>
+
+
+            </ul>
+
+            
+              <!-- Nav Links End -->
+
+              <!-- Nav Bar buttons -->
+
+              <form class="d-flex" role="search">
+
+                <button class="sign-up">Sign up</button>
+                <input class="form-control me-2" type="search" placeholder="Search..." aria-label="Search"><i class="bi bi-search"></i>
+
+              </form>
+
+              <!-- Nav Bar buttons End -->
+
+          </div>
+        </div>
+      </nav>
+
+      <!-- Navigation bar End -->
+
+      <div id="carouselExample" class="carousel slide" data-bs-ride="carousel">
+        <div class="carousel-inner">
+
+            <!-- slide 1 -->
+          <div class="carousel-item active" data-interval="2000">
+            <img src="/Assets/The office wallpaper.jpg" class="d-block w-100" alt="The Office">
+          </div>
+
+          <!-- Caption -->
+          <div class="carousel-caption d-none d-md-block text-start">
+            <h5 class= "text-left">The Office</h5>
+            <p>A mockumentary on a group of typical office workers, where the workday consists of ego clashes, inappropriate behavior, and tedium.</p>
+          </div>
+
+          <div class="carousel-item" data-interval="2000">
+            <img src="/Assets/Johnny English.jpg" class="d-block w-100" alt="Johnny English">
+          </div>
+          <div class="carousel-item" data-interval="2000">
+            <img src="/Assets/Jumanji.png" class="d-block w-100" alt="Jumanji">
+          </div>
+        </div>
+
+
+      </div>
+
+</header>
 
 
 

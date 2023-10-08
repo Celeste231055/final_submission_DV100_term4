@@ -1,23 +1,13 @@
-@import url('https://fonts.googleapis.com/css2?family=Luckiest+Guy&family=Poppins:wght@300;400&display=swap');
-
 h1,h2,h3{
     color: white;
-    font-family: 'Luckiest Guy', cursive;
     letter-spacing: 2px;
 }
 h4,h5,h6 {
     color: white;
-    font-family: 'Poppins', sans-serif;
-    font-weight: 300;
 }
 p {
     color: white;
-    font-family: 'Poppins', sans-serif;
-    font-weight: 400;
     font-size: 14px;
-}
-body {
-    background-color: #313131;
 }
 .card-img-top {
     height: 200px;
@@ -55,5 +45,8 @@ li{
     font-size: 30px;
 }
 .sub-title{
-    margin-top: -5px;
+    margin-top: -7px;
+}
+#movieContainer{
+    margin-bottom: 250px;
 }

@@ -91,13 +91,6 @@ button:hover {
     -webkit-text-fill-color: transparent;
 }
 
-.button-wrapper {
-    border-radius: 10px;
-    overflow: hidden;
-    width: 105px;
-    margin-right: 20px;
-}
-
 .button {
     background: linear-gradient(90deg, #FCCE32 0, #F2941E 100%);
     border-image: linear-gradient(90deg, #FCCE32 0, #F2941E 100%);
@@ -105,7 +98,6 @@ button:hover {
     border-radius: 10px;
     display: flex;
     align-items: center;
-    width: 100%;
 }
 
 .btn-default {
@@ -128,7 +120,7 @@ form.search input[type=search] {
     color: #BEBFC5;
 }
 
-input::placeholder {
+header input::placeholder {
     color: #BEBFC5;
     font-size: 24px;
     vertical-align: middle;
@@ -231,9 +223,13 @@ footer{
     }
 
     button{
-    padding: 13,6px;
-    font-size: 18px;
-    height: 42px;
+        font-size: 18px;
+        height: 42px;
+    }
+
+    .btn-default{
+        padding: 13,6px;
+        padding-left: 20px;
     }
 
     footer {

@@ -18,20 +18,36 @@
 </head>
 <body> 
 <!-- Navigation Bar -->
-<nav class="navbar">
-    <div class="logo"><img src="../assets/Logo.png"></div>
-    <ul class="nav-links">
-        <li><a href="../index.html">Home</a></li>
-        <li><a href="../pages/library.html">Movies</a></li>
-        <li><a href="../pages/wishlist.html">Watchlist</a></li>
-    </ul>
-    <div class="sign-in">
-        <button type="button" class="button">Sign In</button>
-    </div>
-
-    <div class="search-bar">
-        <input type="text" placeholder="Search...">
-        <button>Search</button>
+<nav class="navbar navbar-expand-lg justify-content-between">
+    <div class="container-fluid d-flex justify-content-between">
+        <a class="navbar-brand" href="../index.html"><img src="../assets/Logo-Lrg.svg"></a>
+        <button class="navbar-toggler ml-auto" type="button" data-bs-toggle="collapse"
+            data-bs-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02" aria-expanded="false"
+            aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0 mx-auto">
+                <li class="nav-item">
+                    <a class="nav-link" aria-current="page" href="../index.html">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="../pages/library.html">Movies</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="../pages/watchlist.html">Watchlist</a>
+                </li>
+            </ul>
+            <a href="../pages/signup.html">
+                <div class="button-wrapper">
+                  <button type="button" class="button btn-default">Sign In</button>
+                </div>
+            </a>
+            <form class="search d-inline-flex ml-auto" role="search">
+                <input type="search" placeholder="Search..." name="search2" aria-label="Search">
+                <button type="submit"><i class="bi bi-search"></i></button>
+            </form>
+        </div>
     </div>
 </nav>
 
@@ -51,7 +67,7 @@
         <h4><strong>Release date:</strong> 13 December 2019 (USA)</h4>  
         <h4><strong>Cast:</strong> Dwayne Johnson, Jack Black, Kevin Hart, Karen Gillan, Nick Jonas, and Awkwafina.</h4>
         <br>
-        <button type="button" class="button">Watchlist</button>
+        <button type="button" class="button btn-default">Watchlist</button>
     </div>
     <div class="box-office-info">
         <h2>Box Office</h2>

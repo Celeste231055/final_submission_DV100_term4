@@ -40,4 +40,3 @@ $("#movieContainer").find(".movieCard").hover(function(){
 });
     
     
-

@@ -75,6 +75,7 @@
                 <!--Left Image-->
                 <div class="col-12 col-md-6 left"></div>
 
+                <!--Sign up Form-->
                 <div class="col-12 col-md-6 right">
                     <div class="header-shape">
                         <div class="content">
@@ -82,16 +83,30 @@
                             <p>Create new account</p>
                         </div>
                     </div>
-                    <form>
-                        <input class="input-el" type="text" placeholder="Username" required>
-                        <input class="input-el" type="email" placeholder="Email Address" required>
-                        <input class="input-el" type="password" placeholder="Password" required>
-                        <input class="input-el" type="password" placeholder="Confirm Password" required>
-                        <div class="button-wrapper">
-                            <button type="button" class="button btn-wide">Sign Up</button>
-                        </div>
-                        <p>Already a member? <a>Login</a></p>
-                    </form>
+                    <div class="container bottom">
+                        <form id="signupForm" novalidate="">
+                            <div class="form-group">
+                                <input class="form-control" type="text" placeholder="Username" required>
+                            </div>
+                            <div class="form-group">
+                                <input class="form-control" type="email" placeholder="Email Address" required>
+                                <div class="invalid-feedback">Please enter a valid email address.</div>
+                            </div>
+                            <div class="form-group">
+                                <input id="password" class="form-control" type="password" placeholder="Password" minlength="8">
+                                <div class="invalid-feedback">Password must be at least 8 characters long.</div>
+                            </div>
+                            <div class="form-group">
+                                <input id="confirmPassword" class="form-control" type="password" placeholder="Confirm Password" required>
+                                <div class="invalid-feedback">Password must be at least 8 characters long.</div>
+                            </div>
+                            <div class="button-wrapper">
+                                <button type="submit" class="button btn-wide">Sign Up</button>
+                            </div>
+                            <p>Already a member? <a>Login</a></p>
+                        </form>
+                    </div>
+                    
                 </div>
 
                 <!--Login Form
@@ -103,10 +118,10 @@
                         </div>
                     </div>
                     <form>
-                        <input class="input-el" type="email" placeholder="Email Address" required>
+                        <input class="input-el" type="text" placeholder="Username" required>
                         <input class="input-el" type="password" placeholder="Password" required>
                         <div class="button-wrapper">
-                            <button type="button" class="button btn-wide">Login</button>
+                            <button type="submit" class="button btn-wide">Login</button>
                         </div>
                         <p>New to Tee-Hee Tv <a>Sign up</a></p>
                     </form>
@@ -126,7 +141,7 @@
           </div>
           <div class="col-12 col-md-9">
             <div class="row">
-              <div class="col-6 one d-flex align-items-center justify-content-end">
+              <div class="col-6 one">
                 <a href="../index.html"><img src="../assets/twitter.svg" class="sm-icons"></a>
                 <a href="../index.html"><img src="../assets/instagram.svg" class="sm-icons"></a>
                 <a href="../index.html"><img src="../assets/youtube.svg" class="sm-icons"></a>
@@ -155,5 +170,5 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.0/jquery.min.js"></script>
 
     <!-- Internal -->
-    <script src="scripts/signup.js"></script>
+    <script src="../scripts/signup.js"></script>
 </html>

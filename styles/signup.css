@@ -6,11 +6,6 @@ main {
   margin: 50px;
 }
 
-main img {
-  max-width: auto; 
-  max-height: 785px;
-}
-
 .left{
     display: grid;
     place-items: center;
@@ -30,22 +25,37 @@ main img {
 
 .header-shape{
     position: relative;
+    width: 100%;
+    height: 80%;
     display: flex;
     justify-content: center;
     align-items: center;
-    background-image: url(../assets/Vector1.svg);
-    background-repeat: no-repeat;
-    width: 100%;
-    height: 41%;
+    overflow: hidden;
 }
 
-.content{
+.header-shape::before{
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 80%;
+    top: 0;
+    left: 0;
+    background: linear-gradient(90deg, #FCCE32 0, #F2941E 100%);
+    border-radius: 0 0 100% 50%;
+    transform: scaleX(1.15);
+}
+
+main .content{
     text-align: center;
+    position: relative;
+    z-index: 1;
+    margin: 0 auto;
 }
 
 .content h1{ 
     font-size: 48px;
     color: white;
+    top: -30%;
 }
 
 .content p{ 
@@ -60,31 +70,37 @@ main form{
     align-items: center; 
 }
 
-.input-el {
+.bottom{
+    width: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: -10%;
+}
+
+.form-control {
     display: block;
     margin-bottom: 10px;
     margin-top: 10px; 
     padding-left: 10px;
     width: 350px;
     height: 60px;
-    border: none;
     border-radius: 10px;
     background: rgba(49, 49, 49, 0.60);
     color: #BEBFC5;
 }
 
-main input::placeholder {
+main .form-control::placeholder {
     color: #BEBFC5;
     font-size: 16px;
     vertical-align: middle;
     padding: 10px;
 }
 
-header .button-wrapper {
-    border-radius: 10px;
-    overflow: hidden;
-    width: 105px;
-    margin-right: 20px;
+.form-control:focus{
+    background-color: rgba(49, 49, 49, 0.60);
+    padding-left: 10px;
+    color: #BEBFC5;
 }
 
 main .button-wrapper {
@@ -98,7 +114,9 @@ main .button-wrapper {
 .btn-wide{
     width: 100%;
     border-radius: 10px;
-    padding-left: 31%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 main p{
@@ -153,22 +171,27 @@ main a{
     .content p{ 
         font-size: 18px;
     }
+
+    main .bottom{
+        padding: 0px;
+        width: 100%;
+    }
 }
 
 @media (max-width: 766px){
     .left{
         display: none;
     }
-
+    
     main {
         align-items: center; 
         height: 100vh; 
         margin: 10px;
       }
     
-    main form{
-        transform: scale(0.9);
+    main .bottom{
         padding: 0px;
+        width: 100%;
     }
 
     .content h1{ 

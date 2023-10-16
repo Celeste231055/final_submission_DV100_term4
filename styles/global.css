@@ -71,6 +71,12 @@ body {
 }
 
 /* Button */
+header .button-wrapper {
+    border-radius: 10px;
+    overflow: hidden;
+    width: 105px;
+    margin-right: 20px;
+}
 
 a {
     text-decoration: none;
@@ -84,7 +90,7 @@ button {
 }
 
 button:hover {
-    background: #313131;
+    background: transparent;
     background: linear-gradient(90deg, #FCCE32 0, #F2941E 100%);
     background-clip: text;
     -webkit-background-clip: text;
@@ -98,6 +104,7 @@ button:hover {
     border-radius: 10px;
     display: flex;
     align-items: center;
+    border-radius: 10px;
 }
 
 .btn-default {
@@ -166,6 +173,9 @@ footer{
 
 .one{
     padding-left: 350px;
+    display: flex;
+    justify-content: end;
+    align-items: center;
 }
 
 /* ---------------------------------------- */
@@ -242,10 +252,12 @@ footer{
     .two {
         padding-bottom: 5px;
         padding-left: 102px;
+        justify-content: center;
     }
 
     footer .one {
         padding-left: 12px; 
+        justify-content: start;
     }
 
     footer img, nav img {

@@ -1,0 +1,276 @@
+/*Fonts*/
+@import url('https://fonts.googleapis.com/css2?family=Luckiest+Guy&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Luckiest+Guy&family=Poppins:wght@300;400;500&display=swap');
+
+h1,h2,h3,h4,h5,h6 {
+    font-family: 'Luckiest Guy', cursive;
+}
+
+input,a,p {
+    font-family: 'Poppins', sans-serif;
+}
+
+/* Spacing */
+
+body {
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+/* ---------------------------------------- */
+/* Components */
+
+.navbar-toggler-icon {
+    background-image: url(../assets/list.svg);
+    font-size: 24px;
+}
+
+/* Navigation */
+
+.nav-link {
+    color: white;
+    display: inline-block;
+    position: relative;
+    font-size: 24px;
+    text-decoration: none;
+    margin-right: 50px;
+}
+
+.nav-link::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 0;
+    height: 2px;
+    background-color: white;
+    transition: width 0.25s ease-out;
+    transform-origin: bottom right;
+}
+
+.nav-link:hover::before {
+    width: 100%;
+    transform-origin: bottom left;
+}
+
+.nav-link:hover {
+    color: white;
+}
+
+.active {
+    background: linear-gradient(90deg, #FCCE32 0, #F2941E 100%);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.active::before {
+    width: 100%;
+    transition: none;
+    background: linear-gradient(90deg, #FCCE32 0, #F2941E 100%);
+}
+
+/* Button */
+
+a {
+    text-decoration: none;
+}
+
+button {
+    padding: 10px;
+    font-size: 24px;
+    font-weight: 600;
+    height: 50px;
+}
+
+button:hover {
+    background: #313131;
+    background: linear-gradient(90deg, #FCCE32 0, #F2941E 100%);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.button-wrapper {
+    border-radius: 10px;
+    overflow: hidden;
+    width: 105px;
+    margin-right: 20px;
+}
+
+.button {
+    background: linear-gradient(90deg, #FCCE32 0, #F2941E 100%);
+    border-image: linear-gradient(90deg, #FCCE32 0, #F2941E 100%);
+    border-image-slice: 1;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    width: 100%;
+}
+
+.btn-default {
+    width: 100%;
+}
+
+/* Search */
+
+form.search input[type=search] {
+    padding: 10px;
+    padding-left: 5px;
+    font-size: 24px;
+    border: 2px solid #BEBFC5;
+    float: left;
+    width: 80%;
+    background: #313131;
+    border-right: none;
+    border-radius: 10px 0px 0px 10px;
+    height: 50px;
+    color: #BEBFC5;
+}
+
+input::placeholder {
+    color: #BEBFC5;
+    font-size: 24px;
+    vertical-align: middle;
+    padding: 10px;
+    padding-left: 5px;
+}
+
+form.search button {
+    float: left;
+    width: 20%;
+    padding: 7px 10px 10px 10px;
+    background: #313131;
+    color: #BEBFC5;
+    font-size: 20px;
+    vertical-align: middle;
+    border: 2px solid #BEBFC5;
+    border-left: none;
+    border-radius: 0px 10px 10px 0px;
+    cursor: pointer;
+}
+
+form.search::after {
+    content: "";
+    clear: both;
+    display: table;
+}
+
+/* Footer */
+
+footer{
+    border-top: 0.5px solid rgba(190, 191, 197, 0.5);
+    margin-top: auto;
+}
+
+.sm-icons{
+    width: 40px;
+    margin-right: 25px;
+}
+
+.f-text{
+    color: white;
+}
+
+.one{
+    padding-left: 350px;
+}
+
+/* ---------------------------------------- */
+/* Media Queries */
+
+@media (max-width: 991px){
+    .navbar-toggler-icon {
+        font-size: 17px;
+    }
+
+    footer .one {
+        padding-left: 100px; 
+    }
+
+    footer img, nav img {
+        width: 150px;
+    }
+
+    footer .sm-icons {
+        width: 29px;
+    }
+
+    form.search input[type=search] {
+        margin-top: 20px;
+    }
+    
+    form.search button {
+        margin-top: 20px;
+    }
+}
+
+@media (max-width: 766px){
+    .nav-link {
+        font-size: 17px;
+    }
+
+    input::placeholder {
+        font-size: 18px;
+        vertical-align: middle;
+        padding: 13,2px;
+        padding-left: 9,6px;
+    }
+    
+    form.search button {
+        width: 20%;
+        padding: 11,04px 13,2px 13,2px 13,2px;
+        font-size: 16px;
+        border-radius: 0px 10px 10px 0px;
+        height: 42px;
+        margin-top: 20px;
+    }
+
+    .button-wrapper {
+        width: 91px; 
+    }
+
+    button{
+    padding: 13,6px;
+    font-size: 18px;
+    height: 42px;
+    }
+
+    footer {
+        border-bottom: 0.5px solid rgba(190, 191, 197, 0.5);
+    }
+
+    footer .col-12 {
+        border-bottom: 0.5px solid rgba(190, 191, 197, 0.5); 
+    }
+    .two {
+        padding-bottom: 5px;
+        padding-left: 102px;
+    }
+
+    footer .one {
+        padding-left: 12px; 
+    }
+
+    footer img, nav img {
+        width: 150px;
+    }
+
+    footer .sm-icons {
+        width: 24px;
+    }
+
+    footer .f-text {
+        font-size: 12px;
+    }
+
+    form.search input[type=search] {
+        padding: 13,2px;
+        margin-top: 20px;
+        padding-left: 9,6px;
+        font-size: 23px;
+        height: 42px;
+        width: 65%;
+    }
+}
+

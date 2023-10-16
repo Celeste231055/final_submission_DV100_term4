@@ -1,0 +1,52 @@
+h1,h2,h3{
+    color: rgb(255, 255, 255);
+    letter-spacing: 2px;
+}
+h4,h5,h6 {
+    color: white;
+}
+p {
+    color: white;
+    font-size: 14px;
+}
+.card-img-top {
+    height: 200px;
+    background-position: center;
+    object-fit: cover;
+}
+.card {
+    background-color: black;
+    margin-bottom: 60px;
+    width: 18rem;
+    
+}
+.card-hover {
+    margin-left: -25px;
+    margin-top: -25px;
+    width: 21rem;
+}
+ul{
+    list-style: none;
+    float: left;
+    color: white;
+    margin-left: -30px;
+}
+li{
+    float: right;
+    padding-right: 20px;
+}
+
+.title{
+    float: left;
+}
+.bi-dash-circle {
+    float: right;
+    color: #fcc32e;
+    font-size: 30px;
+}
+.sub-title{
+    margin-top: -7px;
+}
+#movieContainer{
+    margin-bottom: 250px;
+}

@@ -1,4 +1,7 @@
-// Hello everyone I know you may not want to read a book, but please read the comments it explains how to use and tweak the API to fit your needs.
+
+
+// Hello everyone, I know the comments are excessive but recently I tried helping my sister and had no idea what was going on her code even tho everything had comments.
+// So, I wanted to explain everything well so that you can easily edit and tweak the code as you need.
 
 $(document).ready(function(){
 
@@ -96,6 +99,12 @@ function displayMovies(allMovies){
           </div>
         `)
 
+        // ----------------------------------------------------------------------------------------------------------------------------
+        // When the card is clicked go to the single movie page. This is were that functionality will go. Here's the class code for that
+        // card.click(function(){
+        //  window.location.href=`cocktail.html?id=${cocktail.id}`;
+        // -----------------------------------------------------------------------------------------------------------------------------
+
         // Here we append the card to the container.
         movieContainer.append(card);
 
@@ -134,3 +143,9 @@ function displayMovies(allMovies){
 
     });
 }
+
+// ----------------------------------------------------------------------------------------------
+// The filters/sort will be down here I think. Here's the class code
+// card.click(function(){
+// window.location.href=`cocktail.html?id=${cocktail.id}`;
+// ----------------------------------------------------------------------------------------------

@@ -181,6 +181,9 @@ footer{
 
 @media (max-width: 991px){
 
+    .navbar-toggler-icon {
+        font-size: 17px;
+    }
     footer .one {
         padding-left: 100px; 
     }

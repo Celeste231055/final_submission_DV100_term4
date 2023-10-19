@@ -1,28 +1,8 @@
-/* Navigation bar styling */
 
 img{
     width: 270px;
     height: 90px;
 }
-
-.navbar-nav .nav-link.active{
-    color: white;
-    font-family: 'Poppins', sans-serif;
-    width: 150px;
-    font-size: 25px;
-}
-
-.sign-up{
-    width: 180px;
-    height: 47px;
-    border-radius: 10px;
-    background: linear-gradient(90deg, #FCCE32 0%, #F2941E 100%);
-    font-family: 'Poppins', sans-serif;
-    border: none;
-    margin-right: 15px;
-
-}
-
 /* Carousel styling */
 
 .carousel-item img{

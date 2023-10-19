@@ -1,16 +1,18 @@
 // Run code when the document loads
-$(document).ready(function() {
 
+$(document).ready(function() {
+    console.log("Hello World!")
     // ---------------------------------------------------------------------------------------------------
     // Sign up form
     // ---------------------------------------------------------------------------------------------------
 
     // ---------------------------------------------------------------------------------------------------
+    
     // On Submit, prevent the default form submission
 
-    $('#signupForm').submit(function(event) {
-
+    $('#signupForm, #loginForm').submit(function(event) {
         event.preventDefault();
+
         
         // Custom password validation
         const password = $('#password').val();
@@ -21,7 +23,7 @@ $(document).ready(function() {
         //If the password doesn't meet the criteria, add the is-invalid class to the password field and display a corresponding error message.
         if (!passwordPattern.test(password)) {
             $('#password').addClass('is-invalid');
-            $('#password').next('.invalid-feedback').text('Password must be at least 8 characters long and include at least 1 number, 1 uppercase letter, and 1 lowercase letter.');
+            $('#password, #confirmPassword').next('.invalid-feedback').text('Password must be at least 8 characters long and include at least 1 number, 1 uppercase letter, and 1 lowercase letter.');
         //check if the password and confirm password fields match. If they don't, add the is-invalid class to both fields and show a "Passwords do not match" error message.
         } else if (password !== confirmPassword) {
             $('#password').addClass('is-invalid');
@@ -38,8 +40,18 @@ $(document).ready(function() {
             event.stopPropagation();
         } else {
             // Add any submission code here, like saving the data to localStorage
-            window.location.href = 'pages/library.html';
+            window.location.href = '../pages/library.html';
         }
         $(this).addClass('was-validated');
     });
 });
+// Function to show the Login form
+function showLoginForm() {
+    container.classList.remove("right-panel-active");
+}
+
+// Function to show the Signup form
+function showSignUpForm() {
+    container.classList.add("right-panel-active");
+}
+

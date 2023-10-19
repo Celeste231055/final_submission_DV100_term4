@@ -6,30 +6,51 @@ main {
   margin: 50px;
 }
 
-.left{
-    display: grid;
-    place-items: center;
-    background-image: url(../assets/2157975.png);
-    background-size: cover;
-    background-repeat: no-repeat;
-    background-position: center;
+main #container{
+    border-radius: 10px;
+	position: relative;
+	overflow: hidden;
+	width: 100%;
+	height: 750px;
+    margin-left: 10%;
+    margin-right: 10%;
 }
 
-.right {
+.form-container{
+    position: absolute;
+    top: 0;
+    height: 100%;
+}
+
+.sign-up-container{
+    left: 0;
+    width: 50%;
+    z-index: 2;
+}
+
+.login-container{
+    left: 0;
+    width: 50%;
+    opacity: 0;
+    z-index: 1;
+}
+
+.form-container form{
     background-color: black;
-    display: flex;
-    flex-direction: column;
-    align-items: center; 
-    height: 785px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	flex-direction: column;
+	height: 100%;
+	text-align: center;
 }
 
 .header-shape{
     position: relative;
     width: 100%;
-    height: 80%;
+    height: 50%;
     display: flex;
     justify-content: center;
-    align-items: center;
     overflow: hidden;
 }
 
@@ -37,7 +58,7 @@ main {
     content: '';
     position: absolute;
     width: 100%;
-    height: 80%;
+    height: 100%;
     top: 0;
     left: 0;
     background: linear-gradient(90deg, #FCCE32 0, #F2941E 100%);
@@ -50,24 +71,18 @@ main .content{
     position: relative;
     z-index: 1;
     margin: 0 auto;
+    margin-top: 10%;
 }
 
 .content h1{ 
-    font-size: 48px;
+    font-size: 56px;
     color: white;
-    top: -30%;
 }
 
 .content p{ 
-    font-size: 24px;
+    font-size: 28px;
     color: black;
     line-height: 0;
-}
-
-main form{
-    display: flex;
-    flex-direction: column; 
-    align-items: center; 
 }
 
 .bottom{
@@ -75,7 +90,8 @@ main form{
     display: flex;
     justify-content: center;
     align-items: center;
-    margin-top: -10%;
+	flex-direction: column;
+	height: 100%;
 }
 
 .form-control {
@@ -119,6 +135,15 @@ main .button-wrapper {
     align-items: center;
 }
 
+#logIn, #signUp{
+    background: transparent;
+    background: linear-gradient(90deg, #FCCE32 0, #F2941E 100%);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    border: none;
+}
+
 main p{
     color: white;
 }
@@ -131,45 +156,122 @@ main a{
     -webkit-text-fill-color: transparent;
 }
 
-@media (max-width: 991px){
-    .left{
-        display: grid;
-        place-items: center;
-        background-image: url(../assets/2157975.png);
-        background-size: cover;
-        background-repeat: no-repeat;
+.overlay-container {
+	position: absolute;
+	top: 0;
+	left: 50%;
+	width: 50%;
+	height: 100%;
+	overflow: hidden;
+	z-index: 100;
+}
+
+.overlay {
+	position: relative;
+	left: -100%;
+	height: 100%;
+	width: 200%;
+}
+
+.overlay-panel {
+	position: absolute;
+	height: 100%;
+	width: 50%;
+}
+
+.overlay-left {
+    background: url(../assets/2157975.png);
+	background-repeat: no-repeat;
+	background-size: cover;
+    background-position: center;
+}
+
+.overlay-right {
+	right: 0;
+    background: url(../assets/2157975.png);
+	background-repeat: no-repeat;
+	background-size: cover;
+    background-position: center;
+}
+/*Animations*/
+
+@media (min-width: 991px){
+    .form-container{
+        transition: all 0.6s ease-in-out;
     }
 
-    main img {
-        max-width: auto; 
-        max-height: 600px;
-    }
-      
-    .right {
-          background-color: black;
-          display: flex;
-          flex-direction: column;
-          align-items: center; 
-          height: 600px;
+    .overlay-container {
+        transition: transform 0.6s ease-in-out;
     }
 
-    main form{
-        transform: scale(0.8);
+    .overlay {
+        transform: translateX(0);
+        transition: transform 0.6s ease-in-out;
     }
 
-    main .header-shape{
-        background-image: url(../assets/Vector2.svg);
-        background-repeat: no-repeat;
-        width: 100%;
-        height: 70%;
-    }
-
-    .content h1{ 
-        font-size: 36px;
+    .overlay-panel {
+        transform: translateX(0);
+        transition: transform 0.6s ease-in-out;
     }
     
-    .content p{ 
-        font-size: 18px;
+    .overlay-right {
+        transform: translateX(0);
+    }
+
+    .overlay-left {
+        transform: translateX(-20%);
+    }
+
+    /* Move sign up to the right */
+    .container.right-panel-active .sign-up-container{
+        transform: translateX(100%);
+    }
+
+     /* Move sign up to the left */
+     .container.right-panel-active .overlay-container{
+        transform: translateX(-100%);
+    }
+
+     /* Bring login over signup */
+     .container.right-panel-active .sign-up-container {
+        transform: translateX(100%);
+        opacity: 1;
+        z-index: 5;
+        animation: show 0.6s;
+    }
+
+    @keyframes show {
+        0%, 49.99% {
+            opacity: 0;
+            z-index: 1;
+        }
+        
+        50%, 100% {
+            opacity: 1;
+            z-index: 5;
+        }
+    }
+
+    /* Move overlay back the right */
+    .container.right-panel-active .overlay {
+        transform: translateX(50%);
+    }
+
+    .container.right-panel-active .overlay-left {
+        transform: translateX(0);
+    }
+
+    .container.right-panel-active .overlay-right {
+        transform: translateX(20%);
+    }
+}
+
+/*Media Queries*/
+
+@media (max-width: 991px){
+
+    main .header-shape{
+       padding-top: 7%;
     }
 
     main .bottom{
@@ -179,38 +281,34 @@ main a{
 }
 
 @media (max-width: 766px){
-    .left{
+    .overlay-container{
         display: none;
     }
     
     main {
-        align-items: center; 
         height: 100vh; 
         margin: 10px;
-      }
-    
-    main .bottom{
-        padding: 0px;
+    }
+
+    main #container{
+        border-radius: 0;
+
+    }
+
+    .sign-up-container, .login-container{
         width: 100%;
     }
 
-    .content h1{ 
-        font-size: 30px;
+    .bottom{
+        transform: scale(0.9);
     }
-    
-    .content p{ 
-        font-size: 15px;
-    }
-      
-}
 
+    .content{
+        transform: scale(0.8);
+    }
+}
 
 footer .row>* {
     padding-right: calc(var(--bs-gutter-x) * .5);
     padding-left: calc(var(--bs-gutter-x) * .5);
-}
-
-main .row>* {
-    padding-right: calc(var(--bs-gutter-x) * 0);
-    padding-left: calc(var(--bs-gutter-x) * 0);
 }

@@ -71,6 +71,7 @@ body {
 }
 
 /* Button */
+
 header .button-wrapper {
     border-radius: 10px;
     overflow: hidden;
@@ -80,13 +81,6 @@ header .button-wrapper {
 
 a {
     text-decoration: none;
-}
-
-button {
-    padding: 10px;
-    font-size: 24px;
-    font-weight: 600;
-    height: 50px;
 }
 
 button:hover {
@@ -105,6 +99,10 @@ button:hover {
     display: flex;
     align-items: center;
     border-radius: 10px;
+    padding: 10px;
+    font-size: 24px;
+    font-weight: 600;
+    height: 50px;
 }
 
 .btn-default {
@@ -182,15 +180,12 @@ footer{
 /* Media Queries */
 
 @media (max-width: 991px){
-    .navbar-toggler-icon {
-        font-size: 17px;
-    }
 
     footer .one {
         padding-left: 100px; 
     }
 
-    footer img, nav img {
+    footer img{
         width: 150px;
     }
 
@@ -208,9 +203,6 @@ footer{
 }
 
 @media (max-width: 766px){
-    .nav-link {
-        font-size: 17px;
-    }
 
     input::placeholder {
         font-size: 18px;
@@ -260,7 +252,7 @@ footer{
         justify-content: start;
     }
 
-    footer img, nav img {
+    footer img{
         width: 150px;
     }
 

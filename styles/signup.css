@@ -31,7 +31,6 @@ main #container{
 .login-container{
     left: 0;
     width: 50%;
-    opacity: 0;
     z-index: 1;
 }
 
@@ -133,6 +132,7 @@ main .button-wrapper {
     display: flex;
     justify-content: center;
     align-items: center;
+    transition: transform 80ms ease-in;
 }
 
 #logIn, #signUp{
@@ -142,6 +142,7 @@ main .button-wrapper {
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     border: none;
+    transition: transform 80ms ease-in;
 }
 
 main p{
@@ -192,78 +193,6 @@ main a{
 	background-repeat: no-repeat;
 	background-size: cover;
     background-position: center;
-}
-/*Animations*/
-
-@media (min-width: 991px){
-    .form-container{
-        transition: all 0.6s ease-in-out;
-    }
-
-    .overlay-container {
-        transition: transform 0.6s ease-in-out;
-    }
-
-    .overlay {
-        transform: translateX(0);
-        transition: transform 0.6s ease-in-out;
-    }
-
-    .overlay-panel {
-        transform: translateX(0);
-        transition: transform 0.6s ease-in-out;
-    }
-    
-    .overlay-right {
-        transform: translateX(0);
-    }
-
-    .overlay-left {
-        transform: translateX(-20%);
-    }
-
-    /* Move sign up to the right */
-    .container.right-panel-active .sign-up-container{
-        transform: translateX(100%);
-    }
-
-     /* Move sign up to the left */
-     .container.right-panel-active .overlay-container{
-        transform: translateX(-100%);
-    }
-
-     /* Bring login over signup */
-     .container.right-panel-active .sign-up-container {
-        transform: translateX(100%);
-        opacity: 1;
-        z-index: 5;
-        animation: show 0.6s;
-    }
-
-    @keyframes show {
-        0%, 49.99% {
-            opacity: 0;
-            z-index: 1;
-        }
-        
-        50%, 100% {
-            opacity: 1;
-            z-index: 5;
-        }
-    }
-
-    /* Move overlay back the right */
-    .container.right-panel-active .overlay {
-        transform: translateX(50%);
-    }
-
-    .container.right-panel-active .overlay-left {
-        transform: translateX(0);
-    }
-
-    .container.right-panel-active .overlay-right {
-        transform: translateX(20%);
-    }
 }
 
 /*Media Queries*/

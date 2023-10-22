@@ -82,31 +82,31 @@
                         </div>
                         <div class="container bottom">
                             <div class="form-group">
-                                <input class="form-control" type="text" placeholder="Username" required>
+                                <input class="form-control" type="text" placeholder="Username">
                             </div>
                             <div class="form-group">
                                 <input class="form-control" type="email" placeholder="Email Address" required>
                                 <div class="invalid-feedback text-start">Please enter a valid email address.</div>
                             </div>
                             <div class="form-group">
-                                <input class="form-control password" type="password" placeholder="Password" minlength="8">
+                                <input id="password" class="form-control" type="password" placeholder="Password" minlength="8">
                                 <div class="invalid-feedback text-start">Password must be at least 8 characters long.</div>
                             </div>
                             <div class="form-group">
-                                <input class="form-control confirmPassword" type="password" placeholder="Confirm Password" required>
+                                <input id="confirmPassword" class="form-control" type="password" placeholder="Confirm Password" required>
                                 <div class="invalid-feedback text-start">Password must be at least 8 characters long.</div>
                             </div>
                             <div class="button-wrapper">
                                 <button type="submit" class="button btn-wide">Sign Up</button>
                             </div>
-                            <p>Already a member? <button id="logIn" onclick="showLoginForm()">Login</button></p>
+                            <p>Already a member? <button id="logIn">Login</button></p>
                         </div>
                     </form>
                 </div>
 
                 <!--Login Form-->
                 <div class="form-container login-container">
-                    <form id="loginForm" novalidate="">
+                    <form id="signupForm" novalidate="">
                         <div class="header-shape">
                             <div class="content">
                                 <h1>Hello!</h1>
@@ -124,7 +124,7 @@
                             <div class="button-wrapper">
                                 <button type="submit" class="button btn-wide">Login</button>
                             </div>
-                            <p>New to Tee-Hee Tv <button id="signUp" onclick="showSignUpForm()">Sign up</button></p>  
+                            <p>New to Tee-Hee Tv <button id="signUp">Sign up</button></p>  
                         </div>
                     </form>
                 </div>

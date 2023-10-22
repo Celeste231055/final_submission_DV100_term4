@@ -10,9 +10,9 @@ $(document).ready(function() {
     
     // On Submit, prevent the default form submission
 
-    $('#signupForm, #loginForm').submit(function(event) {
-        event.preventDefault();
+    $('#signupForm').submit(function(event) {
 
+        event.preventDefault();
         
         // Custom password validation
         const password = $('#password').val();
@@ -23,7 +23,7 @@ $(document).ready(function() {
         //If the password doesn't meet the criteria, add the is-invalid class to the password field and display a corresponding error message.
         if (!passwordPattern.test(password)) {
             $('#password').addClass('is-invalid');
-            $('#password, #confirmPassword').next('.invalid-feedback').text('Password must be at least 8 characters long and include at least 1 number, 1 uppercase letter, and 1 lowercase letter.');
+            $('#password').next('.invalid-feedback').text('Password must be at least 8 characters long and include at least 1 number, 1 uppercase letter, and 1 lowercase letter.');
         //check if the password and confirm password fields match. If they don't, add the is-invalid class to both fields and show a "Passwords do not match" error message.
         } else if (password !== confirmPassword) {
             $('#password').addClass('is-invalid');
@@ -44,14 +44,21 @@ $(document).ready(function() {
         }
         $(this).addClass('was-validated');
     });
-});
-// Function to show the Login form
-function showLoginForm() {
-    container.classList.remove("right-panel-active");
-}
+    // Initial state: Show the signup form and hide the login form
+    $(".sign-up-container").show();
+    $(".login-container").hide();
 
-// Function to show the Signup form
-function showSignUpForm() {
-    container.classList.add("right-panel-active");
-}
+    // Click event handler for the "Login" button
+    $("#logIn").click(function() {
+        $(".sign-up-container").hide();
+        $(".login-container").show();
+    });
+
+    // Click event handler for the "Sign up" button
+    $("#signUp").click(function() {
+        $(".login-container").hide();
+        $(".sign-up-container").show();
+    });
+});
+
 

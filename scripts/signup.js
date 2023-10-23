@@ -12,7 +12,16 @@ $(document).ready(function() {
 
     $('#signupForm').submit(function(event) {
 
+        function resetFormValidation(form) {
+            form.removeClass('was-validated');
+            form.find('.form-control').removeClass('is-valid is-invalid');
+            form.find('.invalid-feedback').text('');
+        }
+
         event.preventDefault();
+
+        // Reset the form validation state
+        resetFormValidation($(this));
         
         // Custom password validation
         const password = $('#password').val();

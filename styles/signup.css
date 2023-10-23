@@ -1,3 +1,5 @@
+/*body: This allows footer to stay at bottom of page, but not fixed*/
+
 main {
   display: flex;
   justify-content: center; 
@@ -5,6 +7,8 @@ main {
   height: 80vh; 
   margin: 50px;
 }
+
+/*Container that wraps all the content and creates a responsive layout*/
 
 main #container{
     border-radius: 10px;
@@ -16,11 +20,15 @@ main #container{
     margin-right: 10%;
 }
 
+/*Sign up/Login Container: Shared layout*/
+
 .form-container{
     position: absolute;
     top: 0;
     height: 100%;
 }
+
+/*Sign up/Login Container: Individual styling and JS Toggle classes*/
 
 .sign-up-container{
     left: 0;
@@ -33,6 +41,8 @@ main #container{
     width: 50%;
     z-index: 1;
 }
+
+/*Sign up/Login Content: Shared styling*/
 
 .form-container form{
     background-color: black;
@@ -84,7 +94,7 @@ main .content{
     line-height: 0;
 }
 
-.bottom{
+.fields{
     width: 50%;
     display: flex;
     justify-content: center;

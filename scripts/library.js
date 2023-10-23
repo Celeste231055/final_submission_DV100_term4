@@ -96,7 +96,9 @@ function displayMovies(allMovies){
           </div>
         `)       
         
-
+        card.click(function(){
+          window.location.href ="http://127.0.0.1:5501/pages/individual.html";
+        });
         card.on('click', '.addIcon', function(){
           console.log("hello");
         });

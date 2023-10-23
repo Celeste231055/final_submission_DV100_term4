@@ -83,13 +83,13 @@ button {
     height: 50px;
 }
 
-button:hover {
+/* button:hover {
     background: #313131;
     background: linear-gradient(90deg, #FCCE32 0, #F2941E 100%);
     background-clip: text;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
-}
+} */
 
 .button-wrapper {
     border-radius: 10px;

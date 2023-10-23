@@ -12,11 +12,11 @@ input,a,p {
 
 /* Spacing */
 
-body {
+/* body {
     height: 100vh;
     display: flex;
     flex-direction: column;
-}
+} */
 /* ---------------------------------------- */
 /* Components */
 
@@ -72,30 +72,22 @@ body {
 
 /* Button */
 
+.button-wrapper {
+    border-radius: 10px;
+    overflow: hidden;
+    margin-right: 20px;
+}
+
 a {
     text-decoration: none;
 }
 
-button {
-    padding: 10px;
-    font-size: 24px;
-    font-weight: 600;
-    height: 50px;
-}
-
 button:hover {
-    background: #313131;
+    background: transparent;
     background: linear-gradient(90deg, #FCCE32 0, #F2941E 100%);
     background-clip: text;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
-}
-
-.button-wrapper {
-    border-radius: 10px;
-    overflow: hidden;
-    width: 105px;
-    margin-right: 20px;
 }
 
 .button {
@@ -105,11 +97,18 @@ button:hover {
     border-radius: 10px;
     display: flex;
     align-items: center;
-    width: 100%;
+    border-radius: 10px;
+    padding: 10px;
+    font-size: 24px;
+    font-weight: 600;
+    height: 50px;
 }
 
 .btn-default {
     width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 /* Search */
@@ -128,7 +127,7 @@ form.search input[type=search] {
     color: #BEBFC5;
 }
 
-input::placeholder {
+header input::placeholder {
     color: #BEBFC5;
     font-size: 24px;
     vertical-align: middle;
@@ -139,7 +138,7 @@ input::placeholder {
 form.search button {
     float: left;
     width: 20%;
-    padding: 7px 10px 10px 10px;
+    padding: 5px 10px 10px 10px;
     background: #313131;
     color: #BEBFC5;
     font-size: 20px;
@@ -148,12 +147,6 @@ form.search button {
     border-left: none;
     border-radius: 0px 10px 10px 0px;
     cursor: pointer;
-}
-
-form.search::after {
-    content: "";
-    clear: both;
-    display: table;
 }
 
 /* Footer */
@@ -174,21 +167,24 @@ footer{
 
 .one{
     padding-left: 350px;
+    display: flex;
+    justify-content: end;
+    align-items: center;
 }
 
 /* ---------------------------------------- */
 /* Media Queries */
 
 @media (max-width: 991px){
+
     .navbar-toggler-icon {
         font-size: 17px;
     }
-
     footer .one {
         padding-left: 100px; 
     }
 
-    footer img, nav img {
+    footer img{
         width: 150px;
     }
 
@@ -206,9 +202,6 @@ footer{
 }
 
 @media (max-width: 766px){
-    .nav-link {
-        font-size: 17px;
-    }
 
     input::placeholder {
         font-size: 18px;
@@ -231,9 +224,13 @@ footer{
     }
 
     button{
-    padding: 13,6px;
-    font-size: 18px;
-    height: 42px;
+        font-size: 18px;
+        height: 42px;
+    }
+
+    .btn-default{
+        padding: 13,6px;
+        padding-left: 20px;
     }
 
     footer {
@@ -246,13 +243,15 @@ footer{
     .two {
         padding-bottom: 5px;
         padding-left: 102px;
+        justify-content: center;
     }
 
     footer .one {
         padding-left: 12px; 
+        justify-content: start;
     }
 
-    footer img, nav img {
+    footer img{
         width: 150px;
     }
 

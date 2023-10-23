@@ -3,28 +3,77 @@ h1,h2,h3{
     letter-spacing: 2px;
 }
 h4,h5,h6 {
-    color: white;
+    color: rgb(233, 233, 233);
+    letter-spacing: 2px;
 }
 p {
-    color: white;
+    color: rgb(233, 233, 233);
     font-size: 14px;
 }
+
+/* -------------------------------------------------------------------------------- */
+/* Card Styling */
+
+
+/* This makes all the images the same size. */
 .card-img-top {
     height: 200px;
     background-position: center;
     object-fit: cover;
-}
-.card {
-    background-color: black;
-    margin-bottom: 60px;
-    width: 18rem;
     
 }
-.card-hover {
-    margin-left: -25px;
-    margin-top: -25px;
-    width: 21rem;
+
+.card {
+    background-color: black;
+    margin-bottom: 90px;
+    margin-left: 20px;
+    width: 18rem;
+    transition: ease-out;
+    
 }
+/* The play icon. */
+/* It is set to 0 opacity (not visible) until the user hovers over the card (visible) see more on watchlist.js */
+.bi-play-fill {
+    opacity: 0%;
+    color: white;
+    font-size: 90px;
+}
+
+/*  This hides the description text is it goes beyond a certain height */
+.card-text{
+    height: 125px;
+    overflow-y: hidden;
+}
+
+/* When the user hover over the card, it scales up and makes it overlap the other cards but unfortunately it's glitchy */
+.card:hover {
+    position: absolute;
+    z-index: 1;
+    transform: scale(1.1);
+    cursor: pointer;
+}
+
+/* Crate a dark overlay on top of the image. When the card is hovered on this class is added to the image. See watchlist.js */
+.img-hover {
+    background-color:black;
+    opacity: 0.6;
+}
+
+
+/* The title floats left while the icon floats right */
+.title{
+    float: left;
+}
+
+/* The minus icon can be replaced with a plus if needed. Just change it's name to .bi-plus-circle in the card (in watchlist.js) and css */
+.bi-dash-circle {
+    margin-top: -5px;
+    float: right;
+    color: #fcc32e;
+    font-size: 28px;
+}
+
+/* The genres is a floated list */
 ul{
     list-style: none;
     float: left;
@@ -36,17 +85,6 @@ li{
     padding-right: 20px;
 }
 
-.title{
-    float: left;
-}
-.bi-dash-circle {
-    float: right;
-    color: #fcc32e;
-    font-size: 30px;
-}
-.sub-title{
-    margin-top: -7px;
-}
-#movieContainer{
-    margin-bottom: 250px;
+#movieContainer {
+    margin-bottom: 300px;
 }

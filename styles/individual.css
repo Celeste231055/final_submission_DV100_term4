@@ -66,12 +66,12 @@ p {
 }
 
 .movie-info h1 {
-    font-size: 28px;
+    font-size: 56px;
     margin: 0;
 }
 
 .movie-info h3 {
-    font-size: 18px;
+    font-size: 28px;
     margin: 0;
 }
 
@@ -79,28 +79,14 @@ p {
     margin: 10px 0;
 }
 
-.movie-info button {
-    background-color: #fccd32;
-    border: none;
-    color: black;
-    padding: 10px 20px;
-    border-radius: 5px;
-    cursor: pointer;
+.btn-info {
+    width: 100%;
 }
 
 .viewer-rating {
     font-size: 20px;
     font-weight: bold;
     color: #fccd32;
-}
-
-.movie-details button {
-    background-color: #fccd32;
-    border: none;
-    color: black;
-    padding: 10px 20px;
-    border-radius: 5px;
-    cursor: pointer;
 }
 
 .trailer {

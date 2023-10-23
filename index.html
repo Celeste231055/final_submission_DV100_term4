@@ -16,31 +16,11 @@
 
     <!-- Internal -->
     <link href="../styles/global.css" rel="stylesheet">
-    <link href="../styles/signup.css" rel="stylesheet">
-    <link rel="stylesheet" href="/styles/main.css">
+    <link href="../styles/index.css" rel="stylesheet">
 
 </head>
 
 <body style="background-color: #313131;">
-
-     <!-- Hi everyone! I just added some files so that there is something to commit. Everyone works differently 
-    <link href="styles/main.css" rel="stylesheet">
-    <link href="styles/global.css" rel="stylesheet">
-
-    <!-- Poppins font -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;1,600&family=Poppins&display=swap" rel="stylesheet">
-    
-    <!-- Luckiest Guy Font -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Luckiest+Guy&family=Playfair+Display:ital,wght@0,400;1,600&family=Poppins&display=swap" rel="stylesheet">
-    
-</head>
-
-
-<body>
     
     <!-- Hi everyone! I just added some files so that there is something to commit. Everyone works differently 
         feel free to change the names of your files or anything else. Whatever works for you :) Remember to make comments
@@ -49,48 +29,148 @@
     <!---------------------------------------------------------------------------------------------------->
     <!-- Header -->
     <header>
+    
+      <!--Navbar-->
+    
+      <nav class="navbar navbar-expand-lg justify-content-between">
+        <div class="container-fluid d-flex justify-content-between">
+          <a class="navbar-brand" href="../index.html"><img src="../assets/Logo-Lrg.svg"></a>
+          <button class="navbar-toggler ml-auto" type="button" data-bs-toggle="collapse"
+            data-bs-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02" aria-expanded="false"
+            aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0 mx-auto">
+              <li class="nav-item">
+                <a class="nav-link active" aria-current="page" href="../index.html">Home</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="../pages/library.html">Movies</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="../pages/watchlist.html">Watchlist</a>
+              </li>
+            </ul>
+            <a href="../pages/signup.html">
+              <div class="button-wrapper">
+                <button type="button" class="button btn-default">Sign In</button>
+              </div>
+            </a>
+            <form class="search d-inline-flex ml-auto" role="search">
+              <input type="search" placeholder="Search..." name="search2" aria-label="Search">
+              <button type="submit"><i class="bi bi-search"></i></button>
+            </form>
+          </div>
+        </div>
+      </nav>
+    
+      <!-- Carousel -->
+    
+      <div id="carouselExample" class="carousel slide" data-bs-ride="carousel">
+        <div class="carousel-indicators">
+          <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active"
+            aria-current="true" aria-label="Slide 1"
+            style="border-radius: 50%; height: 15px; width: 15px;margin-right: 7px;margin-left: 7px;"></button>
+          <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2"
+            style="border-radius: 50%; height: 15px; width: 15px;margin-right: 7px;margin-left: 7px;"></button>
+          <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" aria-label="Slide 3"
+            style="border-radius: 50%; height: 15px; width: 15px;margin-right: 7px;margin-left: 7px;"></button>
+        </div>
+        <div class="carousel-inner">
+    
+          <!-- slide 1 -->
+          <div class="carousel-item active" data-interval="1000">
+            <img src="/assets/The office wallpaper Desktop.jpg" class="d-block w-100" alt="The Office">
+          </div>
+    
+          <!-- Caption -->
+    
+          <div class="carousel-caption d-none d-md-block">
+            <h5 class="text-left">The Office</h5>
+            <p>A mockumentary on a group of typical office workers, where the workday consists of ego clashes, inappropriate
+              behavior, and tedium.</p>
 
-        <!--Navbar-->
-
-        <nav class="navbar navbar-expand-lg justify-content-between">
-            <div class="container-fluid d-flex justify-content-between">
-                <a class="navbar-brand" href="../index.html"><img src="../assets/Logo-Lrg.svg"></a>
-                <button class="navbar-toggler ml-auto" type="button" data-bs-toggle="collapse"
-                    data-bs-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02" aria-expanded="false"
-                    aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-                <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
-                    <ul class="navbar-nav me-auto mb-2 mb-lg-0 mx-auto">
-                        <li class="nav-item">
-                            <a class="nav-link active" aria-current="page" href="../index.html">Home</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="../pages/library.html">Movies</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="../pages/watchlist.html">Watchlist</a>
-                        </li>
-                    </ul>
-                    <a href="../pages/signup.html">
-                        <div class="button-wrapper">
-                          <button type="button" class="button btn-default">Sign In</button>
-                        </div>
-                    </a>
-                    <form class="search d-inline-flex ml-auto" role="search">
-                        <input type="search" placeholder="Search..." name="search2" aria-label="Search">
-                        <button type="submit"><i class="bi bi-search"></i></button>
-                    </form>
-                </div>
+            <!-- Badges -->
+            <span class="badge rounded-pill">Comedy</span>
+            <span class="badge rounded-pill">Sitcom</span>
+            <span class="badge rounded-pill">Mockumentary</span>
+    
+            <Button class="watch-now" style="position: absolute; top: 200px; left: 235px; display: flex; align-items: center; justify-content: center;">
+              <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" class="bi bi-play-fill" viewBox="0 0 16 16">
+                <path d="m11.596 8.697-6.363 3.692c-.54.313-1.233-.066-1.233-.697V4.308c0-.63.692-1.01 1.233-.696l6.363 3.692a.802.802 0 0 1 0 1.393z"/>
+              </svg>
+              <b>Watch now</b>
+            </Button>
+    
+          </div>
+    
+          <!-- slide 2 -->
+    
+          <div class="carousel-item" data-interval="1000">
+            <img src="/Assets/Johnny English (2).png" class="d-block w-100" alt="Johnny English">
+    
+            <!-- Caption 2 -->
+    
+            <div class="carousel-caption d-md-block">
+              <h5>Johnny English: Reborn</h5>
+              <p>Johnny English goes up against international assassins hunting down Chinese Premier Xiang Pin.</p>
+    
+              <!-- Badges -->
+              <span class="badge rounded-pill">Comedy</span>
+              <span class="badge rounded-pill">Action</span>
+              <span class="badge rounded-pill">Adventure</span>
+    
+              <Button class="watch-now"
+                style="position: absolute; top: 200px; left: 235px; display: flex; align-items: center; justify-content: center;"><svg
+                  xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" class="bi bi-play-fill"
+                  viewBox="0 0 16 16">
+                  <path
+                    d="m11.596 8.697-6.363 3.692c-.54.313-1.233-.066-1.233-.697V4.308c0-.63.692-1.01 1.233-.696l6.363 3.692a.802.802 0 0 1 0 1.393z" />
+                </svg><b>Watch now</b></Button>
+    
             </div>
-        </nav>
+          </div>
+    
+          <!-- Slide 3 -->
+          <div class="carousel-item" data-interval="1000">
+            <img src="/Assets/Jumanji (1).png" class="d-block w-100" alt="Jumanji">
+            <div class="carousel-caption d-md-block">
+    
+              <!-- Caption 3 -->
+    
+              <h5>Jumanji</h5>
+              <p>The story centers on a supernatural board game that releases jungle-based hazards upon its players with
+                every turn they take.</p>
+    
+              <!-- Badges -->
+              <span class="badge rounded-pill">Comedy</span>
+              <span class="badge rounded-pill">Action</span>
+              <span class="badge rounded-pill">Adventure</span>
+    
+    
+              <Button class="watch-now"
+                style="position: absolute; top: 200px; left: 235px; display: flex; align-items: center; justify-content: center;"><svg
+                  xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" class="bi bi-play-fill"
+                  viewBox="0 0 16 16">
+                  <path
+                    d="m11.596 8.697-6.363 3.692c-.54.313-1.233-.066-1.233-.697V4.308c0-.63.692-1.01 1.233-.696l6.363 3.692a.802.802 0 0 1 0 1.393z" />
+                </svg><b>Watch now</b></Button>
+    
+    
+            </div>
+    
+    
+    
+          </div>
+        </div>
+      </div>
     </header>
 
     <!---------------------------------------------------------------------------------------------------->
     <!-- Body -->
-    <main></main>
-<header>
-
+    <main>
+      <!-- Page Content -->
     
 
       <!-- Carousel -->
@@ -120,114 +200,78 @@
                 <path d="m11.596 8.697-6.363 3.692c-.54.313-1.233-.066-1.233-.697V4.308c0-.63.692-1.01 1.233-.696l6.363 3.692a.802.802 0 0 1 0 1.393z"/>
               </svg>Watch Now</button>
             </div>
-
           </div>
-
-
-
-
-   
-        
-      </div>
-    </div>
-  </div>
-
-</header>
-
-
-<!-- Page Content -->
-
-
-<div class="container box">
-  <div class="row">
-    <h1 class="Welcome pt-5">Welcome</h1>
-    <h1 class="NRM">Newly Released Movies</h1>
-
-
-    <div class="col-4">
-      <div class="card" style="width: 18rem;">
-       <img src="/Assets/coming-to-america.jpg" class="card-img-top" alt="...">
-         <div class="card-body">
-           <h5 class="card-title">Card title</h5>
-             <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-            <a href="#" class="btn btn-primary">Go somewhere</a>
-         </div>
-      </div>
-    </div>
-
-    <div class="col-4">
-      <div class="card" style="width: 18rem;">
-        <img src="/Assets/coming-to-america.jpg" class="card-img-top" alt="...">
-          <div class="card-body">
-            <h5 class="card-title">Card title</h5>
-              <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-             <a href="#" class="btn btn-primary">Go somewhere</a>
-          </div>
-       </div>
-    </div>
-
-
-    <div class="col-4">
-      <div class="card" style="width: 18rem;">
-        <img src="/Assets/coming-to-america.jpg" class="card-img-top" alt="...">
-          <div class="card-body">
-            <h5 class="card-title">Card title</h5>
-              <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-             <a href="#" class="btn btn-primary">Go somewhere</a>
-          </div>
-       </div>
-    </div>
-
-    <h1 class="NRM">Top Rated Movies</h1>
     
-    <div class="col-4">
-      <div class="card" style="width: 18rem;">
-       <img src="/Assets/coming-to-america.jpg" class="card-img-top" alt="...">
-         <div class="card-body">
-           <h5 class="card-title">Card title</h5>
-             <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-            <a href="#" class="btn btn-primary">Go somewhere</a>
-         </div>
+          <div class="col-4">
+            <div class="card" style="width: 18rem;">
+              <img src="/Assets/coming-to-america.jpg" class="card-img-top" alt="...">
+              <div class="card-body">
+                <h5 class="card-title">Card title</h5>
+                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's
+                  content.</p>
+                <a href="#" class="btn btn-primary">Go somewhere</a>
+              </div>
+            </div>
+          </div>
+    
+    
+          <div class="col-4">
+            <div class="card" style="width: 18rem;">
+              <img src="/Assets/coming-to-america.jpg" class="card-img-top" alt="...">
+              <div class="card-body">
+                <h5 class="card-title">Card title</h5>
+                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's
+                  content.</p>
+                <a href="#" class="btn btn-primary">Go somewhere</a>
+              </div>
+            </div>
+          </div>
+    
+          <h1 class="NRM">Top Rated Movies</h1>
+    
+          <div class="col-4">
+            <div class="card" style="width: 18rem;">
+              <img src="/Assets/coming-to-america.jpg" class="card-img-top" alt="...">
+              <div class="card-body">
+                <h5 class="card-title">Card title</h5>
+                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's
+                  content.</p>
+                <a href="#" class="btn btn-primary">Go somewhere</a>
+              </div>
+            </div>
+          </div>
+    
+          <div class="col-4">
+            <div class="card" style="width: 18rem;">
+              <img src="/Assets/coming-to-america.jpg" class="card-img-top" alt="...">
+              <div class="card-body">
+                <h5 class="card-title">Card title</h5>
+                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's
+                  content.</p>
+                <a href="#" class="btn btn-primary">Go somewhere</a>
+              </div>
+            </div>
+          </div>
+    
+    
+          <div class="col-4">
+            <div class="card" style="width: 18rem;">
+              <img src="/Assets/coming-to-america.jpg" class="card-img-top" alt="...">
+              <div class="card-body">
+                <h5 class="card-title">Card title</h5>
+                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's
+                  content.</p>
+                <a href="#" class="btn btn-primary">Go somewhere</a>
+              </div>
+            </div>
+          </div>
+    
+    
+    
+    
+        </div>
       </div>
-    </div>
-
-    <div class="col-4">
-      <div class="card" style="width: 18rem;">
-        <img src="/Assets/coming-to-america.jpg" class="card-img-top" alt="...">
-          <div class="card-body">
-            <h5 class="card-title">Card title</h5>
-              <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-             <a href="#" class="btn btn-primary">Go somewhere</a>
-          </div>
-       </div>
-    </div>
-
-
-    <div class="col-4">
-      <div class="card" style="width: 18rem;">
-        <img src="/Assets/coming-to-america.jpg" class="card-img-top" alt="...">
-          <div class="card-body">
-            <h5 class="card-title">Card title</h5>
-              <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-             <a href="#" class="btn btn-primary">Go somewhere</a>
-          </div>
-       </div>
-    </div>
-
-
-
-
-  </div>
-</div>
-
-
-
-
-
-
-
-
-
+    </main>
 <!-------------------------------------------------------------------------------------------------- -->
     <!-- Footer -->
 
@@ -254,7 +298,6 @@
       </div>
   </footer>
 </body>
-
    
     <!-- ------------------------------------------------------------------------------------------------ -->
     <!-- Javascript -->

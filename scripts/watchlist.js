@@ -1,8 +1,5 @@
 
 
-// Hello everyone, I know the comments are excessive but recently I tried helping my sister and had no idea what was going on her code even tho everything had comments.
-// So, I wanted to explain everything well so that you can easily edit and tweak the code as you need.
-
 $(document).ready(function(){
 
     // In between the brackets goes the genre. the API use numbers to denote each genre. 35 is for comedy
@@ -19,7 +16,6 @@ $(document).ready(function(){
 
 function allComedyMovies(genre){
 
-    // Notice the movies we're pulling in from the API. Here you can add more parameters such as cast, directors, runtime etc... 
     // Currently we are getting movies for adult=false, video=false, language=en-US, page=1, sort_by=popularity.desc, with_genres=35
     // To add a parameter check out this link https://developer.themoviedb.org/reference/discover-movie
     // eg. you want to only see movies that have a 120min runtime. Add &with_runtime.lte=120 to the end. Check website above for more info
@@ -81,7 +77,7 @@ function displayMovies(allMovies){
                   <!-- ---------------------------------------------------------------------------------------------------------------------------------- -->
                   <div class="row">
                     <div class="col-10"><h4 class="title">${movie.title}</h4></div>
-                    <div class="col-2"><i class="bi bi-dash-circle"></i></div>
+                    <div class="col-2"><i class="bi bi-dash-circle" id="removeIcon"></i></div>
                   </div>
 
                   <!-- Runtime -->
@@ -99,12 +95,6 @@ function displayMovies(allMovies){
           </div>
         `)
 
-        // ----------------------------------------------------------------------------------------------------------------------------
-        // When the card is clicked go to the single movie page. This is were that functionality will go. Here's the class code for that
-        // card.click(function(){
-        //  window.location.href=`cocktail.html?id=${cocktail.id}`;
-        // -----------------------------------------------------------------------------------------------------------------------------
-
         // Here we append the card to the container.
         movieContainer.append(card);
 
@@ -113,6 +103,7 @@ function displayMovies(allMovies){
 
             // Hide the card body.
             $(card).find(".card-body").hide();
+            
 
             // When you hover on the card something happens.
             $(card).hover(function(){
@@ -144,8 +135,3 @@ function displayMovies(allMovies){
     });
 }
 
-// ----------------------------------------------------------------------------------------------
-// The filters/sort will be down here I think. Here's the class code
-// card.click(function(){
-// window.location.href=`cocktail.html?id=${cocktail.id}`;
-// ----------------------------------------------------------------------------------------------

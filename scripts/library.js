@@ -1,4 +1,4 @@
-
+movieArray=[];
 
 $(document).ready(function(){
 
@@ -60,7 +60,7 @@ function displayMovies(allMovies){
         <div class="col-12 col-md-6 col-lg-4 col-xxl-3">
 
             <!-- The Card -->
-            <div class="card">
+            <div class="card" value="${movie.id}">
 
               <!-- Img goes here -->
                 <img src="https://image.tmdb.org/t/p/original${movie.image}" class="card-img-top rounded-1" alt="${movie.title}">
@@ -78,7 +78,7 @@ function displayMovies(allMovies){
                   <!-- ---------------------------------------------------------------------------------------------------------------------------------- -->
                   <div class="row">
                     <div class="col-10"><h4 class="title">${movie.title}</h4></div>
-                    <div class="col-2"><i class="bi bi-plus-circle" id="addIcon"></i></div>
+                    <div class="col-2"><i class="bi bi-plus-circle" onclick="addToWatchlist()"></i></div>
                   </div>
 
                   <!-- Runtime -->
@@ -95,14 +95,34 @@ function displayMovies(allMovies){
             </div>
           </div>
         `)       
+
+        // movieArray.push{(
+        // )}
         
-        card.click(function(){
-          window.location.href ="http://127.0.0.1:5501/pages/individual.html";
+        // // Take movie info to individual page
+        // card.click(function(){
+        //   window.location.href =`http://127.0.0.1:5501/pages/individual.html?id=${movie.id}`;
+        // });
+
+        // Take movie info to individual page
+        card.find(".btn-default").click(function(){
+          window.location.href =`http://127.0.0.1:5501/pages/individual.html?id=${movie.id}`;
+          console.log("it works or not");
         });
-        card.on('click', '.addIcon', function(){
-          console.log("hello");
+
+        // $("#movieContainer").on('click','.btn-default',function(){
+        //   window.location.href =`http://127.0.0.1:5501/pages/individual.html?id=${movie.id}`;
+        // })
+
+
+
+        // Add to Watchlist
+        card.on('click', '.bi-plus-circle', function(){
+          window.location.href =`http://127.0.0.1:5501/pages/watchlist.html?id=${movie.id}`;
+          console.log("it works");
         });
         
+        // s
         // Here we append the card to the container.
         movieContainer.append(card);
             

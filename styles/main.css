@@ -1,158 +1,93 @@
-
-img{
-    width: 270px;
-    height: 90px;
-}
-/* Carousel styling */
-
-.carousel-item img{
-    width: 100%;
-    height: auto;
-}
-
-.carousel-caption {
-    position: absolute;
-    left: 10%; 
-    bottom: 55%;
-    text-align: left; 
+.carousel-caption{
+ margin-bottom: 400px;
+ text-align: left;
+ 
 }
 
 .carousel-caption h5{
-    font-size: 4rem;
-    font-family: Luckiest Guy;
+    font-size: 74px;
+    font-family: 'Luckiest Guy', cursive;
 }
 
 .carousel-caption p{
-    font-size: 20px;
+    font-size: 17px;
+    width: 700px;
+    margin-top: 1%;
     font-family: 'Poppins', sans-serif;
-    width: 900px;
-}
-
-
-
-.form-control{
-    border-radius: 10px;
-    background-color: #BEBFC5A6;
-    border: none;
-    opacity: 1;
-}
-
-.form-control:focus{
-    background-color: #31313199;
-    opacity: 1;
-    
-}
-
-.form-control::placeholder{
-
-    font-size: 19px;
-
 }
 
 .badge{
+    width: 10%;
+    margin-top: 1%;
     background: linear-gradient(90deg, #FCCE32 0%, #F2941E 100%);
     color: black;
-    width: 150px;
-    margin-right: 100px;
-    font-family: 'Poppins', sans-serif;
-}
-
-
-.carousel-caption .watch-now {
-    display: block;
-    width: 180px;
-    height: 47px;
-    text-align: center;
-    border-radius: 10px;
-    background: linear-gradient(90deg, #FCCE32 0%, #F2941E 100%);
-    border: none;
-    font-family: 'Poppins', sans-serif;
+    font-size: 13px;
 }
 
 .carousel-caption button{
-   margin-top: 100px;
-}
-
-.input-with-svg {
-    background-image: url('../Assets/search.svg'); 
-    background-size: 20px;
-    background-position: right 20px center;
-    background-repeat: no-repeat;
-    padding-right: 40px;
-  }
-
-  /* Page content styling */
-
-
-  .rectangle {
-    position: absolute; 
-    top: 110%; 
-    left: 50%; 
-    transform: translate(-50%, 0); 
-    width: 80%; 
-    height: 200%; 
-    background-color: black; 
-    z-index: 1; 
-    border-radius: 30px;
+  
+    border-radius: 10px;
     text-align: center;
-    font-family: Luckiest Guy;
-    color: white;
-    font-size: 70px;
-}
-
-.card-title{
-    font-size: 20px;
-}
-
-.card-text{
-    font-size: 20px;
-}
-
-.card{
-    margin-top: 100px;
-}
-
-.Newly{
-    margin-top: 5%;
-    text-align: left;
-    margin-left: 2%;
-}
-
-.card-img-top{
-    height: 15%;
-    border-radius: 20px 20px 0px 0px;
-}
-
-.card{
-border: none;
-border-radius: 20px 20px 20px 20px;
-background-color: #313131;
-
-}
-
-.card-text{
-    color: white;
-    font-family: 'Poppins', sans-serif;
-    font-size: 15px;
- 
-}
-
-.rating{
-    color: white;
-    font-family: 'Poppins', sans-serif;
-    font-size: 20px;
- 
-}
-
-.card-title{
-    font-size: 30px;
-    color: white;
-}
-
-.btn {
-    width: 100%;
     background: linear-gradient(90deg, #FCCE32 0%, #F2941E 100%);
     border: none;
-    color: black;
+    margin-left: 10.5%;
+    margin-top: 5%;
+
+
+}
+
+.box{
+    width: 90%;
+    height: 1500px;
+    border-radius: 30px;
+    background-color: black;
+}
+
+.Welcome{
+    color: white;
+    text-align: center;
+    font-size: 74px;
+}
+
+.NRM{
+    margin-top: 100px;
+    color: white;
+
+}
+
+.movieRow{
+    margin-left: 100px;
+}
+
+.card-body{
+    background-color: #313131;
+    border-radius: 0px 0px 20px 20px;
+    border: none;
+}
+
+.card{
+    border: none;
+    border-radius: 20px 20px 30px 30px;
+}
+
+.card-title{
+    color: white;
+}
+
+.card-text{
+    color: white;
     font-family: 'Poppins', sans-serif;
+}
+
+.btn{
+    background: linear-gradient(90deg, #FCCE32 0%, #F2941E 100%);
+    color: black;
+    border: none;
+}
+
+@media (max-width: 768px){
+    .carouselImage{
+        width: 100%;
+        height: 500px;
+    }
 }

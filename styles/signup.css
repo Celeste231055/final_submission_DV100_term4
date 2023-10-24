@@ -16,8 +16,6 @@ main #container{
 	overflow: hidden;
 	width: 100%;
 	height: 750px;
-    margin-left: 10%;
-    margin-right: 10%;
 }
 
 /*Sign up/Login Container: Shared layout*/

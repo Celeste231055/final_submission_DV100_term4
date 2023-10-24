@@ -10,7 +10,7 @@ $(document).ready(function() {
     
     // On Submit, prevent the default form submission
 
-    $('#signupForm').submit(function(event) {
+    $('.signupForm').submit(function(event) {
 
         function resetFormValidation(form) {
             form.removeClass('was-validated');
@@ -53,6 +53,7 @@ $(document).ready(function() {
         }
         $(this).addClass('was-validated');
     });
+
     // Initial state: Show the signup form and hide the login form
     $(".sign-up-container").show();
     $(".login-container").hide();
@@ -67,6 +68,21 @@ $(document).ready(function() {
     $("#signUp").click(function() {
         $(".login-container").hide();
         $(".sign-up-container").show();
+    });
+
+     // When the submit button is clicked
+     $("#submitBtn").click(function() {
+        // Get the username input field value
+        var username = $("#username").val();
+        
+        // Check if the username is not empty
+        if (username.trim() !== "") {
+            // Save the username in local storage
+            localStorage.setItem("username", username);
+        } else {
+            $('#password').addClass('is-invalid');
+            $('#password').next('.invalid-feedback').text('Please enter a valid password');
+        }
     });
 });
 

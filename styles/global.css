@@ -9,6 +9,12 @@ h1,h2,h3,h4,h5,h6 {
 input,a,p {
     font-family: 'Poppins', sans-serif;
 }
+.navbar{
+    height: 7%;
+}
+.carousel{
+    height: 93%;
+}
 
 /* Spacing */
 
@@ -173,7 +179,7 @@ form.search button {
 
 footer{
     border-top: 0.5px solid rgba(190, 191, 197, 0.5);
-    margin-top: auto;
+    margin-top: 5%;
 }
 
 .sm-icons{
@@ -244,6 +250,7 @@ footer{
     }
 
     button{
+        padding: 13,6px;
         font-size: 18px;
         height: 42px;
     }
@@ -257,7 +264,6 @@ footer{
     }
     .two {
         padding-bottom: 5px;
-        padding-left: 102px;
         justify-content: center;
     }
 

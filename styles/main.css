@@ -1,46 +1,77 @@
-.carousel-caption{
- margin-bottom: 400px;
- text-align: left;
- 
+/*----------------------------------------------------------Carousel Styling----------------------------------------------------------*/
+header{
+    height: 100vh;
 }
 
-.carousel-caption h5{
-    font-size: 74px;
-    font-family: 'Luckiest Guy', cursive;
+.carousel-inner,.carousel-item {
+    height: 100%;
 }
 
-.carousel-caption p{
-    font-size: 17px;
-    width: 700px;
-    margin-top: 1%;
-    font-family: 'Poppins', sans-serif;
+header .container-fluid {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    padding: 0;
+}
+
+.carouselImage{
+    background: url(/assets/The\ office\ wallpaper.jpg);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    position: relative;
+    height: 100%;
+}
+
+.carousel-caption {
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 100%;
+    padding-top: 10%;
+    text-align: center;
+}
+
+.badges{
+    flex-direction: row;
 }
 
 .badge{
-    width: 10%;
+    width: auto;
     margin-top: 1%;
-    background: linear-gradient(90deg, #FCCE32 0%, #F2941E 100%);
-    color: black;
-    font-size: 13px;
+    background: #313131;
+    color: white;
+    font-size: 24px;
+    border-radius: 10px;
 }
 
 .carousel-caption button{
-  
     border-radius: 10px;
     text-align: center;
     background: linear-gradient(90deg, #FCCE32 0%, #F2941E 100%);
     border: none;
-    margin-left: 10.5%;
-    margin-top: 5%;
-
-
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 24px;
 }
 
+/*--------------------------------------------------------Page Content Styling--------------------------------------------------------*/
+
 .box{
-    width: 90%;
-    height: 1500px;
-    border-radius: 30px;
+    width: 100%;
+    border-radius: 0px;
     background-color: black;
+    position: relative;
+    margin-top: 0;
+    padding: 3%;
+    display: flex;
+    flex-direction: column;
+}
+
+footer{
+    margin-top: 0;
 }
 
 .Welcome{
@@ -50,9 +81,23 @@
 }
 
 .NRM{
-    margin-top: 100px;
+    margin-top: 50px;
     color: white;
+    text-align: start;
+}
+.h-scroll{
+    width: 100%;
+    height: auto;
+    display: flex;
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    overflow-y: hidden;
+    scroll-behavior: smooth;
+    -webkit-overflow-scrolling: touch;
+}
 
+::-webkit-scrollbar {
+    display: none;
 }
 
 .movieRow{
@@ -61,13 +106,12 @@
 
 .card-body{
     background-color: #313131;
-    border-radius: 0px 0px 20px 20px;
     border: none;
 }
 
 .card{
     border: none;
-    border-radius: 20px 20px 30px 30px;
+    border-radius: 20px 20px 20px 20px;
 }
 
 .card-title{
@@ -85,4 +129,99 @@
     color: black;
     border: none;
 }
+/*--------------------------------------------------Custom Heading and body text sizes--------------------------------------------------*/
+@media (min-width:810px){
+    h1{
+        font-size: 96px;
+        line-height: 1;
+    }
 
+    p{
+        font-size: 32px;
+    }
+}
+
+@media (max-width:810px){
+    h1{
+        font-size: 56px;
+        line-height: 1;
+    }
+
+    p{
+        font-size: 18px;
+    }
+}
+/*--------------------------------------------Hide Badges & "Welcome" text @991px and smaller--------------------------------------------*/
+@media (max-width:810px){
+    header .badges {
+        display: none;
+    }
+
+    main h1 {
+        display: none;
+    }
+}
+
+/*--------------------------------------------------Override Bootstrap Container width--------------------------------------------------*/
+@media (min-width: 576px){
+    .container, .container-sm {
+        max-width: 100%;
+        }
+}
+
+/*-------------------------------------------Set the breakpoints for medium screen and larger--------------------------------------------*/
+
+
+@media (min-width: 810px) {
+   header .container-fluid {
+        display: flex;
+        align-items: start;
+        justify-content: center;
+        position: relative;
+        width: 100%;
+        height: 100%;
+        padding: 0;
+    }
+
+    .carouselImage{
+        background: url(/assets/The\ office\ wallpaper\ Desktop.jpg);
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: cover;
+        width: 100%;
+    }
+
+    .carousel-caption {
+        position: absolute;
+        display: flex;
+        flex-direction: column;
+        align-items: start;
+        height: 100%;
+        padding-top: 10%;
+        text-align: center;
+    }
+
+    header p {
+        text-align: left;
+    }
+
+    .box{
+        width: 90%;
+        border-radius: 30px;
+        background-color: black;
+        position: relative;
+        margin-top: -10%;
+        padding: 3%;
+        padding-top: 0;
+        display: flex;
+        flex-direction: column;
+    }
+
+    footer{
+        margin-top: 5%;
+    }
+
+    .NRM{
+        margin-top: 3%;
+    }
+}

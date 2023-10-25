@@ -1,4 +1,3 @@
-movieArray=[];
 
 $(document).ready(function(){
 
@@ -63,14 +62,9 @@ function displayMovies(allMovies){
             <div class="card" value="${movie.id}">
 
               <!-- Img goes here -->
+              <i class="bi bi-play-fill play-btn align-self-center"></i>
                 <img src="https://image.tmdb.org/t/p/original${movie.image}" class="card-img-top rounded-1" alt="${movie.title}">
                 
-                <!-- Overlay play icon. Bootstrap icons are treated as text so changing the font size will change the icon size -->
-                <!-- ------------------------------------------------------------------------------------------------------------- -->
-                <div class="card-img-overlay">
-                  <h1 class="card-title text-center mt-4"><i class="bi bi-play-fill"></i></h1>
-                </div>
-
                 <!-- Card Body -->
                 <div class="card-body">
 
@@ -78,13 +72,8 @@ function displayMovies(allMovies){
                   <!-- ---------------------------------------------------------------------------------------------------------------------------------- -->
                   <div class="row">
                     <div class="col-10"><h4 class="title">${movie.title}</h4></div>
-                    <div class="col-2"><i class="bi bi-plus-circle" onclick="addToWatchlist()"></i></div>
+                    <div class="col-2"><i class="bi bi-plus-circle" onclick="addToWatchlist(${movie.id})"></i></div>
                   </div>
-
-                  <!-- Runtime -->
-                  <p>1h 44m</p>
-                  <!-- Description -->
-                  <p class="card-text">${movie.description}</p>
                   
                   <!-- More Info button -->
                   <div class="button-wrapper" style="width: 132px;">
@@ -95,66 +84,41 @@ function displayMovies(allMovies){
             </div>
           </div>
         `)       
-
-        // movieArray.push{(
-        // )}
         
-        // // Take movie info to individual page
-        // card.click(function(){
-        //   window.location.href =`http://127.0.0.1:5501/pages/individual.html?id=${movie.id}`;
-        // });
 
-        // Take movie info to individual page
-        card.find(".btn-default").click(function(){
+        card.on('click','.btn-default',function(){
           window.location.href =`http://127.0.0.1:5501/pages/individual.html?id=${movie.id}`;
-          console.log("it works or not");
-        });
 
-        // $("#movieContainer").on('click','.btn-default',function(){
-        //   window.location.href =`http://127.0.0.1:5501/pages/individual.html?id=${movie.id}`;
-        // })
-
-
-
-        // Add to Watchlist
-        card.on('click', '.bi-plus-circle', function(){
-          window.location.href =`http://127.0.0.1:5501/pages/watchlist.html?id=${movie.id}`;
-          console.log("it works");
-        });
+        })
         
-        // s
         // Here we append the card to the container.
         movieContainer.append(card);
+
+        $(card).find(".bi-plus-circle").click(function(movieId){
+          $(this).attr('class', 'bi bi-check-circle');
+          
+        });
+        
+        $(card).find(".btn-default").hide();
+
+        $(card).hover(function(){
+          $(card).find(".play-btn").css("opacity", "100%");
+          $(card).find(".btn-default").toggle();
+          $(card).find(".card-img-top").addClass("img-overlay");
+
+        }, function(){
+          $(card).find(".play-btn").css("opacity", "0%");
+          $(card).find(".btn-default").toggle();
+          $(card).find(".card-img-top").toggleClass("img-overlay");
+        });
             
-            // hover state
-            // Hide the card body.
-            card.find(".card-body").hide();
-
-            // When you hover on the card something happens.
-            card.hover(function(){
-          
-              //Show the rest of the card
-              $(this).find(".card-body").toggle();
-              
-              //There is a class in css that gives the image a darker overlay
-              $(this).find(".card-img-top").addClass('img-hover');
-
-              // We want the play icon to appear when we hover over the card. It's opacity is 0 in css. When we hover over te card set the opacity to 100%.
-              $(this).find(".bi-play-fill").css("opacity", "100%");
-              
-          
-          }, function(){
-          
-              //Hide the card body again
-              $(this).find(".card-body").toggle();
-
-              // Remove the darker overlay. we don't need it.
-              $(this).find(".card-img-top").toggleClass('img-hover');
-
-              // Remove the play icon too
-              $(this).find(".bi-play-fill").css("opacity", "0%");
-          
-          });
     });
 }
 
+function addToWatchlist(movieId){
+  
+
+  let movieData = JSON.stringify(movieId);
+  localStorage.setItem('watchlistMovies', movieData);
+ console.log(movieData);
+}

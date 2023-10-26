@@ -1,4 +1,4 @@
-/*----------------------------------------------------------Carousel Styling----------------------------------------------------------*/
+/*----------------------------------------------------------Header Styling----------------------------------------------------------*/
 header{
     height: 100vh;
 }
@@ -7,11 +7,8 @@ header{
     height: 100%;
 }
 
-header .container-fluid {
-    position: relative;
-    width: 100%;
-    height: 100%;
-    padding: 0;
+.carousel{
+    height: 93%;
 }
 
 .carouselImage{
@@ -25,10 +22,10 @@ header .container-fluid {
 
 .carousel-caption {
     position: absolute;
+    height: 100%;
     display: flex;
     flex-direction: column;
     align-items: center;
-    height: 100%;
     padding-top: 10%;
     text-align: center;
 }
@@ -57,8 +54,9 @@ header .container-fluid {
     font-size: 24px;
 }
 
-/*--------------------------------------------------------Page Content Styling--------------------------------------------------------*/
+/*---------------------------------------------------------Main Styling---------------------------------------------------------*/
 
+/*Container*/
 .box{
     width: 100%;
     border-radius: 0px;
@@ -70,21 +68,21 @@ header .container-fluid {
     flex-direction: column;
 }
 
-footer{
-    margin-top: 0;
+/*Headings*/
+.Welcome, .NRM{
+    color: white;
+    text-align: center;
 }
 
 .Welcome{
-    color: white;
-    text-align: center;
-    font-size: 74px;
+    margin-top: 3%;
 }
 
 .NRM{
-    margin-top: 50px;
-    color: white;
-    text-align: start;
+    margin-top: 0;
 }
+
+/*Card*/
 .h-scroll{
     width: 100%;
     height: auto;
@@ -98,10 +96,6 @@ footer{
 
 ::-webkit-scrollbar {
     display: none;
-}
-
-.movieRow{
-    margin-left: 100px;
 }
 
 .card-body{
@@ -129,29 +123,12 @@ footer{
     color: black;
     border: none;
 }
-/*--------------------------------------------------Custom Heading and body text sizes--------------------------------------------------*/
-@media (min-width:810px){
-    h1{
-        font-size: 96px;
-        line-height: 1;
-    }
 
-    p{
-        font-size: 32px;
-    }
+footer{
+    margin-top: 0;
 }
 
-@media (max-width:810px){
-    h1{
-        font-size: 56px;
-        line-height: 1;
-    }
-
-    p{
-        font-size: 18px;
-    }
-}
-/*--------------------------------------------Hide Badges & "Welcome" text @991px and smaller--------------------------------------------*/
+/*--------------------------------------------Hide Badges & "Welcome" text @810px and smaller--------------------------------------------*/
 @media (max-width:810px){
     header .badges {
         display: none;

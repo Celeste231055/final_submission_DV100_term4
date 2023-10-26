@@ -126,21 +126,11 @@ main .form-control::placeholder {
     color: #BEBFC5;
 }
 
-main .button-wrapper {
-    border-radius: 10px;
-    overflow: hidden;
-    width: 65%;
-    margin-top: 20px;
-    margin-bottom: 20px;
-}
-
-.btn-wide{
-    width: 100%;
-    border-radius: 10px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    transition: transform 80ms ease-in;
+.btn-wide {
+    width: 200px;
+    padding: 10px;
+    font-size: 24px;
+    height: 50px;
 }
 
 #logIn, #signUp{

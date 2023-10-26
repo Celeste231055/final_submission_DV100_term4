@@ -9,6 +9,11 @@ h1,h2,h3,h4,h5,h6 {
 input,a,p {
     font-family: 'Poppins', sans-serif;
 }
+
+header .container-fluid {
+    padding-left: 20px;
+    padding-right: 20px;
+}
 .navbar{
     height: 7%;
 }
@@ -16,14 +21,6 @@ input,a,p {
     height: 93%;
 }
 
-/* Spacing */
-
-/* body {
-    height: 100vh;
-    display: flex;
-    flex-direction: column;
-} */
-/* ---------------------------------------- */
 /* Components */
 
 .navbar-toggler-icon {
@@ -39,7 +36,7 @@ input,a,p {
     position: relative;
     font-size: 24px;
     text-decoration: none;
-    margin-right: 50px;
+    margin-right: 20px;
 }
 
 .nav-link::before {
@@ -82,58 +79,21 @@ a {
     text-decoration: none;
 }
 
-button {
-    padding: 10px;
-    font-size: 24px;
-    font-weight: 600;
-    height: 50px;
-}
-
-/* button:hover {
-    background: #313131;
-    background: linear-gradient(90deg, #FCCE32 0, #F2941E 100%);
-    background-clip: text;
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-} */
-
-.button-wrapper {
-    border-radius: 10px;
-    overflow: hidden;
-    width: 100%;
-}
-
-a {
-    text-decoration: none;
-}
-
-button:hover {
-    background: transparent;
-    background: linear-gradient(90deg, #FCCE32 0, #F2941E 100%);
-    background-clip: text;
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-}
-
 .button {
     background: linear-gradient(90deg, #FCCE32 0, #F2941E 100%);
-    border-image: linear-gradient(90deg, #FCCE32 0, #F2941E 100%);
-    border-image-slice: 1;
     border-radius: 10px;
-    display: flex;
-    align-items: center;
-    border-radius: 10px;
-    padding: 10px;
-    font-size: 24px;
+    border: none;
     font-weight: 600;
-    height: 50px;
-}
-
-.btn-default {
-    width: 100%;
     display: flex;
     align-items: center;
     justify-content: center;
+}
+
+.btn-default {
+    width: auto;
+    padding: 10px;
+    font-size: 24px;
+    height: 50px;
 }
 
 /* Search */
@@ -150,7 +110,6 @@ form.search input[type=search] {
     border-radius: 10px 0px 0px 10px;
     height: 50px;
     color: #BEBFC5;
-    margin-left: 20px;
 }
 
 header input::placeholder {
@@ -201,11 +160,18 @@ footer{
 /* ---------------------------------------- */
 /* Media Queries */
 
+@media (min-width: 991px){
+    form.search input[type=search] {
+        margin-left: 20px;
+    }
+}
+
 @media (max-width: 991px){
 
     .navbar-toggler-icon {
         font-size: 17px;
     }
+
     footer .one {
         padding-left: 100px; 
     }
@@ -225,6 +191,7 @@ footer{
     form.search button {
         margin-top: 20px;
     }
+
 }
 
 @media (max-width: 766px){

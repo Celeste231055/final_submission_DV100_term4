@@ -7,6 +7,7 @@
 h1,h2,h3,h4,h5,h6 {
     font-family: 'Luckiest Guy', cursive;
     line-height: 1;
+    color: white;
 }
 
 input,a,p {
@@ -19,8 +20,7 @@ input,a,p {
     padding: 0px 10px;
 }
 
-header .container-fluid {
-    position: relative;
+header .container-fluid, footer .container-fluid {
     width: 100%;
     height: 100%;
     padding: 0;
@@ -34,10 +34,10 @@ header .container-fluid {
 .nav-link {
     color: white;
     display: inline-block;
-    position: relative;
     font-size: 24px;
     text-decoration: none;
     margin-right: 20px;
+    position: relative;
 }
 
 .nav-link::before {
@@ -90,42 +90,44 @@ a {
     justify-content: center;
 }
 
-/* Search */
-
-form.search input[type=search] {
+.btn-signin{
+    width: auto;
     padding: 10px;
-    padding-left: 5px;
     font-size: 24px;
-    border: 2px solid #BEBFC5;
-    float: left;
-    width: 80%;
-    background: #313131;
-    border-right: none;
-    border-radius: 10px 0px 0px 10px;
+    height: 50px;
+    font-size: 24px;
+    margin-right: 20px;
+}
+
+/* Search */
+  
+  /* Style the search input field and submit button */
+  .search-input input[type="search"] {
+    padding: 10px;
+    font-size: 24px;
+    border-radius: 10px;
     height: 50px;
     color: #BEBFC5;
-}
+    background: #313131;
+    border: 2px solid #BEBFC5;
+    width: 250px;
+  }
 
-header input::placeholder {
-    color: #BEBFC5;
-    font-size: 24px;
-    vertical-align: middle;
-    padding: 10px;
-    padding-left: 5px;
-}
-
-form.search button {
-    float: left;
-    width: 20%;
-    padding: 5px 10px 10px 10px;
+  .search-input input[type="search"]:focus {
+    background: #BEBFC5;
+    color: #313131;
+  }
+  
+  .search-button button[type="button"] {
+    padding: 5px 10px;
     background: #313131;
     color: #BEBFC5;
-    font-size: 20px;
-    vertical-align: middle;
     border: 2px solid #BEBFC5;
-    border-left: none;
-    border-radius: 0px 10px 10px 0px;
+    font-size: 24px;
+    border-radius: 10px;
     cursor: pointer;
+    height: 50px;
+    width: 50px;
 }
 
 /* Footer */
@@ -144,14 +146,7 @@ footer{
     color: white;
 }
 
-.one{
-    padding-left: 350px;
-    display: flex;
-    justify-content: end;
-    align-items: center;
-}
-
-/*--------------------------------------------------Custom Heading and body text sizes--------------------------------------------------*/
+/*------------------------------------------------Custom Heading and body text sizes-----------------------------------------------*/
 @media (min-width:810px){
     h1{
         font-size: 96px;
@@ -177,23 +172,23 @@ footer{
         font-size: 16px;
     }
 
-    .p-1{
+    .pf-1{
         font-size: 32px;
     }
 
-    .p-2{
+    .pf-2{
         font-size: 26px;
     }
-    .p-3{
+    .pf-3{
         font-size: 21px;
     }
-    .p-4{
+    .pf-4{
         font-size: 16px;
     }
-    .p-5{
+    .pf-5{
         font-size: 10px;
     }
-    .p-6{
+    .pf-6{
         font-size: 2px;
     }
 }
@@ -218,27 +213,27 @@ footer{
         font-size: 11px;
     }
 
-    .p-1{
+    .pf-1{
         font-size: 18px;
     }
 
-    .p-2{
+    .pf-2{
         font-size: 15px;
     }
 
-    .p-3{
+    .pf-3{
         font-size: 12px;
     }
 
-    .p-4{
+    .pf-4{
         font-size: 9px;
     }
 
-    .p-5{
+    .pf-5{
         font-size: 6px;
     }
 
-    .p-6{
+    .pf-6{
         font-size: 3px;
     }
 }
@@ -246,13 +241,32 @@ footer{
 /* ---------------------------------------- */
 /* Media Queries */
 
-@media (min-width: 991px){
-    form.search input[type=search] {
-        margin-left: 20px;
-    }
+/*Override Bootstrap Container width*/
+@media (min-width: 576px){
+    .container{
+        max-width: 100%;
+        }
 }
 
 @media (max-width: 991px){
+    .search-input input[type="search"], .search-button button[type="button"] {
+        margin-top: 20px;
+        margin-bottom: 20px;
+      }
+
+    .btn-signin{
+        margin-top: 20px;
+    }
+}
+
+@media (min-width: 991px){
+    .navbar-nav{
+        margin-left: auto;
+        margin-right: auto;
+    }
+}
+
+@media (max-width: 810px){
     .navbar-collapse{
         display: flex;
         align-items: start;
@@ -263,12 +277,13 @@ footer{
         margin-left: 0px;
     }
 
-    .navbar-toggler-icon {
-        font-size: 17px;
-    }
+}
 
-    footer .one {
-        padding-left: 100px; 
+@media (min-width: 768px){
+    footer .one{
+        display: flex;
+        justify-content: center;
+        align-items: center;
     }
 
     footer img{
@@ -279,39 +294,9 @@ footer{
         width: 29px;
     }
 
-    form.search input[type=search] {
-        margin-top: 20px;
-    }
-    
-    form.search button {
-        margin-top: 20px;
-    }
-
 }
 
-@media (max-width: 766px){
-
-    input::placeholder {
-        font-size: 18px;
-        vertical-align: middle;
-        padding: 13,2px;
-        padding-left: 9,6px;
-    }
-    
-    form.search button {
-        width: 20%;
-        padding: 11,04px 13,2px 13,2px 13,2px;
-        font-size: 16px;
-        border-radius: 0px 10px 10px 0px;
-        height: 42px;
-        margin-top: 20px;
-    }
-
-    button{
-        padding: 13,6px;
-        font-size: 18px;
-        height: 42px;
-    }
+@media (max-width: 768px){
 
     footer {
         border-bottom: 0.5px solid rgba(190, 191, 197, 0.5);
@@ -340,15 +325,6 @@ footer{
 
     footer .f-text {
         font-size: 12px;
-    }
-
-    form.search input[type=search] {
-        padding: 13,2px;
-        margin-top: 20px;
-        padding-left: 9,6px;
-        font-size: 23px;
-        height: 42px;
-        width: 65%;
     }
 }
 

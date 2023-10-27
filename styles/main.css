@@ -18,6 +18,7 @@ header{
     background-size: cover;
     position: relative;
     height: 100%;
+    width: 100%;
 }
 
 .carousel-caption {
@@ -69,7 +70,7 @@ header{
 }
 
 /*Headings*/
-.Welcome, .NRM{
+.Welcome, .section-heading{
     color: white;
     text-align: center;
 }
@@ -78,7 +79,7 @@ header{
     margin-top: 3%;
 }
 
-.NRM{
+.section-heading{
     margin-top: 0;
 }
 
@@ -118,48 +119,43 @@ header{
     font-size: 13px;
 }
 
-.btn{
-    background: linear-gradient(90deg, #FCCE32 0%, #F2941E 100%);
-    color: black;
-    border: none;
+.btn-watch-now{
+    width: auto;
+    padding: 10px;
+    font-size: 24px;
+    height: 50px;
+    font-size: 24px;
 }
+
+.btn-watch-now-sm{
+    width: auto;
+    padding: 10px;
+    font-size: 24px;
+    height: 40px;
+    font-size: 16px;
+}
+
+/*--------------------------------------------------------Footer Styling--------------------------------------------------------*/
 
 footer{
     margin-top: 0;
 }
 
-/*--------------------------------------------Hide Badges & "Welcome" text @810px and smaller--------------------------------------------*/
+/*---------------------------------------------------------Media Queries--------------------------------------------------------*/
+
+/*Hide Badges & "Welcome" text @810px and smaller*/
 @media (max-width:810px){
     header .badges {
         display: none;
     }
 
-    main h1 {
+    main h3 {
         display: none;
     }
 }
 
-/*--------------------------------------------------Override Bootstrap Container width--------------------------------------------------*/
-@media (min-width: 576px){
-    .container, .container-sm {
-        max-width: 100%;
-        }
-}
-
-/*-------------------------------------------Set the breakpoints for medium screen and larger--------------------------------------------*/
-
-
+/*Set the breakpoints for medium screen and larger*/
 @media (min-width: 810px) {
-   header .container-fluid {
-        display: flex;
-        align-items: start;
-        justify-content: center;
-        position: relative;
-        width: 100%;
-        height: 100%;
-        padding: 0;
-    }
-
     .carouselImage{
         background: url(/assets/The-office-wallpaper-Desktop.jpg);
         background-position: center;
@@ -198,7 +194,7 @@ footer{
         margin-top: 5%;
     }
 
-    .NRM{
+    .section-heading{
         margin-top: 3%;
     }
 }

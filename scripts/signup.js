@@ -28,7 +28,7 @@ $(document).ready(function() {
         const confirmPassword = $('#confirmPassword').val();
         //check the password to ensure it contains at least 1 number, 1 uppercase letter, 1 lowercase letter, and is at least 8 characters long.
         const passwordPattern = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}$/;
-
+    
         //If the password doesn't meet the criteria, add the is-invalid class to the password field and display a corresponding error message.
         if (!passwordPattern.test(password)) {
             $('#password').addClass('is-invalid');
@@ -60,18 +60,42 @@ $(document).ready(function() {
 
     // Click event handler for the "Login" button
     $("#logIn").click(function() {
+
+        function resetFormValidation(form) {
+            form.removeClass('was-validated');
+            form.find('.form-control').removeClass('is-valid is-invalid');
+            form.find('.invalid-feedback').text('');
+        }
+
+        event.preventDefault();
+
+        // Reset the form validation state
+        resetFormValidation($(this));
+
         $(".sign-up-container").hide();
         $(".login-container").show();
     });
 
     // Click event handler for the "Sign up" button
     $("#signUp").click(function() {
+
+        function resetFormValidation(form) {
+            form.removeClass('was-validated');
+            form.find('.form-control').removeClass('is-valid is-invalid');
+            form.find('.invalid-feedback').text('');
+        }
+
+        event.preventDefault();
+
+        // Reset the form validation state
+        resetFormValidation($(this));
+
         $(".login-container").hide();
         $(".sign-up-container").show();
     });
 
-     // When the submit button is clicked
-     $("#submitBtn").click(function() {
+    // When the submit button is clicked
+    $("#submitBtn").click(function() {
         // Get the username input field value
         var username = $("#username").val();
         
@@ -84,6 +108,7 @@ $(document).ready(function() {
             $('#password').next('.invalid-feedback').text('Please enter a valid password');
         }
     });
+    
 });
 
 

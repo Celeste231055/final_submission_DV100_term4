@@ -128,7 +128,7 @@ footer{
 }
 
 /*Set the breakpoints for medium screen and larger*/
-@media (min-width: 810px) {
+@media (min-width: 768px) {
     .carouselImage{
         background: url(/assets/The-office-wallpaper-Desktop.jpg);
         background-position: center;

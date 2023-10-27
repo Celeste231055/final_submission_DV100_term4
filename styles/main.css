@@ -23,6 +23,15 @@ header .container-fluid {
     height: 100%;
 }
 
+.carouselImage2{
+    background: url(/Assets/Johnny\ English\ poster\ desktop.png);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    position: relative;
+    height: 100%;
+}
+
 .carousel-caption {
     position: absolute;
     display: flex;
@@ -31,6 +40,15 @@ header .container-fluid {
     height: 100%;
     padding-top: 10%;
     text-align: center;
+
+}
+
+.carousel-caption p {
+    font-size: 17px;
+}
+
+.carousel-caption h1 {
+    font-size: 100px;
 }
 
 .badges{
@@ -44,6 +62,9 @@ header .container-fluid {
     color: white;
     font-size: 24px;
     border-radius: 10px;
+    font-size: medium;
+    background: linear-gradient(90deg, #FCCE32 0%, #F2941E 100%);
+    color: black;
 }
 
 .carousel-caption button{

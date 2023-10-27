@@ -10,7 +10,8 @@ h1,h2,h3,h4,h5,h6 {
     color: white;
 }
 
-input,a,p {
+/*Add any tags that you use for body text in here*/
+input, a, p {
     font-family: 'Poppins', sans-serif;
 }
 
@@ -18,6 +19,7 @@ input,a,p {
 
 .navbar{
     padding: 0px 10px;
+    height: 7%;
 }
 
 header .container-fluid, footer .container-fluid {
@@ -74,35 +76,45 @@ header .container-fluid, footer .container-fluid {
     background: linear-gradient(90deg, #FCCE32 0, #F2941E 100%);
 }
 
-/* Button */
+/*------------------------------------------------Buttons-----------------------------------------------*/
 
 a {
     text-decoration: none;
 }
 
+/*Global Styling: apply to all buttons*/
 .button {
     background: linear-gradient(90deg, #FCCE32 0, #F2941E 100%);
     border-radius: 10px;
     border: none;
     font-weight: 600;
+    width: auto;
+    padding: 10px;
     display: flex;
     align-items: center;
     justify-content: center;
 }
 
-.btn-signin{
-    width: auto;
-    padding: 10px;
+/* choose one*/
+.btn-lg{
     font-size: 24px;
     height: 50px;
-    font-size: 24px;
+}
+
+.btn-sm{
+    height: 40px;
+    font-size: 16px;
+}
+
+/*Optional Custom styling: Copy this class after btn-lg/btn-sm and rename it to whatever your button is called if you have any styling that is unique*/
+.signin{
     margin-right: 20px;
 }
 
 /* Search */
   
-  /* Style the search input field and submit button */
-  .search-input input[type="search"] {
+/* Style the search input field and submit button */
+.search-input input[type="search"] {
     padding: 10px;
     font-size: 24px;
     border-radius: 10px;
@@ -111,14 +123,14 @@ a {
     background: #313131;
     border: 2px solid #BEBFC5;
     width: 250px;
-  }
+}
 
-  .search-input input[type="search"]:focus {
+.search-input input[type="search"]:focus {
     background: #BEBFC5;
     color: #313131;
-  }
+}
   
-  .search-button button[type="button"] {
+.search-button button[type="button"] {
     padding: 5px 10px;
     background: #313131;
     color: #BEBFC5;
@@ -146,8 +158,13 @@ footer{
     color: white;
 }
 
-/*------------------------------------------------Custom Heading and body text sizes-----------------------------------------------*/
-@media (min-width:810px){
+/*------------------------------------------------Media Queries-----------------------------------------------*/
+
+/* Custom Heading and Body text */
+
+/*To customize: first divide the size you chose for heading 1 by 6 then subtract your answer from the heading size to get the size of the next heading.(e.g. h1 = 96 px. 96px/6 = 16px. 96-16px = 80px. h2 = 8-px)  */
+
+@media (min-width: 768px){
     h1{
         font-size: 96px;
     }
@@ -172,47 +189,58 @@ footer{
         font-size: 16px;
     }
 
+    /*To use these sizes, add them as classes to the body text of your html. pf-1 goes with h1, pf-2 goes with h2 and so on*/
+    /*To customize: divide whichever heading you are using with 4*/
     .pf-1{
-        font-size: 32px;
+        font-size: 24px;
     }
 
     .pf-2{
-        font-size: 26px;
+        font-size: 20px;
     }
+
     .pf-3{
-        font-size: 21px;
-    }
-    .pf-4{
         font-size: 16px;
     }
-    .pf-5{
-        font-size: 10px;
+
+    .pf-4{
+        font-size: 12px;
     }
+
+    .pf-5{
+        font-size: 8px;
+    }
+
     .pf-6{
-        font-size: 2px;
+        font-size: 4px;
     }
 }
 
-@media (max-width:810px){
+@media (max-width: 768px){
     h1{
         font-size: 56px;
     }
-    h1{
+
+    h2{
         font-size: 47px;
     }
-    h1{
+
+    h3{
         font-size: 38px;
     }
-    h1{
+
+    h4{
         font-size: 29px;
     }
-    h1{
+
+    h5{
         font-size: 20px;
     }
-    h1{
-        font-size: 11px;
+
+    h6{  font-size: 11px;
     }
 
+    /*To customize: divide whichever heading you are using with 3 and rounddown to the nearest integer value*/
     .pf-1{
         font-size: 18px;
     }
@@ -238,9 +266,6 @@ footer{
     }
 }
 
-/* ---------------------------------------- */
-/* Media Queries */
-
 /*Override Bootstrap Container width*/
 @media (min-width: 576px){
     .container{
@@ -248,17 +273,19 @@ footer{
         }
 }
 
+/*Vertical spacing for search and signin button for small and medium screens*/
 @media (max-width: 991px){
     .search-input input[type="search"], .search-button button[type="button"] {
         margin-top: 20px;
         margin-bottom: 20px;
       }
 
-    .btn-signin{
+    .signin{
         margin-top: 20px;
     }
 }
 
+/*Center align social media icons for medium and large screens*/
 @media (min-width: 991px){
     .navbar-nav{
         margin-left: auto;
@@ -266,38 +293,42 @@ footer{
     }
 }
 
-@media (max-width: 810px){
+/*For small screens*/
+@media (max-width: 768px){
+    /*Align all items to the left underneath each other*/
     .navbar-collapse{
         display: flex;
         align-items: start;
         flex-direction: column;
     }
-
+    /*Remove margin from nav-items*/
     header ul {
         margin-left: 0px;
     }
-
 }
 
+/*For medium and large screens*/
 @media (min-width: 768px){
+    /*Align sm-icons to center of footer*/
     footer .one{
         display: flex;
         justify-content: center;
         align-items: center;
     }
-
+    /*Set the size of the logo*/
     footer img{
         width: 150px;
     }
 
+    /*Set the size of the sm-icons*/
     footer .sm-icons {
-        width: 29px;
+        width: 30px;
     }
-
 }
 
+/*For small screens*/
 @media (max-width: 768px){
-
+    /*Add the grey lines*/
     footer {
         border-bottom: 0.5px solid rgba(190, 191, 197, 0.5);
     }
@@ -305,24 +336,30 @@ footer{
     footer .col-12 {
         border-bottom: 0.5px solid rgba(190, 191, 197, 0.5); 
     }
+
+    /*Add some spacing to the logo*/
     .two {
         padding-bottom: 5px;
         justify-content: center;
     }
 
+    /*Add some spacing to the sm-icons and align it to the left*/
     footer .one {
         padding-left: 12px; 
         justify-content: start;
     }
 
+    /*Set the size of the logo*/
     footer img{
         width: 150px;
     }
 
+    /*Set the size of the sm-icons*/
     footer .sm-icons {
-        width: 24px;
+        width: 30px;
     }
 
+    /*Set the size of the text*/
     footer .f-text {
         font-size: 12px;
     }

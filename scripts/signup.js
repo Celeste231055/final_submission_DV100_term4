@@ -10,7 +10,7 @@ $(document).ready(function() {
     
     // On Submit, prevent the default form submission
 
-    $('#signupForm').submit(function(event) {
+    $('.signupForm').submit(function(event) {
 
         function resetFormValidation(form) {
             form.removeClass('was-validated');
@@ -28,7 +28,7 @@ $(document).ready(function() {
         const confirmPassword = $('#confirmPassword').val();
         //check the password to ensure it contains at least 1 number, 1 uppercase letter, 1 lowercase letter, and is at least 8 characters long.
         const passwordPattern = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}$/;
-
+    
         //If the password doesn't meet the criteria, add the is-invalid class to the password field and display a corresponding error message.
         if (!passwordPattern.test(password)) {
             $('#password').addClass('is-invalid');
@@ -53,21 +53,62 @@ $(document).ready(function() {
         }
         $(this).addClass('was-validated');
     });
+
     // Initial state: Show the signup form and hide the login form
     $(".sign-up-container").show();
     $(".login-container").hide();
 
     // Click event handler for the "Login" button
     $("#logIn").click(function() {
+
+        function resetFormValidation(form) {
+            form.removeClass('was-validated');
+            form.find('.form-control').removeClass('is-valid is-invalid');
+            form.find('.invalid-feedback').text('');
+        }
+
+        event.preventDefault();
+
+        // Reset the form validation state
+        resetFormValidation($(this));
+
         $(".sign-up-container").hide();
         $(".login-container").show();
     });
 
     // Click event handler for the "Sign up" button
     $("#signUp").click(function() {
+
+        function resetFormValidation(form) {
+            form.removeClass('was-validated');
+            form.find('.form-control').removeClass('is-valid is-invalid');
+            form.find('.invalid-feedback').text('');
+        }
+
+        event.preventDefault();
+
+        // Reset the form validation state
+        resetFormValidation($(this));
+
         $(".login-container").hide();
         $(".sign-up-container").show();
     });
+
+    // When the submit button is clicked
+    $("#submitBtn").click(function() {
+        // Get the username input field value
+        var username = $("#username").val();
+        
+        // Check if the username is not empty
+        if (username.trim() !== "") {
+            // Save the username in local storage
+            localStorage.setItem("username", username);
+        } else {
+            $('#password').addClass('is-invalid');
+            $('#password').next('.invalid-feedback').text('Please enter a valid password');
+        }
+    });
+    
 });
 
 

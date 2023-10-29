@@ -1,73 +1,101 @@
-.carousel-caption{
- margin-bottom: 400px;
- text-align: left;
- 
+/*----------------------------------------------------------Header Styling----------------------------------------------------------*/
+header{
+    height: 100vh;
 }
 
-.carousel-caption h5{
-    font-size: 74px;
-    font-family: 'Luckiest Guy', cursive;
+.carousel-inner,.carousel-item {
+    height: 100%;
 }
 
-.carousel-caption p{
-    font-size: 17px;
-    width: 700px;
-    margin-top: 1%;
-    font-family: 'Poppins', sans-serif;
+.carousel{
+    height: 93%;
+}
+
+.carouselImage{
+    background: url(/assets/The\ office\ wallpaper.jpg);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    position: relative;
+    height: 100%;
+    width: 100%;
+}
+
+.carousel-caption {
+    position: absolute;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 10%;
+    text-align: center;
+}
+
+.badges{
+    flex-direction: row;
 }
 
 .badge{
-    width: 10%;
+    width: auto;
     margin-top: 1%;
-    background: linear-gradient(90deg, #FCCE32 0%, #F2941E 100%);
-    color: black;
-    font-size: 13px;
-}
-
-.carousel-caption button{
-  
+    background: #313131;
+    color: white;
+    font-size: 24px;
     border-radius: 10px;
-    text-align: center;
-    background: linear-gradient(90deg, #FCCE32 0%, #F2941E 100%);
-    border: none;
-    margin-left: 10.5%;
-    margin-top: 5%;
-
-
 }
 
+/*---------------------------------------------------------Main Styling---------------------------------------------------------*/
+
+/*Container*/
 .box{
-    width: 90%;
-    height: 1500px;
-    border-radius: 30px;
+    width: 100%;
+    border-radius: 0px;
     background-color: black;
+    position: relative;
+    margin-top: 0;
+    padding: 3%;
+    display: flex;
+    flex-direction: column;
+}
+
+/*Headings*/
+.Welcome, .section-heading{
+    color: white;
+    text-align: center;
 }
 
 .Welcome{
-    color: white;
-    text-align: center;
-    font-size: 74px;
+    margin-top: 3%;
 }
 
-.NRM{
-    margin-top: 100px;
-    color: white;
-
+.section-heading{
+    margin-top: 3%;
 }
 
-.movieRow{
-    margin-left: 100px;
+/*Card*/
+.h-scroll{
+    width: 100%;
+    height: auto;
+    display: flex;
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    overflow-y: hidden;
+    scroll-behavior: smooth;
+    -webkit-overflow-scrolling: touch;
+}
+
+::-webkit-scrollbar {
+    display: none;
 }
 
 .card-body{
     background-color: #313131;
-    border-radius: 0px 0px 20px 20px;
     border: none;
 }
 
 .card{
     border: none;
-    border-radius: 20px 20px 30px 30px;
+    border-radius: 20px 20px 20px 20px;
 }
 
 .card-title{
@@ -80,9 +108,66 @@
     font-size: 13px;
 }
 
-.btn{
-    background: linear-gradient(90deg, #FCCE32 0%, #F2941E 100%);
-    color: black;
-    border: none;
+/*--------------------------------------------------------Footer Styling--------------------------------------------------------*/
+
+footer{
+    margin-top: 0;
 }
 
+/*---------------------------------------------------------Media Queries--------------------------------------------------------*/
+
+/*Hide Badges & "Welcome" text @810px and smaller*/
+@media (max-width:768px){
+    header .badges {
+        display: none;
+    }
+
+    main h3 {
+        display: none;
+    }
+}
+
+/*Set the breakpoints for medium screen and larger*/
+@media (min-width: 810px) {
+    .carouselImage{
+        background: url(/assets/The-office-wallpaper-Desktop.jpg);
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: cover;
+        width: 100%;
+    }
+
+    .carousel-caption {
+        position: absolute;
+        display: flex;
+        flex-direction: column;
+        align-items: start;
+        height: 100%;
+        padding-top: 10%;
+        text-align: center;
+    }
+
+    header p {
+        text-align: left;
+    }
+
+    .box{
+        width: 90%;
+        border-radius: 30px;
+        background-color: black;
+        position: relative;
+        margin-top: -10%;
+        padding: 3%;
+        padding-top: 0;
+        display: flex;
+        flex-direction: column;
+    }
+
+    footer{
+        margin-top: 5%;
+    }
+
+    .section-heading{
+        margin-top: 3%;
+    }
+}

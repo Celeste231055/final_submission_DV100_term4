@@ -1,0 +1,173 @@
+/*----------------------------------------------------------Header Styling----------------------------------------------------------*/
+header{
+    height: 100vh;
+}
+
+.carousel-inner,.carousel-item {
+    height: 100%;
+}
+
+.carousel{
+    height: 93%;
+}
+
+.carouselImage{
+    background: url(/assets/The\ office\ wallpaper.jpg);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    position: relative;
+    height: 100%;
+    width: 100%;
+}
+
+.carousel-caption {
+    position: absolute;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 10%;
+    text-align: center;
+}
+
+.badges{
+    flex-direction: row;
+}
+
+.badge{
+    width: auto;
+    margin-top: 1%;
+    background: #313131;
+    color: white;
+    font-size: 24px;
+    border-radius: 10px;
+}
+
+/*---------------------------------------------------------Main Styling---------------------------------------------------------*/
+
+/*Container*/
+.box{
+    width: 100%;
+    border-radius: 0px;
+    background-color: black;
+    position: relative;
+    margin-top: 0;
+    padding: 3%;
+    display: flex;
+    flex-direction: column;
+}
+
+/*Headings*/
+.Welcome, .section-heading{
+    color: white;
+    text-align: center;
+}
+
+.Welcome{
+    margin-top: 3%;
+}
+
+.section-heading{
+    margin-top: 3%;
+}
+
+/*Card*/
+.h-scroll{
+    width: 100%;
+    height: auto;
+    display: flex;
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    overflow-y: hidden;
+    scroll-behavior: smooth;
+    -webkit-overflow-scrolling: touch;
+}
+
+::-webkit-scrollbar {
+    display: none;
+}
+
+.card-body{
+    background-color: #313131;
+    border: none;
+}
+
+.card{
+    border: none;
+    border-radius: 20px 20px 20px 20px;
+}
+
+.card-title{
+    color: white;
+}
+
+.card-text{
+    color: white;
+    font-family: 'Poppins', sans-serif;
+    font-size: 13px;
+}
+
+/*--------------------------------------------------------Footer Styling--------------------------------------------------------*/
+
+footer{
+    margin-top: 0;
+}
+
+/*---------------------------------------------------------Media Queries--------------------------------------------------------*/
+
+/*Hide Badges & "Welcome" text @810px and smaller*/
+@media (max-width:768px){
+    header .badges {
+        display: none;
+    }
+
+    main h3 {
+        display: none;
+    }
+}
+
+/*Set the breakpoints for medium screen and larger*/
+@media (min-width: 810px) {
+    .carouselImage{
+        background: url(/assets/The-office-wallpaper-Desktop.jpg);
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: cover;
+        width: 100%;
+    }
+
+    .carousel-caption {
+        position: absolute;
+        display: flex;
+        flex-direction: column;
+        align-items: start;
+        height: 100%;
+        padding-top: 10%;
+        text-align: center;
+    }
+
+    header p {
+        text-align: left;
+    }
+
+    .box{
+        width: 90%;
+        border-radius: 30px;
+        background-color: black;
+        position: relative;
+        margin-top: -10%;
+        padding: 3%;
+        padding-top: 0;
+        display: flex;
+        flex-direction: column;
+    }
+
+    footer{
+        margin-top: 5%;
+    }
+
+    .section-heading{
+        margin-top: 3%;
+    }
+}

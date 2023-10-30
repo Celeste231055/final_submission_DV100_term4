@@ -1,37 +1,39 @@
-#library-head{
-    text-align: center;
-}
-
 #filters{
-    height: 75px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    position: relative;
+    margin-left: 10%;
+    margin-right: 10%;
+    width: 80%;
 }
 
-.btn-filter{
-    width: 15% !important;
-    background: linear-gradient(90deg, #FCCE32 0, #F2941E 100%);
-    border-width: 1px;
-    border-radius: 10px;
-    padding-top: 4px;
-    align-items: center;
-    text-align: center;
+.filter{
+    width: 100% !important;
     margin-left: 5px;
     margin-right: 5px;
 }
 
-h1,h2,h3{
-    color: rgb(255, 255, 255);
-    letter-spacing: 2px;
+.dropdown-toggle::after {
+    display: inline-block;
+    margin-left: 50%;
+    vertical-align: middle;
 }
-h4,h5,h6 {
-    color: rgb(233, 233, 233);
-    letter-spacing: 2px;
+
+@media (max-width: 991px){
+    .dropdown-toggle::after {
+        margin-left: 30%;
+    }
 }
-p {
-    color: rgb(233, 233, 233);
-    font-size: 14px;
+
+.dropdown-menu {
+    --bs-dropdown-divider-bg: #BEBFC5;
+    --bs-dropdown-link-color: #BEBFC5;
+    --bs-dropdown-item-padding-x: 30px;
+    position: absolute;
+    font-size: 24px;
+    text-align: left;
+    background-color: #313131;
+    border: 1px solid #BEBFC5;
+    border-radius: 10px;
+    width: auto;
 }
 
 /* -------------------------------------------------------------------------------- */
@@ -40,25 +42,30 @@ p {
 
 /* This makes all the images the same size. */
 .card-img-top {
-    height: 350px;
     background-position: center;
-    object-fit: cover;
-    
+    background-size: cover;
 }
 .img-overlay {
     opacity: 50%;
-    
 }
 
 .card {
-    
     width: 350px;
     background-color: black;
-    margin-bottom: 90px;
-    margin-left: 20px;
-    width: 18rem;
+    margin-bottom: 7%;
+    width: 20rem;
+    height: 30rem;
     transition: ease-out;
-    
+}
+
+.card-body{
+    background: linear-gradient(180deg, transparent 0, black 100%);
+    margin-top: -150px;
+    z-index: 1;
+}
+
+.more-info{
+    display: none;
 }
 
 .play-btn {
@@ -66,15 +73,15 @@ p {
     font-size: 100px;
     z-index: 1;
     position: absolute;
-    margin-top: 90px;
-    opacity: 0%;
+    display: flex;
+    justify-content: center;
+    margin-top: 10rem;
 }
 
-/* When the user hover over the card, it scales up and makes it overlap the other cards but unfortunately it's glitchy */
+/* When the user hover over the card, it scales up and makes it overlap the other cards */
 .card:hover {
-    transform: scale(1.07);
+    transform: scale(1.1, 1.1);
     cursor: pointer;
-    
 }
 
 
@@ -102,3 +109,4 @@ p {
 #movieContainer {
     margin-bottom: 300px;
 }
+

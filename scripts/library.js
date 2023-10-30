@@ -56,7 +56,7 @@ function displayMovies(allMovies){
     allMovies.forEach(movie => {
         
         const card = $(`   
-        <div class="col-12 col-md-6 col-lg-4 col-xxl-3">
+        <div class="col-12 col-md-6 col-lg-4 col-xxl-3 d-flex justify-content-center">
 
             <!-- The Card -->
             <div class="card" value="${movie.id}">
@@ -71,22 +71,20 @@ function displayMovies(allMovies){
                   <!-- Float title to the left and icon to the right. Here you can change the icon from a minus to a plus. Remember to do the same for css-->
                   <!-- ---------------------------------------------------------------------------------------------------------------------------------- -->
                   <div class="row">
-                    <div class="col-10"><h4 class="title">${movie.title}</h4></div>
+                    <div class="col-10"><h5 class="title">${movie.title}</h5></div>
                     <div class="col-2"><i class="bi bi-plus-circle" onclick="addToWatchlist(${movie.id})"></i></div>
                   </div>
                   
                   <!-- More Info button -->
-                  <div class="button-wrapper" style="width: 132px;">
-                    <button type="button" class="button btn-default">More Info</button>
-                  </div>
+                    <button type="button" class="button btn-sm more-info">More Info</button>
 
                 </div>
             </div>
-          </div>
+        </div>
         `)       
         
 
-        card.on('click','.btn-default',function(){
+        card.on('click','.more-ifo',function(){
           window.location.href =`http://127.0.0.1:5501/pages/individual.html?id=${movie.id}`;
 
         })
@@ -99,16 +97,22 @@ function displayMovies(allMovies){
           
         });
         
-        $(card).find(".btn-default").hide();
+        $(card).find(".more-info").hide();
+        $(card).find(".card-body").hide();
+        $(card).find(".play-btn").hide();
 
         $(card).hover(function(){
           $(card).find(".play-btn").css("opacity", "100%");
-          $(card).find(".btn-default").toggle();
+          $(card).find(".play-btn").toggle();
+          $(card).find(".more-info").toggle();
+          $(card).find(".card-body").toggle();
           $(card).find(".card-img-top").addClass("img-overlay");
 
         }, function(){
           $(card).find(".play-btn").css("opacity", "0%");
-          $(card).find(".btn-default").toggle();
+          $(card).find(".play-btn").toggle();
+          $(card).find(".more-info").toggle();
+          $(card).find(".card-body").toggle();
           $(card).find(".card-img-top").toggleClass("img-overlay");
         });
             

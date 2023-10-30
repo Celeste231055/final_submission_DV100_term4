@@ -126,11 +126,13 @@ main .form-control::placeholder {
     color: #BEBFC5;
 }
 
-.btn-wide {
-    width: 200px;
+.sign-in {
+    width: 200px !important;
     padding: 10px;
     font-size: 24px;
     height: 50px;
+    margin-top: 10px;
+    margin-bottom: 10px;
 }
 
 #logIn, #signUp{

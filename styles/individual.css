@@ -1,95 +1,94 @@
-@media (max-width: 576px) {
-    .movie-poster {
-      display: none;
-    }
-  }  
-
-/* Basic styles for the layout */
-body {
-    margin: 0;
-    padding: 0;
-    font-family: Arial, sans-serif;
-}
-
-h1,h2,h3{
-    color: rgb(255, 255, 255);
-    letter-spacing: 2px;
-}
-h4,h5,h6 {
-    color: rgb(233, 233, 233);
-    letter-spacing: 2px;
-}
-p {
-    color: rgb(233, 233, 233);
-    font-size: 14px;
-}
-
-#movieContainer {
-    margin-bottom: 300px;
+ header{
+    height: 100vh;
+    width: 100%;
 }
 
 /* Movie Header */
 .movieheader {
     display: flex;
-    justify-content: space-between;
     align-items: center;
     background-image: url('../assets/Jumanji\ back.jpg');
     background-size: cover;
-    padding: 30px;
     color: white;
+    height: 93%;
+    background-position: center;
+    position: relative;
+}
+
+.img-overlay{
+    background-color: rgba(0, 0, 0, 0.7);
+    height: 100%;
+    width: 100%;
+    position: relative;
+    padding: 40px;
+}
+
+.contents{
+    position: relative;
 }
 
 .movie-poster img {
-    max-width: 300px;
-    height: auto;
+    width: 100%;
+}
+
+.movie-info h3 {
+    margin: 0;
+}
+
+section p{
+    color: white;
+}
+
+.pf-2{
+    line-height: 2;
 }
 
 .box-office-info {
     background-color: rgba(0, 0, 0, 0.7);
     padding: 10px;
-    border-radius: 5px;
+    border-radius: 10px;
     color: white;
+    width: 50%;
 }
+
 
 /* Movie Details and Trailer */
 .movie-details {
     display: flex;
     justify-content: space-between;
     align-items: flex-start;
-    padding: 30px;
-}
-
-.movie-info {
-    flex: 1;
-    padding-right: 30px;
-    padding-left: 40px;
-}
-
-.movie-info h1 {
-    font-size: 56px;
-    margin: 0;
-}
-
-.movie-info h3 {
-    font-size: 28px;
-    margin: 0;
-}
-
-.movie-info p {
-    margin: 10px 0;
-}
-
-.btn-info {
+    padding: 40px;
     width: 100%;
 }
 
-.viewer-rating {
+.justify{
+    text-align: justify;
+}
+
+.restyle{
     font-size: 20px;
     font-weight: bold;
-    color: #fccd32;
+    background: linear-gradient(90deg, #FCCE32 0, #F2941E 100%);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
 }
 
 .trailer {
-    flex: 1;
+    padding-left: 40px;
 }
+
+@media (max-width: 991px) {
+    .movie-poster {
+      display: none;
+    }
+
+    header{
+        height: 60%;
+    }
+
+    .trailer{
+        padding-left: 10px;
+    }
+  } 
 

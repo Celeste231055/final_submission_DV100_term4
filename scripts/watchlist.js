@@ -9,11 +9,13 @@ $(document).ready(function(){
 
 
 function getWatchlistMovies(){
-let watchlistData = JSON.parse(localStorage.getItem('watchlistMovies'));
+let watchlistData = JSON.parse(localStorage.getItem('watchlistMovies')) || [];
 console.log(watchlistData)
   
-forEach()
-const apiUrl = `https://api.themoviedb.org/3/movie/${watchlistData}?api_key=a6ca981513c9c7f4fc02008ff4ad8402`;
+for(let i=0; i<watchlistData.length; i++ ){
+  const apiUrl = `https://api.themoviedb.org/3/movie/${watchlistData[i]}?api_key=a6ca981513c9c7f4fc02008ff4ad8402`;
+
+
 
     $.ajax({
         url: apiUrl,
@@ -22,19 +24,12 @@ const apiUrl = `https://api.themoviedb.org/3/movie/${watchlistData}?api_key=a6ca
         success: function(data){
           console.log(data)
 
-            //map the api
-            const watchlist = data.map(movie => ({
-              id: movie.id,
-              title: movie.title,
-              image: movie.poster_path,
-              description: movie.overview
-              
-          }))
-            let id = data.id
-            console.log(id)
-
-            displayMovies(watchlist);
-            console.log(data);
+          let watchlistArr = [
+            title = data.title,
+            image = data.poster_path
+          ]
+          
+          displayMovies(watchlistArr);
         },
         error: function(error){
           console.error("error", error);
@@ -44,12 +39,12 @@ const apiUrl = `https://api.themoviedb.org/3/movie/${watchlistData}?api_key=a6ca
             
     });
 
-
+  };
 
 };
 
 // Here we will display the movies
-function displayMovies(watchlist){
+function displayMovies(watchlistArr){
 
   // We will append the card to the movie container later
     const movieContainer = $('#movieContainer');
@@ -57,7 +52,7 @@ function displayMovies(watchlist){
 
     
     //Loop though the movies.
-    watchlist.forEach(movie => {
+    watchlistArr.forEach(movie => {
         
         const card = $(`   
         <div class="col-12 col-md-6 col-lg-4 col-xxl-3">
@@ -76,7 +71,7 @@ function displayMovies(watchlist){
                   <!-- ---------------------------------------------------------------------------------------------------------------------------------- -->
                   <div class="row">
                     <div class="col-10"><h4 class="title">${movie.title}</h4></div>
-                    <div class="col-2"><i class="bi bi-plus-circle" onclick="addToWatchlist(${movie.id})"></i></div>
+                    <div class="col-2"><i class="bi bi-plus-circle"></i></div>
                   </div>
                   
                   <!-- More Info button -->

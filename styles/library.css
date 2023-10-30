@@ -1,37 +1,39 @@
-#library-head{
-    text-align: center;
-}
-
 #filters{
-    height: 75px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    position: relative;
+    margin-left: 10%;
+    margin-right: 10%;
+    width: 80%;
 }
 
-.btn-filter{
-    width: 15% !important;
-    background: linear-gradient(90deg, #FCCE32 0, #F2941E 100%);
-    border-width: 1px;
-    border-radius: 10px;
-    padding-top: 4px;
-    align-items: center;
-    text-align: center;
+.filter{
+    width: 100% !important;
     margin-left: 5px;
     margin-right: 5px;
 }
 
-h1,h2,h3{
-    color: rgb(255, 255, 255);
-    letter-spacing: 2px;
+.dropdown-toggle::after {
+    display: inline-block;
+    margin-left: 50%;
+    vertical-align: middle;
 }
-h4,h5,h6 {
-    color: rgb(233, 233, 233);
-    letter-spacing: 2px;
+
+@media (max-width: 991px){
+    .dropdown-toggle::after {
+        margin-left: 30%;
+    }
 }
-p {
-    color: rgb(233, 233, 233);
-    font-size: 14px;
+
+.dropdown-menu {
+    --bs-dropdown-divider-bg: #BEBFC5;
+    --bs-dropdown-link-color: #BEBFC5;
+    --bs-dropdown-item-padding-x: 30px;
+    position: absolute;
+    font-size: 24px;
+    text-align: left;
+    background-color: #313131;
+    border: 1px solid #BEBFC5;
+    border-radius: 10px;
+    width: auto;
 }
 
 /* -------------------------------------------------------------------------------- */
@@ -40,48 +42,65 @@ p {
 
 /* This makes all the images the same size. */
 .card-img-top {
-    height: 350px;
     background-position: center;
-    object-fit: cover;
-    
-}
-.img-overlay {
-    opacity: 50%;
+    background-size: cover;
     
 }
 
-.card {
-    
+.img-overlay {
+    opacity: 50%;
+}
+
+.card { 
     width: 350px;
     background-color: black;
-    margin-bottom: 90px;
-    margin-left: 20px;
-    width: 18rem;
+    margin-bottom: 7%;
+    width: 20rem;
+    height: 30rem;
     transition: ease-out;
     
 }
 
-.play-btn {
-    color: white;
-    font-size: 100px;
+.card-body{
+    background: linear-gradient(180deg, transparent 0, black 100%);
+    margin-top: -150px;
     z-index: 1;
-    position: absolute;
-    margin-top: 90px;
+}
+
+.more-info{
+    display: none;
+}
+/* The play icon. */
+/* It is set to 0 opacity (not visible) until the user hovers over the card (visible) see more on watchlist.js */
+.bi-play-fill {
     opacity: 0%;
+    color: white;
+    font-size: 90px;
+}
+
+/*  This hides the description text is it goes beyond a certain height */
+.card-text{
+    height: 125px;
+    overflow-y: hidden;
 }
 
 /* When the user hover over the card, it scales up and makes it overlap the other cards but unfortunately it's glitchy */
 .card:hover {
-    transform: scale(1.07);
+    position: absolute;
+    z-index: 1;
+    transform: scale(1.1, 1.1);
     cursor: pointer;
-    
+}
+
+/* Crate a dark overlay on top of the image. When the card is hovered on this class is added to the image. See watchlist.js */
+.img-hover {
+    background-color:black;
+    opacity: 0.7;
 }
 
 
 /* The title floats left while the icon floats right */
 .title{
-    height: 63px;
-    overflow-y: hidden;
     float: left;
 }
 
@@ -102,3 +121,4 @@ p {
 #movieContainer {
     margin-bottom: 300px;
 }
+

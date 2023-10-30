@@ -7,6 +7,7 @@ $(document).ready(function() {
     // ---------------------------------------------------------------------------------------------------
 
     // ---------------------------------------------------------------------------------------------------
+    // Form Validation
     
     // On Submit, prevent the default form submission
 
@@ -49,10 +50,27 @@ $(document).ready(function() {
             event.stopPropagation();
         } else {
             // Add any submission code here, like saving the data to localStorage
-            window.location.href = '../pages/library.html';
+                window.location.href = 'index.html';
+
+                // Get the username input field value
+                var username = $("#username").val();
+
+                // Check if the username is not empty
+                if (username.trim() !== "") {
+                // Save the username in session storage
+                sessionStorage.setItem("username", username);
+                } else {
+                $('#password').addClass('is-invalid');
+                $('#password').next('.invalid-feedback').text('Please enter a valid password');
+                }
+
+
         }
         $(this).addClass('was-validated');
     });
+
+    // ---------------------------------------------------------------------------------------------------
+    // Tggle Between Sign up and Login
 
     // Initial state: Show the signup form and hide the login form
     $(".sign-up-container").show();
@@ -92,21 +110,6 @@ $(document).ready(function() {
 
         $(".login-container").hide();
         $(".sign-up-container").show();
-    });
-
-    // When the submit button is clicked
-    $("#submitBtn").click(function() {
-        // Get the username input field value
-        var username = $("#username").val();
-        
-        // Check if the username is not empty
-        if (username.trim() !== "") {
-            // Save the username in local storage
-            localStorage.setItem("username", username);
-        } else {
-            $('#password').addClass('is-invalid');
-            $('#password').next('.invalid-feedback').text('Please enter a valid password');
-        }
     });
     
 });

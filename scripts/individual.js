@@ -7,7 +7,7 @@ document.addEventListener("DOMContentLoaded", function () {
   fetchMovieDetails(movieId);
 
   // Add click event listener to the "Watchlist" button
-  const watchlistButton = document.querySelector(".button.btn-default");
+  const watchlistButton = document.querySelector(".button.btn-lg");
   watchlistButton.addEventListener("click", addToWatchlist);
 
   // Function to fetch movie details from the API
@@ -28,7 +28,7 @@ document.addEventListener("DOMContentLoaded", function () {
   // Function to display movie details
   function displayMovieDetails(movie) {
       // Populate HTML elements with movie data
-      document.querySelector("h1").textContent = movie.title;
+      document.querySelector("h3").textContent = movie.title;
       document.querySelector(".director").textContent = `Director: ${movie.director}`;
       // Update other movie details as needed
 
@@ -41,7 +41,7 @@ document.addEventListener("DOMContentLoaded", function () {
   function addToWatchlist() {
       // Get the movie data (you can retrieve it from the HTML or API)
       const movieData = {
-          title: document.querySelector("h1").textContent,
+          title: document.querySelector("h3").textContent,
           director: document.querySelector(".director").textContent,
           // Include other movie data as needed
       };

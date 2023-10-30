@@ -10,28 +10,36 @@ $(document).ready(function(){
 
 function getWatchlistMovies(){
 let watchlistData = JSON.parse(localStorage.getItem('watchlistMovies'));
-
-
-const apiUrl = `https://api.themoviedb.org/3/discover/movie?api_key=a6ca981513c9c7f4fc02008ff4ad8402&include_adult=false&include_video=false&language=en-US&page=1&sort_by=popularity.desc`;
+console.log(watchlistData)
+  
+forEach()
+const apiUrl = `https://api.themoviedb.org/3/movie/${watchlistData}?api_key=a6ca981513c9c7f4fc02008ff4ad8402`;
 
     $.ajax({
         url: apiUrl,
         method: 'GET',
         dataType: 'json',
         success: function(data){
+          console.log(data)
 
             //map the api
-            const watchlistMovies = data.results.map(movie => ({
-                id: movie.id,
-                title: movie.title,
-                image: movie.poster_path,
-                                
-            }))
+            const watchlist = data.map(movie => ({
+              id: movie.id,
+              title: movie.title,
+              image: movie.poster_path,
+              description: movie.overview
+              
+          }))
+            let id = data.id
+            console.log(id)
 
-            displayMovies(watchlistMovies);
+            displayMovies(watchlist);
             console.log(data);
         },
-        error: function(data){}
+        error: function(error){
+          console.error("error", error);
+
+        }
             
             
     });
@@ -41,7 +49,7 @@ const apiUrl = `https://api.themoviedb.org/3/discover/movie?api_key=a6ca981513c9
 };
 
 // Here we will display the movies
-function displayMovies(watchlistMovies){
+function displayMovies(watchlist){
 
   // We will append the card to the movie container later
     const movieContainer = $('#movieContainer');
@@ -49,13 +57,13 @@ function displayMovies(watchlistMovies){
 
     
     //Loop though the movies.
-    watchlistMovies.forEach(movie => {
+    watchlist.forEach(movie => {
         
         const card = $(`   
         <div class="col-12 col-md-6 col-lg-4 col-xxl-3">
 
             <!-- The Card -->
-            <div class="card" value="${movie.id}">
+            <div class="card">
 
               <!-- Img goes here -->
               <i class="bi bi-play-fill play-btn align-self-center"></i>
@@ -90,7 +98,7 @@ function displayMovies(watchlistMovies){
         // Here we append the card to the container.
         movieContainer.append(card);
 
-        $(card).find(".bi-plus-circle").click(function(movieId){
+        $(card).find(".bi-plus-circle").click(function(){
           $(this).attr('class', 'bi bi-check-circle');
           
         });

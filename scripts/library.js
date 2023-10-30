@@ -1,4 +1,3 @@
-
 $(document).ready(function(){
 
     // In between the brackets goes the genre. the API use numbers to denote each genre. 35 is for comedy
@@ -94,7 +93,7 @@ function displayMovies(allMovies){
         // Here we append the card to the container.
         movieContainer.append(card);
 
-        $(card).find(".bi-plus-circle").click(function(movieId){
+        $(card).find(".bi-plus-circle").click(function(){
           $(this).attr('class', 'bi bi-check-circle');
           
         });
@@ -115,10 +114,28 @@ function displayMovies(allMovies){
     });
 }
 
+
+
+
 function addToWatchlist(movieId){
   
+ // Retrieve existing watchlist from local storage or initialize an empty array
+ let watchlist = JSON.parse(localStorage.getItem('watchlistMovies')) || [];
 
-  let movieData = JSON.stringify(movieId);
-  localStorage.setItem('watchlistMovies', movieData);
- console.log(movieData);
+ // Check if the retrieved data from localStorage is an array, if not, initialize an empty array
+ if (!Array.isArray(watchlist)) {
+   watchlist = [];
+ }
+
+ // Check if the movieId is not already in the watchlist
+ if (!watchlist.includes(movieId)) {
+   // Add the movieId to the watchlist array
+   watchlist.push(movieId);
+
+   // Save the updated watchlist array back to local storage
+   localStorage.setItem('watchlistMovies', JSON.stringify(watchlist));
+   console.log(watchlist)
+ }
+  
 }
+

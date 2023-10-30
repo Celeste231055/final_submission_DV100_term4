@@ -1,39 +1,45 @@
+
 /*Fonts*/
+
 @import url('https://fonts.googleapis.com/css2?family=Luckiest+Guy&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Luckiest+Guy&family=Poppins:wght@300;400;500&display=swap');
 
 h1,h2,h3,h4,h5,h6 {
     font-family: 'Luckiest Guy', cursive;
+    line-height: 1;
+    color: white;
 }
 
-input,a,p {
+/*Add any tags that you use for body text in here*/
+input, a, p {
     font-family: 'Poppins', sans-serif;
 }
 
-/* Spacing */
+/* Navigation */
 
-body {
-    height: 100vh;
-    display: flex;
-    flex-direction: column;
+.navbar{
+    padding: 0px 10px;
+    height: 7%;
 }
-/* ---------------------------------------- */
-/* Components */
+
+header .container-fluid, footer .container-fluid {
+    width: 100%;
+    height: 100%;
+    padding: 0;
+}
 
 .navbar-toggler-icon {
     background-image: url(../assets/list.svg);
     font-size: 24px;
 }
 
-/* Navigation */
-
 .nav-link {
     color: white;
     display: inline-block;
-    position: relative;
     font-size: 24px;
     text-decoration: none;
-    margin-right: 50px;
+    margin-right: 20px;
+    position: relative;
 }
 
 .nav-link::before {
@@ -70,97 +76,77 @@ body {
     background: linear-gradient(90deg, #FCCE32 0, #F2941E 100%);
 }
 
-/* Button */
+/*------------------------------------------------Buttons-----------------------------------------------*/
 
 a {
     text-decoration: none;
 }
 
-button {
-    padding: 10px;
-    font-size: 24px;
+/*Global Styling: apply to all buttons*/
+.button {
+    background: linear-gradient(90deg, #FCCE32 0, #F2941E 100%);
+    border-radius: 10px;
+    border: none;
     font-weight: 600;
+    width: auto;
+    padding: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* choose one*/
+.btn-lg{
+    font-size: 24px;
     height: 50px;
 }
 
-button:hover {
-    background: #313131;
-    background: linear-gradient(90deg, #FCCE32 0, #F2941E 100%);
-    background-clip: text;
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
+.btn-sm{
+    height: 40px;
+    font-size: 16px;
 }
 
-.button-wrapper {
-    border-radius: 10px;
-    overflow: hidden;
-    width: 105px;
+/*Optional Custom styling: Copy this class after btn-lg/btn-sm and rename it to whatever your button is called if you have any styling that is unique*/
+.signin{
     margin-right: 20px;
 }
 
-.button {
-    background: linear-gradient(90deg, #FCCE32 0, #F2941E 100%);
-    border-image: linear-gradient(90deg, #FCCE32 0, #F2941E 100%);
-    border-image-slice: 1;
-    border-radius: 10px;
-    display: flex;
-    align-items: center;
-    width: 100%;
-}
-
-.btn-default {
-    width: 100%;
-}
-
 /* Search */
-
-form.search input[type=search] {
+  
+/* Style the search input field and submit button */
+.search-input input[type="search"] {
     padding: 10px;
-    padding-left: 5px;
     font-size: 24px;
-    border: 2px solid #BEBFC5;
-    float: left;
-    width: 80%;
-    background: #313131;
-    border-right: none;
-    border-radius: 10px 0px 0px 10px;
+    border-radius: 10px;
     height: 50px;
     color: #BEBFC5;
+    background: #313131;
+    border: 2px solid #BEBFC5;
+    width: 250px;
 }
 
-input::placeholder {
-    color: #BEBFC5;
-    font-size: 24px;
-    vertical-align: middle;
-    padding: 10px;
-    padding-left: 5px;
+.search-input input[type="search"]:focus {
+    background: #BEBFC5;
+    color: #313131;
 }
-
-form.search button {
-    float: left;
-    width: 20%;
-    padding: 7px 10px 10px 10px;
+  
+.search-button button[type="button"] {
+    padding: 5px 10px;
     background: #313131;
     color: #BEBFC5;
-    font-size: 20px;
-    vertical-align: middle;
     border: 2px solid #BEBFC5;
-    border-left: none;
-    border-radius: 0px 10px 10px 0px;
+    font-size: 24px;
+    border-radius: 10px;
     cursor: pointer;
-}
-
-form.search::after {
-    content: "";
-    clear: both;
-    display: table;
+    height: 50px;
+    width: 50px;
 }
 
 /* Footer */
 
 footer{
     border-top: 0.5px solid rgba(190, 191, 197, 0.5);
-    margin-top: auto;
+    margin-top: 5%;
 }
 
 .sm-icons{
@@ -172,69 +158,177 @@ footer{
     color: white;
 }
 
-.one{
-    padding-left: 350px;
+/*------------------------------------------------Media Queries-----------------------------------------------*/
+
+/* Custom Heading and Body text */
+
+/*To customize: first divide the size you chose for heading 1 by 6 then subtract your answer from the heading size to get the size of the next heading.(e.g. h1 = 96 px. 96px/6 = 16px. 96-16px = 80px. h2 = 8-px)  */
+
+@media (min-width: 768px){
+    h1{
+        font-size: 96px;
+    }
+
+    h2{
+        font-size: 80px;
+    }
+
+    h3{
+        font-size: 64px;
+    }
+
+    h4{
+        font-size: 48px;
+    }
+
+    h5{
+        font-size: 32px;
+    }
+
+    h6{
+        font-size: 16px;
+    }
+
+    /*To use these sizes, add them as classes to the body text of your html. pf-1 goes with h1, pf-2 goes with h2 and so on*/
+    /*To customize: divide whichever heading you are using with 4*/
+    .pf-1{
+        font-size: 24px;
+    }
+
+    .pf-2{
+        font-size: 20px;
+    }
+
+    .pf-3{
+        font-size: 16px;
+    }
+
+    .pf-4{
+        font-size: 12px;
+    }
+
+    .pf-5{
+        font-size: 8px;
+    }
+
+    .pf-6{
+        font-size: 4px;
+    }
 }
 
-/* ---------------------------------------- */
-/* Media Queries */
+@media (max-width: 768px){
+    h1{
+        font-size: 56px;
+    }
 
+    h2{
+        font-size: 47px;
+    }
+
+    h3{
+        font-size: 38px;
+    }
+
+    h4{
+        font-size: 29px;
+    }
+
+    h5{
+        font-size: 20px;
+    }
+
+    h6{  font-size: 11px;
+    }
+
+    /*To customize: divide whichever heading you are using with 3 and rounddown to the nearest integer value*/
+    .pf-1{
+        font-size: 18px;
+    }
+
+    .pf-2{
+        font-size: 15px;
+    }
+
+    .pf-3{
+        font-size: 12px;
+    }
+
+    .pf-4{
+        font-size: 9px;
+    }
+
+    .pf-5{
+        font-size: 6px;
+    }
+
+    .pf-6{
+        font-size: 3px;
+    }
+}
+
+/*Override Bootstrap Container width*/
+@media (min-width: 576px){
+    .container{
+        max-width: 100%;
+        }
+}
+
+/*Vertical spacing for search and signin button for small and medium screens*/
 @media (max-width: 991px){
-    .navbar-toggler-icon {
-        font-size: 17px;
-    }
-    footer .one {
-        padding-left: 100px; 
-    }
+    .search-input input[type="search"], .search-button button[type="button"] {
+        margin-top: 20px;
+        margin-bottom: 20px;
+      }
 
-    footer img, nav img {
+    .signin{
+        margin-top: 20px;
+    }
+}
+
+/*Center align social media icons for medium and large screens*/
+@media (min-width: 991px){
+    .navbar-nav{
+        margin-left: auto;
+        margin-right: auto;
+    }
+}
+
+/*For small screens*/
+@media (max-width: 768px){
+    /*Align all items to the left underneath each other*/
+    .navbar-collapse{
+        display: flex;
+        align-items: start;
+        flex-direction: column;
+    }
+    /*Remove margin from nav-items*/
+    header ul {
+        margin-left: 0px;
+    }
+}
+
+/*For medium and large screens*/
+@media (min-width: 768px){
+    /*Align sm-icons to center of footer*/
+    footer .one{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    /*Set the size of the logo*/
+    footer img{
         width: 150px;
     }
 
+    /*Set the size of the sm-icons*/
     footer .sm-icons {
-        width: 29px;
-    }
-
-    form.search input[type=search] {
-        margin-top: 20px;
-    }
-    
-    form.search button {
-        margin-top: 20px;
+        width: 30px;
     }
 }
 
-@media (max-width: 766px){
-    .nav-link {
-        font-size: 17px;
-    }
-
-    input::placeholder {
-        font-size: 18px;
-        vertical-align: middle;
-        padding: 13,2px;
-        padding-left: 9,6px;
-    }
-    
-    form.search button {
-        width: 20%;
-        padding: 11,04px 13,2px 13,2px 13,2px;
-        font-size: 16px;
-        border-radius: 0px 10px 10px 0px;
-        height: 42px;
-        margin-top: 20px;
-    }
-
-    .button-wrapper {
-        width: 91px; 
-    }
-
-    button{
-    padding: 13,6px;
-    font-size: 18px;
-    height: 42px;
-    }
-
+/*For small screens*/
+@media (max-width: 768px){
+    /*Add the grey lines*/
     footer {
         border-bottom: 0.5px solid rgba(190, 191, 197, 0.5);
     }
@@ -242,34 +336,32 @@ footer{
     footer .col-12 {
         border-bottom: 0.5px solid rgba(190, 191, 197, 0.5); 
     }
+
+    /*Add some spacing to the logo*/
     .two {
         padding-bottom: 5px;
-        padding-left: 102px;
+        justify-content: center;
     }
 
+    /*Add some spacing to the sm-icons and align it to the left*/
     footer .one {
         padding-left: 12px; 
+        justify-content: start;
     }
 
-    footer img, nav img {
+    /*Set the size of the logo*/
+    footer img{
         width: 150px;
     }
 
+    /*Set the size of the sm-icons*/
     footer .sm-icons {
-        width: 24px;
+        width: 30px;
     }
 
+    /*Set the size of the text*/
     footer .f-text {
         font-size: 12px;
-    }
-
-    form.search input[type=search] {
-        padding: 13,2px;
-        margin-top: 20px;
-        padding-left: 9,6px;
-        font-size: 23px;
-        height: 42px;
-        width: 65%;
     }
 }
 

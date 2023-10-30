@@ -21,3 +21,84 @@
     margin-right: 5px;
 }
 
+h1,h2,h3{
+    color: rgb(255, 255, 255);
+    letter-spacing: 2px;
+}
+h4,h5,h6 {
+    color: rgb(233, 233, 233);
+    letter-spacing: 2px;
+}
+p {
+    color: rgb(233, 233, 233);
+    font-size: 14px;
+}
+
+/* -------------------------------------------------------------------------------- */
+/* Card Styling */
+
+
+/* This makes all the images the same size. */
+.card-img-top {
+    height: 350px;
+    background-position: center;
+    object-fit: cover;
+    
+}
+.img-overlay {
+    opacity: 50%;
+    
+}
+
+.card {
+    
+    width: 350px;
+    background-color: black;
+    margin-bottom: 90px;
+    margin-left: 20px;
+    width: 18rem;
+    transition: ease-out;
+    
+}
+
+.play-btn {
+    color: white;
+    font-size: 100px;
+    z-index: 1;
+    position: absolute;
+    margin-top: 90px;
+    opacity: 0%;
+}
+
+/* When the user hover over the card, it scales up and makes it overlap the other cards but unfortunately it's glitchy */
+.card:hover {
+    transform: scale(1.07);
+    cursor: pointer;
+    
+}
+
+
+/* The title floats left while the icon floats right */
+.title{
+    height: 63px;
+    overflow-y: hidden;
+    float: left;
+}
+
+/* The minus icon can be replaced with a plus if needed. Just change it's name to .bi-plus-circle in the card (in watchlist.js) and css */
+.bi-plus-circle {
+    margin-top: -5px;
+    float: right;
+    color: #fcc32e;
+    font-size: 28px;
+}
+.bi-check-circle {
+    margin-top: -5px;
+    float: right;
+    color: #fcc32e;
+    font-size: 28px;
+}
+
+#movieContainer {
+    margin-bottom: 300px;
+}

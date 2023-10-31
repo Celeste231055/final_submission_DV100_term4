@@ -120,22 +120,14 @@ function displayMovies(allMovies){
 function addToWatchlist(movieId){
   
  // Retrieve existing watchlist from local storage or initialize an empty array
- let watchlist = JSON.parse(localStorage.getItem('watchlistMovies')) || [];
+ let watchlist = JSON.parse(localStorage.getItem('watchlistMovies'));
 
- // Check if the retrieved data from localStorage is an array, if not, initialize an empty array
- if (!Array.isArray(watchlist)) {
-   watchlist = [];
- }
-
- // Check if the movieId is not already in the watchlist
- if (!watchlist.includes(movieId)) {
    // Add the movieId to the watchlist array
    watchlist.push(movieId);
 
    // Save the updated watchlist array back to local storage
    localStorage.setItem('watchlistMovies', JSON.stringify(watchlist));
    console.log(watchlist)
- }
-  
+
 }
 

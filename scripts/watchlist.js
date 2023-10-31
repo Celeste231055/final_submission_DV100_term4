@@ -8,38 +8,32 @@ $(document).ready(function(){
 })
 
 
-function getWatchlistMovies(){
-let watchlistData = JSON.parse(localStorage.getItem('watchlistMovies')) || [];
+async function getWatchlistMovies(){
+let watchlistData = JSON.parse(localStorage.getItem('watchlistMovies'));
 console.log(watchlistData)
   
+let watchlistArr = [];
 for(let i=0; i<watchlistData.length; i++ ){
   const apiUrl = `https://api.themoviedb.org/3/movie/${watchlistData[i]}?api_key=a6ca981513c9c7f4fc02008ff4ad8402`;
 
+  try {
+    const response = await fetch(apiUrl);
+    const data = await response.json();
 
+    const movie = {
+        id: data.id,
+        title: data.title,
+        image: data.poster_path
+    };
 
-    $.ajax({
-        url: apiUrl,
-        method: 'GET',
-        dataType: 'json',
-        success: function(data){
-          console.log(data)
+    watchlistArr.push(movie);
+    
+} catch (error) {
+    
+}
+}
 
-          let watchlistArr = [
-            title = data.title,
-            image = data.poster_path
-          ]
-          
-          displayMovies(watchlistArr);
-        },
-        error: function(error){
-          console.error("error", error);
-
-        }
-            
-            
-    });
-
-  };
+displayMovies(watchlistArr);
 
 };
 
@@ -71,7 +65,7 @@ function displayMovies(watchlistArr){
                   <!-- ---------------------------------------------------------------------------------------------------------------------------------- -->
                   <div class="row">
                     <div class="col-10"><h4 class="title">${movie.title}</h4></div>
-                    <div class="col-2"><i class="bi bi-plus-circle"></i></div>
+                    <div class="col-2"><i class="bi bi-dash-circle" onclick="addToWatchlist(${movie.id})"></i></div>
                   </div>
                   
                   <!-- More Info button -->

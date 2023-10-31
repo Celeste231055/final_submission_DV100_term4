@@ -1,8 +1,8 @@
 #filters{
     position: relative;
-    margin-left: 10%;
-    margin-right: 10%;
-    width: 80%;
+    margin-left: 20%;
+    margin-right: 20%;
+    width: 60%;
 }
 
 .filter{
@@ -41,84 +41,139 @@
 
 
 /* This makes all the images the same size. */
-.card-img-top {
-    background-position: center;
-    background-size: cover;
-    
+
+#movieContainer {
+    margin-bottom: 300px;
+    width: 80%; 
+    margin-left: 10%;
+    margin-right: 10%;
+    display: flex;
+    justify-content: center;
 }
 
-.img-overlay {
-    opacity: 50%;
-}
-
-.card { 
-    width: 350px;
+.card {
     background-color: black;
-    margin-bottom: 7%;
-    width: 20rem;
-    height: 30rem;
-    transition: ease-out;
-    
+    width: 300px;
+    height: 450px;
+    transition: ease-out 0.5s;
+    border-radius: 5px;
+    overflow: hidden;
 }
 
-.card-body{
-    background: linear-gradient(180deg, transparent 0, black 100%);
-    margin-top: -150px;
+.poster {
+    position: relative;
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+}
+
+.poster::before{
+    content: "";
+    position: absolute ;
+    bottom: -190px;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    transition: 0.5s;
     z-index: 1;
 }
 
-.more-info{
+.card .poster img {
+    width: 100%;
+    transition: 0.5s;
+}
+
+.details {
+    position: absolute;
+    background: linear-gradient(0deg,#000 50%, transparent);
+    padding: 20px;
+    padding-top: 20%;
+    width: 100%;
+    height: 100%;
+    bottom: -150px;
+    left: 0;
+    box-sizing: border-box;
+    transition: 0.5s;
+    z-index: 2;
+}
+
+.genres{
+    flex-direction: row;
+    display: none
+}
+
+.genre{
+    width: auto;
+    margin-top: 1%;
+    background: linear-gradient(90deg, #FCCE32 0, #F2941E 100%);
+    color: black;
+    border-radius: 10px;
+    padding: 5px;
+}
+
+.fadeout{
+    height: 100px;
+    overflow: hidden;
+    margin-bottom: 20px;
     display: none;
 }
-/* The play icon. */
-/* It is set to 0 opacity (not visible) until the user hovers over the card (visible) see more on watchlist.js */
-.bi-play-fill {
-    opacity: 0%;
-    color: white;
-    font-size: 90px;
-}
 
-/*  This hides the description text is it goes beyond a certain height */
 .card-text{
-    height: 125px;
-    overflow-y: hidden;
+    background: linear-gradient(180deg, white 30%, transparent 100%);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
 }
 
-/* When the user hover over the card, it scales up and makes it overlap the other cards but unfortunately it's glitchy */
-.card:hover {
-    position: absolute;
-    z-index: 1;
+@media(min-width: 991px){
+    .card:hover .details {
+        bottom: 0;
+    }
+
+    .card:hover .poster:before {
+        bottom: 0;
+        z-index: 2;
+    }
+
+    .card:hover {
+        transform: scale(1.1, 1.1);
+    }
+
+    .card:hover .genres{
+        display: block;
+    }
+
+    .card:hover .fadeout{
+        display: block;
+    }
+
+}
+
+@media(max-width: 768px){
+    .fadeout {
+        display: none;
+    }
+}
+
+/* When the user hover over the card, it scales up and makes it overlap the other cards */
+/* .card:hover {
     transform: scale(1.1, 1.1);
     cursor: pointer;
-}
-
-/* Crate a dark overlay on top of the image. When the card is hovered on this class is added to the image. See watchlist.js */
-.img-hover {
-    background-color:black;
-    opacity: 0.7;
-}
+} */
 
 
 /* The title floats left while the icon floats right */
 .title{
+    overflow-y: hidden;
     float: left;
+    height: 64px
 }
 
 /* The minus icon can be replaced with a plus if needed. Just change it's name to .bi-plus-circle in the card (in watchlist.js) and css */
-.bi-plus-circle {
-    margin-top: -5px;
+.bi-plus-circle ,.bi-check-circle{
+    margin-top: -10px;
     float: right;
     color: #fcc32e;
     font-size: 28px;
-}
-.bi-check-circle {
-    margin-top: -5px;
-    float: right;
-    color: #fcc32e;
-    font-size: 28px;
-}
-
-#movieContainer {
-    margin-bottom: 300px;
 }
 

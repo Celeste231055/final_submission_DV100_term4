@@ -7,45 +7,55 @@ $(document).ready(function(){
 
 })
 
-
+// the cards get loaded in the moment the api call is successful. This time, however, I'm getting multiple api calls at once 
+// So when the first movie is pulled from the api, the cards are displayed using that movie. Same info on all cards.
+//  async allows you to pause a function until the 'promise' something else is first resolved. In this case it waits until all the movies are pulled from the api.
 async function getWatchlistMovies(){
-let watchlistData = JSON.parse(localStorage.getItem('watchlistMovies'));
-console.log(watchlistData)
+
+  //get movies from locale storage
+  let watchlistData = JSON.parse(localStorage.getItem('watchlistMovies'));
+  console.log(watchlistData)
   
-let watchlistArr = [];
-for(let i=0; i<watchlistData.length; i++ ){
-  const apiUrl = `https://api.themoviedb.org/3/movie/${watchlistData[i]}?api_key=a6ca981513c9c7f4fc02008ff4ad8402`;
+  //an array that stores the movie data
+  let watchlistArr = [];
 
-  try {
-    const response = await fetch(apiUrl);
-    const data = await response.json();
+  // get the api information for each of the ids in the watchlist.
+  for(let i=0; i<watchlistData.length; i++ ){
+    const apiUrl = `https://api.themoviedb.org/3/movie/${watchlistData[i]}?api_key=a6ca981513c9c7f4fc02008ff4ad8402`;
 
-    const movie = {
-        id: data.id,
-        title: data.title,
-        image: data.poster_path
-    };
+    // try and catch errors is essentially the same as the success: and error: from the ajax request
+    try {
+      //get the api url and wait for it to load all of the api calls: watchlistData.length
+      const response = await fetch(apiUrl);
+      //get the Json data and wait for it to load all of the information: ${watchlistData[i]}
+      const data = await response.json();
 
-    watchlistArr.push(movie);
-    
-} catch (error) {
-    
-}
-}
+      // create variable and store the data in here.
+      const movie = {
+          id: data.id,
+          title: data.title,
+          image: data.poster_path
+      };
 
-displayMovies(watchlistArr);
+      //after getting an id's data push it to the array watchlistArr.
+      watchlistArr.push(movie);
+      
+    } catch (error) {}
+  
+  };
+
+  displayMovies(watchlistArr);
 
 };
 
-// Here we will display the movies
+// Display the movies
 function displayMovies(watchlistArr){
 
-  // We will append the card to the movie container later
     const movieContainer = $('#movieContainer');
     movieContainer.empty();
 
     
-    //Loop though the movies.
+    // Loop though the movies
     watchlistArr.forEach(movie => {
         
         const card = $(`   
@@ -87,8 +97,9 @@ function displayMovies(watchlistArr){
         // Here we append the card to the container.
         movieContainer.append(card);
 
-        $(card).find(".bi-plus-circle").click(function(){
-          $(this).attr('class', 'bi bi-check-circle');
+        //when btn is clicked select the card clicked on and remove it.
+        $(card).find(".bi-dash-circle").click(function(){
+          $(card).remove()
           
         });
         

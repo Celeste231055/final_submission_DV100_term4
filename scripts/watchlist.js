@@ -94,19 +94,6 @@ function displayMovies(watchlistMovies){
           $(this).attr('class', 'bi bi-check-circle');
           
         });
-        
-        $(card).find(".btn-default").hide();
-
-        $(card).hover(function(){
-          $(card).find(".play-btn").css("opacity", "100%");
-          $(card).find(".btn-default").toggle();
-          $(card).find(".card-img-top").addClass("img-overlay");
-
-        }, function(){
-          $(card).find(".play-btn").css("opacity", "0%");
-          $(card).find(".btn-default").toggle();
-          $(card).find(".card-img-top").toggleClass("img-overlay");
-        });
             
     });
 }

@@ -29,7 +29,7 @@ p {
 }
 
 /* Movie Header */
-.movieheader {
+.movie-info {
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -59,23 +59,23 @@ p {
     padding: 30px;
 }
 
-.movie-info {
+.movie-item {
     flex: 1;
     padding-right: 30px;
     padding-left: 40px;
 }
 
-.movie-info h1 {
+.movie-item h1 {
     font-size: 56px;
     margin: 0;
 }
 
-.movie-info h3 {
+.movie-item h3 {
     font-size: 28px;
     margin: 0;
 }
 
-.movie-info p {
+.movie-item p {
     margin: 10px 0;
 }
 

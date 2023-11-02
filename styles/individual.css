@@ -4,7 +4,7 @@
 }
 
 /* Movie Header */
-.movieheader {
+.movie-info {
     display: flex;
     align-items: center;
     background-image: url('../assets/Jumanji\ back.jpg');
@@ -64,6 +64,29 @@ section p{
     justify-content: space-between;
     align-items: flex-start;
     padding: 40px;
+}
+
+.movie-item {
+    flex: 1;
+    padding-right: 30px;
+    padding-left: 40px;
+}
+
+.movie-item h1 {
+    font-size: 56px;
+    margin: 0;
+}
+
+.movie-item h3 {
+    font-size: 28px;
+    margin: 0;
+}
+
+.movie-item p {
+    margin: 10px 0;
+}
+
+.btn-info {
     width: 100%;
 }
 

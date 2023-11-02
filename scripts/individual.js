@@ -1,193 +1,160 @@
-document.addEventListener("DOMContentLoaded", function () {
-  // Define API endpoint and API key
-  const apiKey = "a6ca981513c9c7f4fc02008ff4ad8402";
-  const movieId = getMovieIdFromURL(); // Implement this function to get the movie ID from the URL
+function loadMovieContent() {
+        const apiUrl = `https://api.themoviedb.org/3/discover/movie?api_key=a6ca981513c9c7f4fc02008ff4ad8402&include_adult=false&include_video=false&language=en-US&page=1&sort_by=popularity.desc`;
 
-  // Get the movie details from the API
-  fetchMovieDetails(movieId);
+        $.ajax({
+            url: apiUrl,
+            method: 'GET',
+            dataType: 'json',
+            success: function(data){
 
-  // Add click event listener to the "Watchlist" button
-  const watchlistButton = document.querySelector(".button.btn-lg");
-  watchlistButton.addEventListener("click", addToWatchlist);
+                //map the api
+                const watchlistMovies = data.results.map(movie => ({
+                    id: movie.id,
+                    title: movie.title,
+                    image: movie.poster_path,
+                                    
+                }))
 
-  // Function to fetch movie details from the API
-  function fetchMovieDetails(movieId) {
-      const apiBaseUrl = "https://api.themoviedb.org/3/movie/";
-      const apiUrl = `${apiBaseUrl}${movieId}?api_key=${apiKey}&language=en-US`;
-
-      fetch(apiUrl)
-          .then((response) => response.json())
-          .then((data) => {
-              displayMovieDetails(data);
-          })
-          .catch((error) => {
-              console.error("Failed to fetch movie details:", error);
-          });
-  }
-
-  // Function to display movie details
-  function displayMovieDetails(movie) {
-      // Populate HTML elements with movie data
-      document.querySelector("h3").textContent = movie.title;
-      document.querySelector(".director").textContent = `Director: ${movie.director}`;
-      // Update other movie details as needed
-
-      // Update movie poster
-      const posterUrl = `https://image.tmdb.org/t/p/w500${movie.poster_path}`;
-      document.querySelector(".movie-poster img").src = posterUrl;
-  }
-
-  // Function to add movie to watchlist
-  function addToWatchlist() {
-      // Get the movie data (you can retrieve it from the HTML or API)
-      const movieData = {
-          title: document.querySelector("h3").textContent,
-          director: document.querySelector(".director").textContent,
-          // Include other movie data as needed
-      };
-
-      // Retrieve the current watchlist from localStorage or initialize an empty array
-      const watchlist = JSON.parse(localStorage.getItem("watchlist")) || [];
-
-      // Check if the movie is already in the watchlist
-      const isAlreadyInWatchlist = watchlist.some((item) => item.title === movieData.title);
-
-      if (!isAlreadyInWatchlist) {
-          // Add the movie to the watchlist
-          watchlist.push(movieData);
-
-          // Update the watchlist in localStorage
-          localStorage.setItem("watchlist", JSON.stringify(watchlist));
-          alert("Movie added to watchlist!");
-      } else {
-          alert("Movie is already in your watchlist.");
+                displayMovies(watchlistMovies);
+                console.log(data);
+            },
+            error: function(data){}
+                
+                
+        });
+        var dir = response.Director;
+  
+        var name = response.Title;
+        var act = response.Actors;
+        var img = response.Poster;
+        var year = response.Year;
+        var rate = response.imdbRating;
+        var tim = response.Runtime;
+        var plo = response.Plot;
+        var gen = response.Genre;
+        //After getting th movie info it is then stored in a temporary obj to then be sent to the array of objects called mArray in Local Storage
+  
+        var tempObj = {
+          movieName: name,
+          director: dir,
+          listOfActors: act,
+          poster: img,
+          year: year,
+          time: tim,
+          rating: rate,
+          plot: plo,
+          genre: gen
+        }
+        //Here the temporary onj is sent to be added to the movie array
+       // console.log(tempObj);
+        moviesArray.push(tempObj);
+  
+        //console.log(moviesArray[i]);
+  
       }
+
+  function addMoviesToLibraryS(x) {
+    sessionStorage.setItem("watchlistMovies", x);
+    console.log(x);
+    //var t = sessionStorage.getItem("selectedMovie");
+    //console.log("t ="+t);
   }
-});
-
-
-
-$(document).ready(function(){
-
-  // In between the brackets goes the genre. the API use numbers to denote each genre. 35 is for comedy
-  // If you want to filter between two genres eg. comedy + action you can use a comma (,) or pipe (|). eg. allComedyMovies('35', '28');
-  allComedyMovies('35');
+  function addMoviesToLibrary(t) {
+    //when a user clicks on a movie it adds the movie info to the detailed page
+  
+    //First calling the saved data
+    var str = localStorage.getItem("mArray");
+  
+    var parsedArr = JSON.parse(str);
+  
+    moviesArray = parsedArr;
+  
+    //Displaying the data
+    //console.log(moviesArray[t].movieName);
+    var strPoster = "<img src=" + moviesArray[t].poster + " width=\"150px\" height=\"225px\"></img>";
+  
+    $("#detailed-posterJ").append(strPoster);
+    $("#detailed-movieNameJ").append(moviesArray[t].movieName);
+    $("#detailed-YearJ").append(moviesArray[t].year);
+    $("#detailed-directorJ").append(moviesArray[t].director);
+    $("#detailed-actorsJ").append(moviesArray[t].listOfActors);
+    $("#detailed-runtimeJ").append(moviesArray[t].time);
+    $("#detailed-plotJ").append(moviesArray[t].plot);
+    $("#detailed-ratingJ").append(moviesArray[t].rating);
+    $("#detailed-genreJ").append(moviesArray[t].genre);
   
   
-
-})
-
-// -----------------------------------------------------------------------------------------------------------------------------
-// Here we pull the info from the API
-// To see the genres and their correlating number visit this website: https://www.themoviedb.org/talk/5daf6eb0ae36680011d7e6ee
-
-function allComedyMovies(genre){
-
- 
-  // Currently we are getting movies for adult=false, video=false, language=en-US, page=1, sort_by=popularity.desc, with_genres=35
-  // To add a parameter check out this link https://developer.themoviedb.org/reference/discover-movie
-  const apiUrl = `https://api.themoviedb.org/3/discover/movie?api_key=a6ca981513c9c7f4fc02008ff4ad8402&include_adult=false&include_video=false&language=en-US&page=1&sort_by=popularity.desc&with_genres=${genre}`;
+  }
   
-  $.ajax({
-      url: apiUrl,
-      method: 'GET',
-      dataType: 'json',
-      success: function(data){
-
-          //map the api
-          const allMovies = data.results.map(movie => ({
-              id: movie.id,
-              title: movie.title,
-              image: movie.poster_path,
-              description: movie.overview,
-          }))
-
-          displayMovies(allMovies);
-          console.log(data);
-      },
-      error: function(data){}
-          
-          
-  });
-};
-
-// Here we will display the movies
-function displayMovies(allMovies){
-
-// We will append the card to the movie container later
-  const movieContainer = $('#movieContainer');
-  movieContainer.empty();
-
+  function addToWatchlist() {
   
-  //Loop though the movies.
-  allMovies.forEach(movie => {
-      
-      const card = $(`   
-      <div class="col-12 col-md-6 col-lg-4 col-xxl-3 d-flex justify-content-center">
-
-          <!-- The Card -->
-          <div class="card" value="${movie.id}">
-
-            <!-- Img goes here -->
-              <img src="https://image.tmdb.org/t/p/original${movie.image}" class="poster rounded-1" alt="${movie.title}">
-              
-              <!-- Card Body -->
-              <div class="details">
-
-                <!-- Float title to the left and icon to the right. Here you can change the icon from a minus to a plus. Remember to do the same for css-->
-                <!-- ---------------------------------------------------------------------------------------------------------------------------------- -->
-                <div class="row">
-                  <div class="col-10"><h5 class="title">${movie.title}</h5></div>
-                  <div class="col-2"><i class="bi bi-plus-circle" onclick="addToWatchlist(${movie.id})"></i></div>
-                </div>
-
-                <p style="color: white;" class="pf-3">Directed by Director </Director></p>
-
-                <!--Runtime-->
-                <p style="color: white;" class="pf-3">1h 44m</p>
-                <div class="genres">
-                  <span class="genre pf-4"><b>Comedy</b></span>
-                  <span class="genre pf-4"><b>Sitcom</b></span>
-                  <span class="genre pf-4"><b>Mockumentary</b></span>
-                </div>
-                <br>
-                <!--Description-->
-                <div class="fadeout"><p class="card-text pf-3">${movie.description}</p></div>
-                <!-- More Info button -->
-                  <button type="button" class="button btn-sm more-info">More Info</button>
-
-              </div>
-          </div>
-      </div>
-      `)       
-
-      // Take User to the Individual Movie Page when clicking on the More Info Button
-      card.on('click','.more-ifo',function(){
-        window.location.href =`http://127.0.0.1:5501/pages/individual.html?id=${movie.id}`;
-
-      });
-      
-      // Here we append the card to the container.
-      movieContainer.append(card);
-
-      $(card).find(".bi-plus-circle").click(function(movieId){
-        $(this).attr('class', 'bi bi-check-circle');
-        
-      });
-          
-  });
-}
-
-// Function to add a movie to the watchlist
-function addToWatchlist(movieId){
-
-let movieData = JSON.stringify(movieId);
-localStorage.setItem('watchlistMovies', movieData);
-console.log(movieData);
-}
-
-// ----------------------------------------------------------------------------------------------
-// The filters/sort will be down here I think. Here's the class code
-// card.click(function(){
-// window.location.href=`cocktail.html?id=${cocktail.id}`;
-// ----------------------------------------------------------------------------------------------
+    //This function adds the movie selected to a watchlist stored on the loacl storage for the user
+  
+    var str = localStorage.getItem("wArray");
+  
+    var parsedArr = JSON.parse(str);
+    localWatchlist = parsedArr;
+    console.log(localWatchlist);
+    var selec = sessionStorage.getItem("watchlistMovies")
+    let isInWatch = false;
+    for (let l = 0; l < localWatchlist.length; l++) {
+      if (selec == localWatchlist[l]) {
+        alert("Movie already added!");
+        isInWatch = true;
+      }
+    }
+    if (isInWatch == false) {
+      localWatchlist.push(sessionStorage.getItem("watchlistMovies"));
+      var jsonWatchlistArr = JSON.stringify(localWatchlist);
+      localStorage.setItem("wArray", jsonWatchlistArr);
+      alert("Movie added to watchlist!");
+    }
+  
+    console.log(localWatchlist);
+    
+  }
+  
+  function detailedPage() {
+    //This function runs when the detailed page loads and gets the stored selected movie
+    var t = sessionStorage.getItem("watchlistMovies");
+    console.log("t =" + t);
+    addMoviesToLibrary(t);
+  }
+  function showMovies() {
+  
+    //This code displays the movies on the library page by adding info to a default div 25 times
+    var str = localStorage.getItem("mArray");
+  
+    var parsedArr = JSON.parse(str);
+    //console.log(parsedArr);
+    moviesArray = parsedArr;
+    console.log("showMoviesRuns");
+    console.log(moviesArray);
+    
+    for (let x = 0; x < moviesArray.length; x++) {
+      var addDiv = "<div onmouseenter=\"addMoviesToLibraryS(" + x + ")\" class=\"col\"> <div class=\"movie-card\">  <div id=\"library-image1\"> <img src=" + moviesArray[x].poster + " class='card-img-top' alt'...'></div>     <div class=\"card-body\"> <div id=\"library-title1\"><h5 class='card-title'> <a href='individual.html'>" + moviesArray[x].movieName + " </a></h5></div> <div  id=\"button btn-default\"><a href='individual.html' class='button btn-default'>Play</a></div><div onclick  = 'addToWatchlist()' id=\"button btn-default\"> <a href='#' class='button btn-default'>Add</a></div>  </div>     </div> </div>";
+      $("#movies").append(addDiv);
+    }
+  }
+  function loadWatchlist() {
+    var str = localStorage.getItem("wArray");
+  
+    var parsedArr = JSON.parse(str);
+  
+    localWatchlist = parsedArr;
+    console.log(localWatchlist);
+    var str = localStorage.getItem("mArray");
+  
+    var parsedArr = JSON.parse(str);
+    //console.log(parsedArr);
+    moviesArray = parsedArr;
+    for (let x = 0; x < localWatchlist.length; x++) {
+      var moviePos = localWatchlist[x];
+  
+  
+  
+      var addDiv = "<div onmouseenter=\"addMoviesToLibraryS(" + x + ")\" class=\"col\"> <div class=\"movie-card\">  <div id=\"library-image1\"> <img src=" + moviesArray[x].poster + " class='card-img-top' alt'...'></div>     <div class=\"card-body\"> <div id=\"library-title1\"><h5 class='card-title'> <a href='individual.html'>" + moviesArray[x].movieName + " </a></h5></div> <div  id=\"button btn-default\"><a href='individual.html' class='button btn-default'>Play</a></div><div onclick  = 'addToWatchlist()' id=\"button btn-default\"> <a href='#' class='button btn-default'>Add</a></div>  </div>     </div> </div>";
+      $("#watchlist-content").append(addDiv);
+    }
+  }
+  

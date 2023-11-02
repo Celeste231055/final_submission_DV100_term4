@@ -31,8 +31,7 @@ function allComedyMovies(genre){
                 id: movie.id,
                 title: movie.title,
                 image: movie.poster_path,
-                description: movie.overview
-                
+                description: movie.overview,
             }))
 
             displayMovies(allMovies);
@@ -56,40 +55,49 @@ function displayMovies(allMovies){
     allMovies.forEach(movie => {
         
         const card = $(`   
-        <div class="col-12 col-md-6 col-lg-4 col-xxl-3">
+        <div class="col-12 col-md-6 col-lg-4 col-xxl-3 d-flex justify-content-center">
 
             <!-- The Card -->
             <div class="card" value="${movie.id}">
 
               <!-- Img goes here -->
-              <i class="bi bi-play-fill play-btn align-self-center"></i>
-                <img src="https://image.tmdb.org/t/p/original${movie.image}" class="card-img-top rounded-1" alt="${movie.title}">
+                <img src="https://image.tmdb.org/t/p/original${movie.image}" class="poster rounded-1" alt="${movie.title}">
                 
                 <!-- Card Body -->
-                <div class="card-body">
+                <div class="details">
 
                   <!-- Float title to the left and icon to the right. Here you can change the icon from a minus to a plus. Remember to do the same for css-->
                   <!-- ---------------------------------------------------------------------------------------------------------------------------------- -->
                   <div class="row">
-                    <div class="col-10"><h4 class="title">${movie.title}</h4></div>
+                    <div class="col-10"><h5 class="title">${movie.title}</h5></div>
                     <div class="col-2"><i class="bi bi-plus-circle" onclick="addToWatchlist(${movie.id})"></i></div>
                   </div>
-                  
-                  <!-- More Info button -->
-                  <div class="button-wrapper" style="width: 132px;">
-                    <button type="button" class="button btn-default">More Info</button>
+
+                  <p style="color: white;" class="pf-3">Directed by Director </Director></p>
+
+                  <!--Runtime-->
+                  <p style="color: white;" class="pf-3">1h 44m</p>
+                  <div class="genres">
+                    <span class="genre pf-4"><b>Comedy</b></span>
+                    <span class="genre pf-4"><b>Sitcom</b></span>
+                    <span class="genre pf-4"><b>Mockumentary</b></span>
                   </div>
+                  <br>
+                  <!--Description-->
+                  <div class="fadeout"><p class="card-text pf-3">${movie.description}</p></div>
+                  <!-- More Info button -->
+                    <button type="button" class="button btn-sm more-info">More Info</button>
 
                 </div>
             </div>
-          </div>
+        </div>
         `)       
         
-
-        card.on('click','.btn-default',function(){
+        // Take User to the Individual Movie Page when clicking on the More Info Button
+        card.on('click','.more-ifo',function(){
           window.location.href =`http://127.0.0.1:5501/pages/individual.html?id=${movie.id}`;
 
-        })
+        });
         
         // Here we append the card to the container.
         movieContainer.append(card);
@@ -98,27 +106,14 @@ function displayMovies(allMovies){
           $(this).attr('class', 'bi bi-check-circle');
           
         });
-        
-        $(card).find(".btn-default").hide();
-
-        $(card).hover(function(){
-          $(card).find(".play-btn").css("opacity", "100%");
-          $(card).find(".btn-default").toggle();
-          $(card).find(".card-img-top").addClass("img-overlay");
-
-        }, function(){
-          $(card).find(".play-btn").css("opacity", "0%");
-          $(card).find(".btn-default").toggle();
-          $(card).find(".card-img-top").toggleClass("img-overlay");
-        });
             
     });
 }
 
+// Function to add a movie to the watchlist
 function addToWatchlist(movieId){
   
-
   let movieData = JSON.stringify(movieId);
   localStorage.setItem('watchlistMovies', movieData);
- console.log(movieData);
+  console.log(movieData);
 }

@@ -2,16 +2,17 @@
 /*Fonts*/
 
 @import url('https://fonts.googleapis.com/css2?family=Luckiest+Guy&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Luckiest+Guy&family=Poppins:wght@300;400;500&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Luckiest+Guy&family=Poppins:wght@300;400;500;600;700;800&display=swap');
 
 h1,h2,h3,h4,h5,h6 {
     font-family: 'Luckiest Guy', cursive;
     line-height: 1;
     color: white;
+    letter-spacing: 2px;
 }
 
 /*Add any tags that you use for body text in here*/
-input, a, p {
+input, a, p, span {
     font-family: 'Poppins', sans-serif;
 }
 
@@ -74,6 +75,21 @@ header .container-fluid, footer .container-fluid {
     width: 100%;
     transition: none;
     background: linear-gradient(90deg, #FCCE32 0, #F2941E 100%);
+}
+
+
+
+
+
+.bi-person{
+    color: #BEBFC5;
+    font-size: 24px;
+    margin-right: 20px;
+    margin-left: 20px;
+}
+
+.bi::before, [class^="bi-"]::before, [class*=" bi-"]::before {
+    padding-right: 10px;
 }
 
 /*------------------------------------------------Buttons-----------------------------------------------*/
@@ -189,7 +205,7 @@ footer{
         font-size: 16px;
     }
 
-    /*To use these sizes, add them as classes to the body text of your html. pf-1 goes with h1, pf-2 goes with h2 and so on*/
+    /*To use these sizes, add them as classes to the body text of your html. pf-1 goes with h1, pf-2 goes with h2 and so on. The only exception is h5 and h6, which goes with either pf-3 and pf-4*/
     /*To customize: divide whichever heading you are using with 4*/
     .pf-1{
         font-size: 24px;
@@ -205,14 +221,6 @@ footer{
 
     .pf-4{
         font-size: 12px;
-    }
-
-    .pf-5{
-        font-size: 8px;
-    }
-
-    .pf-6{
-        font-size: 4px;
     }
 }
 
@@ -256,14 +264,6 @@ footer{
     .pf-4{
         font-size: 9px;
     }
-
-    .pf-5{
-        font-size: 6px;
-    }
-
-    .pf-6{
-        font-size: 3px;
-    }
 }
 
 /*Override Bootstrap Container width*/
@@ -275,6 +275,10 @@ footer{
 
 /*Vertical spacing for search and signin button for small and medium screens*/
 @media (max-width: 991px){
+    .navbar{
+        height: auto;
+    }
+    
     .search-input input[type="search"], .search-button button[type="button"] {
         margin-top: 20px;
         margin-bottom: 20px;

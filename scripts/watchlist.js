@@ -34,7 +34,8 @@ async function getWatchlistMovies(){
       const movie = {
           id: data.id,
           title: data.title,
-          image: data.poster_path
+          image: data.poster_path,
+          description: data.overview
       };
 
       //after getting an id's data push it to the array watchlistArr.
@@ -59,33 +60,42 @@ function displayMovies(watchlistArr){
     watchlistArr.forEach(movie => {
         
         const card = $(`   
-        <div class="col-12 col-md-6 col-lg-4 col-xxl-3">
+        <div class="col-12 col-md-6 col-lg-4 col-xxl-3 d-flex justify-content-center">
 
             <!-- The Card -->
-            <div class="card">
+            <div class="card" value="${movie.id}">
 
               <!-- Img goes here -->
-              <i class="bi bi-play-fill play-btn align-self-center"></i>
-                <img src="https://image.tmdb.org/t/p/original${movie.image}" class="card-img-top rounded-1" alt="${movie.title}">
+                <img src="https://image.tmdb.org/t/p/original${movie.image}" class="poster rounded-1" alt="${movie.title}">
                 
                 <!-- Card Body -->
-                <div class="card-body">
+                <div class="details">
 
                   <!-- Float title to the left and icon to the right. Here you can change the icon from a minus to a plus. Remember to do the same for css-->
                   <!-- ---------------------------------------------------------------------------------------------------------------------------------- -->
                   <div class="row">
-                    <div class="col-10"><h4 class="title">${movie.title}</h4></div>
-                    <div class="col-2"><i class="bi bi-dash-circle" onclick="addToWatchlist(${movie.id})"></i></div>
+                    <div class="col-10"><h5 class="title">${movie.title}</h5></div>
+                    <div class="col-2"><i class="bi bi-plus-circle" onclick="addToWatchlist(${movie.id})"></i></div>
                   </div>
-                  
+
+                  <p style="color: white;" class="pf-3">Directed by Director </Director></p>
+
+                  <!--Runtime-->
+                  <p style="color: white;" class="pf-3">1h 44m</p>
+                  <div class="genres">
+                    <span class="genre pf-4"><b>Comedy</b></span>
+                    <span class="genre pf-4"><b>Sitcom</b></span>
+                    <span class="genre pf-4"><b>Mockumentary</b></span>
+                  </div>
+                  <br>
+                  <!--Description-->
+                  <div class="fadeout"><p class="card-text pf-3">${movie.description}</p></div>
                   <!-- More Info button -->
-                  <div class="button-wrapper" style="width: 132px;">
                     <button type="button" class="button btn-default">More Info</button>
-                  </div>
 
                 </div>
             </div>
-          </div>
+        </div>
         `)       
         
 
@@ -99,7 +109,7 @@ function displayMovies(watchlistArr){
 
         //when btn is clicked select the card clicked on and remove it.
         $(card).find(".bi-dash-circle").click(function(){
-          $(card).remove()
+        $(card).remove()
           
         });
             

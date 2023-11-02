@@ -1,10 +1,34 @@
+
+const genreArray = {
+  28: 'Action',
+  12: 'Adventure',
+  16: 'Animation',
+  35: 'Comedy',
+  80: 'Crime',
+  99: 'Documentary',
+  18: 'Drama',
+  10751: 'Family',
+  14: 'Fantasy',
+  36: 'History',
+  27: 'Horror',
+  10402: 'Music',
+  9648: 'Mystery',
+  10749: 'Romance',
+  878: 'Science Fiction',
+  10770: 'TV Movie',
+  53: 'Thriller',
+  10752: 'War',
+  37: 'Western'
+};
+
+
 $(document).ready(function(){
 
     // In between the brackets goes the genre. the API use numbers to denote each genre. 35 is for comedy
     allComedyMovies('35');
     
-    // Clear watchlist data when the document loads: Just for the presentation, so that it looks more impressive.
-    localStorage.removeItem('watchlistMovies');
+    // // Clear watchlist data when the document loads: Just for the presentation, so that it looks more impressive.
+    // localStorage.removeItem('watchlistMovies');
     
 
 })
@@ -31,6 +55,10 @@ function allComedyMovies(genre){
                 title: movie.title,
                 image: movie.poster_path,
                 description: movie.overview,
+                genre1: movie.genre_ids[0],
+                genre2: movie.genre_ids[1],
+                genre3: movie.genre_ids[2],
+                
             }))
 
             //load cards when successful 
@@ -78,9 +106,9 @@ function displayMovies(allMovies){
                   <!--Runtime-->
                   <p style="color: white;" class="pf-3">1h 44m</p>
                   <div class="genres">
-                    <span class="genre pf-4"><b>Comedy</b></span>
-                    <span class="genre pf-4"><b>Sitcom</b></span>
-                    <span class="genre pf-4"><b>Mockumentary</b></span>
+                    <span class="genre pf-4"><b>${movie.genre1}</b></span>
+                    <span class="genre pf-4"><b>${movie.genre2}</b></span>
+                    <span class="genre pf-4"><b>${movie.genre3}</b></span>
                   </div>
                   <br>
                   <!--Description-->

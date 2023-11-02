@@ -128,3 +128,7 @@ section p{
         padding-left: 10px;
     }
   } 
+
+  p {
+    color: white;
+  }

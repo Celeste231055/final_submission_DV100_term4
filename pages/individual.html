@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Indinvidual Movie Page</title>
+    <title>Individual Movie Page</title>
     <link rel="icon" type="image/x-icon" href="../assets/Favicon.svg">
 
     <!-- Style Sheets -->
@@ -62,64 +62,44 @@
                 </div>
               </div>
             </div>
-          </nav>
-        <!-- Movie Header -->
-        <div class="movieheader">
-            <div class="img-overlay d-inline-flex flex-row align-items-center justify-content-center">
-                <div class="contents row d-inline-flex flex-row align-items-center">
-                    <div class="col-12 col-lg-6 movie-poster">
-                        <img src="../assets/Jumanji.jpg" alt="Movie Poster">
-                    </div>
-                    <div class="col-12 col-lg-6 movie-info" style="padding-left: 40px;">
-                        <h3>Jumanji: The Next Level</h3>
-                        <br><br>
-                        <p class="pf-2"><strong style="font-weight: 800;">Director:</strong><span class="director">Jake Kasdan</span> </p>
-                        <p class="pf-2"><strong>Genre:</strong> Adventure, Action, Comedy, Fantasy</p>
-                        <p class="pf-2"><strong>Runtime:</strong> 2h 3m</p>
-                        <p class="pf-2"><strong>Rating:</strong> PG-13</p>
-                        <p class="pf-2"><strong>Release date:</strong> 13 December 2019 (USA)</p>
-                        <p class="pf-2"><strong>Cast:</strong> Dwayne Johnson, Jack Black, Kevin Hart, Karen Gillan, Nick
-                            Jonas, and Awkwafina.</p>
-                        <br><br>
-                        <div class="box-office-info d-inline-flex flex-column">
-                            <h5>Box Office</h5>
-                            <p class="pf-3">Revenue: $801,7M</p>
-                            <p class="pf-3">Rating: 6.7/10 IMDb</p>
-                        </div>
-                        <br><br>
-                        <div class="d-inline-flex">
-                            <button type="button" class="button btn-lg">Add to Watchlist</button>
-                        </div>
-                        
-                    </div>
-                </div>
-        
-        
-            </div>
-        </div>
-    
-    
-    
-</header>
+        </nav>
 
-<!-- Movie Details and Trailer -->
-<main>
-    <section class="movie-details">
-        <div class="row">
-            <div class="col-12 col-lg-6 movie-info">
-                <h4>Movie Info</h4>
-                <p class="pf-2 justify">When Spencer goes back into the fantastical world of Jumanji, pals Martha, Fridge and Bethany re-enter the game to bring him home. But the game is now broken -- and fighting back. Everything the friends know about Jumanji is about to change, as they soon discover there's more obstacles and more danger to overcome.</p>
-                <p class="pf-2"><span class="restyle">Viewer Rating: </span><span>71% Rotten Tomatoes</span></p>
-            </div>
-            <div class="col-12 col-lg-6 trailer">
-                <h4>Movie Trailer</h4>
-                <iframe width="100%" height="90%" src="https://www.youtube.com/embed/rBxcF-r9Ibs?si=0CkAgFM7nds-wcM7" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
-            </div>
-        </div>
-        
-    </section>
-</main>
+<!-- Movie Header -->
+<br>
+<br>
+<div class="detailed-mainBox">
+  <div class="detailed-topRow row">
+    <div class="detailed-space col-sm-1"></div>
+    <div class="detailed-artwork col-sm-2" id="detailed-posterJ">
+        <!-- Movie Poster -->
+    </div>
+    <div class="detailed-space col-sm-1"></div>
+    <div class="detailed-trailer col-sm-4" id="detailed-trailer">
+        <!-- Movie Trailer will be embedded here -->
+    </div>
+  </div>
 
+
+  <div class="detailed-bottomRow row">
+      <div class="detailed-space col-sm-1"></div>
+      <div class="detailed-brLeft col-sm-4">
+          <div class="detailed-movieName" ><h3 id="detailed-movieNameJ"></h3></div>
+          <div class="detailed-year" ><p id="detailed-YearJ"></p></div>
+          <div class="detailed-director" ><h5 id="detailed-directorJ">Director: </h5></div>
+          <div class="detailed-actors" >
+              <h5>Actors:</h5>
+           <p id="detailed-actorsJ"></p>
+          </div>
+      </div>
+      <div class="detailed-brRight col-sm-6">
+          <div class="detailed-time"  ><p id="detailed-runtimeJ">Runtime: </p></div>
+          <div class="detailed-synopsis" ><p id="detailed-plotJ"></p></div>
+          <div class="detailed-rating" ><p id="detailed-ratingJ">Rating: </p></div>
+          <div class="detailed-rating" ><p id="detailed-genreJ">Genre: </p></div>
+      </div>
+  </div>
+  <div><button onclick="addToWatchlist()" class="button btn-default" type="submit"> Add to Watchlist</button></div>
+</div>
 
 
  <!-------------------------------------------------------------------------------------------------- -->

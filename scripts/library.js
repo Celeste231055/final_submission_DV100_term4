@@ -86,7 +86,7 @@ function displayMovies(allMovies){
                   <!--Description-->
                   <div class="fadeout"><p class="card-text pf-3">${movie.description}</p></div>
                   <!-- More Info button -->
-                    <button type="button" class="button btn-sm more-info">More Info</button>
+                    <button type="button" class="button btn-default">More Info</button>
 
                 </div>
             </div>
@@ -94,7 +94,7 @@ function displayMovies(allMovies){
         `)       
         
         // Take User to the Individual Movie Page when clicking on the More Info Button
-        card.on('click','.more-ifo',function(){
+        card.on('click','.btn-default',function(){
           window.location.href =`http://127.0.0.1:5501/pages/individual.html?id=${movie.id}`;
 
         });

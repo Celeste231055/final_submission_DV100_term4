@@ -4,15 +4,17 @@
 }
 
 /* Movie Header */
-.movieheader {
+.button {
+    background: linear-gradient(90deg, #FCCE32 0, #F2941E 100%);
+    border-radius: 10px;
+    border: none;
+    font-weight: 600;
+    width: auto;
+    padding: 10px;
     display: flex;
     align-items: center;
-    background-image: url('../assets/Jumanji\ back.jpg');
-    background-size: cover;
-    color: white;
-    height: 93%;
-    background-position: center;
-    position: relative;
+    justify-content: center;
+    margin-left: 120px;
 }
 
 .img-overlay{
@@ -57,6 +59,27 @@ section p{
     display: flex;
     justify-content: space-between;
     align-items: flex-start;
+    padding: 30px;
+}
+
+.movie-item {
+    flex: 1;
+    padding-right: 30px;
+    padding-left: 40px;
+}
+
+.movie-item h1 {
+    font-size: 56px;
+    margin: 0;
+}
+
+.movie-item h3 {
+    font-size: 28px;
+    margin: 0;
+}
+
+.movie-item p {
+    margin: 10px 0;
     padding: 40px;
     width: 100%;
 }
@@ -78,6 +101,20 @@ section p{
     padding-left: 40px;
 }
 
+
+/* Reduce the size of the movie poster */
+.detailed-artwork img {
+    max-width: 100%;
+    height: auto;
+}
+
+/* Adjust the width and height of the trailer */
+.detailed-trailer iframe {
+    width: 100%;
+    height: 100%;
+}
+
+
 @media (max-width: 991px) {
     .movie-poster {
       display: none;
@@ -92,3 +129,6 @@ section p{
     }
   } 
 
+  p {
+    color: white;
+  }

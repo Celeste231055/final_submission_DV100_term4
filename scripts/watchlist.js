@@ -7,55 +7,62 @@ $(document).ready(function(){
 
 })
 
+// the cards get loaded in the moment the api call is successful. This time, however, I'm getting multiple api calls at once 
+// So when the first movie is pulled from the api, the cards are displayed using that movie. Same info on all cards.
+//  async allows you to pause a function until the 'promise' something else is first resolved. In this case it waits until all the movies are pulled from the api.
+async function getWatchlistMovies(){
 
-function getWatchlistMovies(){
-let watchlistData = JSON.parse(localStorage.getItem('watchlistMovies'));
+  //get movies from locale storage
+  let watchlistData = JSON.parse(localStorage.getItem('watchlistMovies'));
+  console.log(watchlistData)
+  
+  //an array that stores the movie data
+  let watchlistArr = [];
 
+  // get the api information for each of the ids in the watchlist.
+  for(let i=0; i<watchlistData.length; i++ ){
+    const apiUrl = `https://api.themoviedb.org/3/movie/${watchlistData[i]}?api_key=a6ca981513c9c7f4fc02008ff4ad8402`;
 
-const apiUrl = `https://api.themoviedb.org/3/discover/movie?api_key=a6ca981513c9c7f4fc02008ff4ad8402&include_adult=false&include_video=false&language=en-US&page=1&sort_by=popularity.desc`;
+    // try and catch errors is essentially the same as the success: and error: from the ajax request
+    try {
+      //get the api url and wait for it to load all of the api calls: watchlistData.length
+      const response = await fetch(apiUrl);
+      //get the Json data and wait for it to load all of the information: ${watchlistData[i]}
+      const data = await response.json();
 
-    $.ajax({
-        url: apiUrl,
-        method: 'GET',
-        dataType: 'json',
-        success: function(data){
+      // create variable and store the data in here.
+      const movie = {
+          id: data.id,
+          title: data.title,
+          image: data.poster_path
+      };
 
-            //map the api
-            const watchlistMovies = data.results.map(movie => ({
-                id: movie.id,
-                title: movie.title,
-                image: movie.poster_path,
-                                
-            }))
+      //after getting an id's data push it to the array watchlistArr.
+      watchlistArr.push(movie);
+      
+    } catch (error) {}
+  
+  };
 
-            displayMovies(watchlistMovies);
-            console.log(data);
-        },
-        error: function(data){}
-            
-            
-    });
-
-
+  displayMovies(watchlistArr);
 
 };
 
-// Here we will display the movies
-function displayMovies(watchlistMovies){
+// Display the movies
+function displayMovies(watchlistArr){
 
-  // We will append the card to the movie container later
     const movieContainer = $('#movieContainer');
     movieContainer.empty();
 
     
-    //Loop though the movies.
-    watchlistMovies.forEach(movie => {
+    // Loop though the movies
+    watchlistArr.forEach(movie => {
         
         const card = $(`   
         <div class="col-12 col-md-6 col-lg-4 col-xxl-3">
 
             <!-- The Card -->
-            <div class="card" value="${movie.id}">
+            <div class="card">
 
               <!-- Img goes here -->
               <i class="bi bi-play-fill play-btn align-self-center"></i>
@@ -68,7 +75,7 @@ function displayMovies(watchlistMovies){
                   <!-- ---------------------------------------------------------------------------------------------------------------------------------- -->
                   <div class="row">
                     <div class="col-10"><h4 class="title">${movie.title}</h4></div>
-                    <div class="col-2"><i class="bi bi-plus-circle" onclick="addToWatchlist(${movie.id})"></i></div>
+                    <div class="col-2"><i class="bi bi-dash-circle" onclick="addToWatchlist(${movie.id})"></i></div>
                   </div>
                   
                   <!-- More Info button -->
@@ -90,8 +97,9 @@ function displayMovies(watchlistMovies){
         // Here we append the card to the container.
         movieContainer.append(card);
 
-        $(card).find(".bi-plus-circle").click(function(movieId){
-          $(this).attr('class', 'bi bi-check-circle');
+        //when btn is clicked select the card clicked on and remove it.
+        $(card).find(".bi-dash-circle").click(function(){
+          $(card).remove()
           
         });
             

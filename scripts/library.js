@@ -3,10 +3,9 @@ $(document).ready(function(){
 
     // In between the brackets goes the genre. the API use numbers to denote each genre. 35 is for comedy
     // If you want to filter between two genres eg. comedy + action you can use a comma (,) or pipe (|). eg. allComedyMovies('35', '28');
+
     allComedyMovies('35');
     
-    
-
 })
 
 // -----------------------------------------------------------------------------------------------------------------------------
@@ -32,6 +31,7 @@ function allComedyMovies(genre){
                 title: movie.title,
                 image: movie.poster_path,
                 description: movie.overview,
+                release: movie.release_date,
             }))
 
             displayMovies(allMovies);
@@ -49,7 +49,6 @@ function displayMovies(allMovies){
   // We will append the card to the movie container later
     const movieContainer = $('#movieContainer');
     movieContainer.empty();
-
     
     //Loop though the movies.
     allMovies.forEach(movie => {
@@ -110,6 +109,25 @@ function displayMovies(allMovies){
     });
 }
 
+function createYearFilter(allMovies) {
+  const years = [...new Set(allMovies.map(movie => new Date(movie.release).getFullYear()) )];
+  years.sort((a, b) => b - a); // Sort years in descending order
+    
+
+  const dropdown = $('.dropdown-menu');
+  years.forEach(year => {
+      const item = `<li><a class="dropdown-item" data-year="${year}">${year}</a></li>`;
+      dropdown.append(item);
+      console.log(years)
+  });
+
+  // Add click event to the filter items
+  dropdown.find('.dropdown-item').click(function() {
+      const selectedYear = $(this).data('year');
+      // Your code to filter movies by the selected year goes here
+  });
+}
+
 // Function to add a movie to the watchlist
 function addToWatchlist(movieId){
   
@@ -117,3 +135,5 @@ function addToWatchlist(movieId){
   localStorage.setItem('watchlistMovies', movieData);
   console.log(movieData);
 }
+
+

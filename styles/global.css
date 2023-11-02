@@ -270,7 +270,7 @@ footer{
 @media (min-width: 576px){
     .container{
         max-width: 100%;
-        }
+    }
 }
 
 /*Vertical spacing for search and signin button for small and medium screens*/
@@ -282,7 +282,7 @@ footer{
     .search-input input[type="search"], .search-button button[type="button"] {
         margin-top: 20px;
         margin-bottom: 20px;
-      }
+    }
 
     .signin{
         margin-top: 20px;
@@ -305,6 +305,7 @@ footer{
         align-items: start;
         flex-direction: column;
     }
+
     /*Remove margin from nav-items*/
     header ul {
         margin-left: 0px;
@@ -319,6 +320,7 @@ footer{
         justify-content: center;
         align-items: center;
     }
+    
     /*Set the size of the logo*/
     footer img{
         width: 150px;

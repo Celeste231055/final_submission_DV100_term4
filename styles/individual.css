@@ -27,8 +27,14 @@
     position: relative;
 }
 
-.movie-poster img {
-    width: 100%;
+.movie-poster{
+    display: flex;
+    justify-content: center;
+}
+
+.movie-poster img{
+    width: 40rem;
+    height: 55rem;
 }
 
 .movie-info h3 {
@@ -91,4 +97,6 @@ section p{
         padding-left: 10px;
     }
   } 
+
+
 

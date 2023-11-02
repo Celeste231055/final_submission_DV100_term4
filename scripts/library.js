@@ -94,10 +94,10 @@ function displayMovies(allMovies){
         `)       
         
         // Take User to the Individual Movie Page when clicking on the More Info Button
-        card.on('click','.more-ifo',function(){
+        card.on('click','.more-info',function(){
           window.location.href =`http://127.0.0.1:5501/pages/individual.html?id=${movie.id}`;
 
-        });
+        })
         
         // Here we append the card to the container.
         movieContainer.append(card);

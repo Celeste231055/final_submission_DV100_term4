@@ -1,43 +1,63 @@
-/*----------------------------------------------------------Carousel Styling----------------------------------------------------------*/
+/*----------------------------------------------------------Header Styling----------------------------------------------------------*/
 header{
     height: 100vh;
 }
 
-.carousel-inner,.carousel-item {
-    height: 100%;
-}
-
-header .container-fluid {
-    position: relative;
+/* Slideshow container */
+.slideshow-container {
     width: 100%;
     height: 100%;
-    padding: 0;
-}
+    position: relative;
+  }
 
-.carouselImage{
-    background: url(/assets/The\ office\ wallpaper.jpg);
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover;
+/* Slideshow Img */
+  .mySlides{
+    height: 100%;
+    width: 100%;
+    overflow: hidden;
+    display: none;
+    position: relative;
+  }
+
+  .responsive-img{
     position: relative;
     height: 100%;
+    width: 100%;
+    object-fit: cover;
 }
-
-.carouselImage2{
-    background: url(/Assets/Johnny\ English\ poster\ desktop.png);
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover;
-    position: relative;
-    height: 100%;
-}
-
-.carousel-caption {
+  
+  /* Next & previous buttons */
+  .prev, .next {
+    cursor: pointer;
     position: absolute;
+    width: auto;
+    padding: 16px;
+    color: white;
+    font-weight: bold;
+    font-size: 18px;
+    transition: 0.6s ease;
+    border-radius: 0 3px 3px 0;
+    user-select: none;
+    background-color: rgba(0,0,0,0.8);
+    top: 45%;
+  }
+  
+  .prev{
+    left: 0;
+  }
+  /* Position the "next button" to the right */
+  .next {
+    right: 0;
+    border-radius: 3px 0 0 3px;
+  }
+  
+  /* Caption text */
+  .carousel-caption {
+    position: absolute;
+    height: 100%;
     display: flex;
     flex-direction: column;
     align-items: center;
-    height: 100%;
     padding-top: 10%;
     text-align: center;
 
@@ -66,20 +86,53 @@ header .container-fluid {
     background: linear-gradient(90deg, #FCCE32 0%, #F2941E 100%);
     color: black;
 }
+  
+  /* Number text (1/3 etc) */
+  .numbertext {
+    color: #f2f2f2;
+    padding: 8px 12px;
+    position: absolute;
+    top: 0;
+    z-index: 2;
+  }
+  
+/* The dots/bullets/indicators */
+.dot {
+    cursor: pointer;
+    height: 15px;
+    width: 15px;
+    position: relative;
+    bottom: 0;
+    background-color: #bbb;
+    border-radius: 50%;
+    display: inline-block;
+    transition: background-color 0.6s ease;
+  }
 
-.carousel-caption button{
-    border-radius: 10px;
-    text-align: center;
-    background: linear-gradient(90deg, #FCCE32 0%, #F2941E 100%);
-    border: none;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    font-size: 24px;
-}
+  .dot.active{
+    background: linear-gradient(90deg, #FCCE32 0, #F2941E 100%);
+  }
+  
+  .dot:hover {
+    background-color: #717171;
+  }
+  
+  /* Fading animation */
+  .fade {
+    animation-name: fade;
+    animation-duration: 1.5s;
+    animation-fill-mode: forwards; 
+    opacity: 1; 
+  }
+  
+  @keyframes fade {
+    from {opacity: 0}
+    to {opacity: 1}
+  }
 
-/*--------------------------------------------------------Page Content Styling--------------------------------------------------------*/
+/*---------------------------------------------------------Main Styling---------------------------------------------------------*/
 
+/*Container*/
 .box{
     width: 100%;
     border-radius: 0px;
@@ -91,21 +144,21 @@ header .container-fluid {
     flex-direction: column;
 }
 
-footer{
-    margin-top: 0;
+/*Headings*/
+.Welcome, .section-heading{
+    color: white;
+    text-align: center;
 }
 
 .Welcome{
-    color: white;
-    text-align: center;
-    font-size: 74px;
+    margin-top: 3%;
 }
 
-.NRM{
-    margin-top: 50px;
-    color: white;
-    text-align: start;
+.section-heading{
+    margin-top: 3%;
 }
+
+/*Card*/
 .h-scroll{
     width: 100%;
     height: auto;
@@ -119,10 +172,6 @@ footer{
 
 ::-webkit-scrollbar {
     display: none;
-}
-
-.movieRow{
-    margin-left: 100px;
 }
 
 .card-body{
@@ -145,71 +194,39 @@ footer{
     font-size: 13px;
 }
 
-.btn{
-    background: linear-gradient(90deg, #FCCE32 0%, #F2941E 100%);
-    color: black;
-    border: none;
-}
-/*--------------------------------------------------Custom Heading and body text sizes--------------------------------------------------*/
-@media (min-width:810px){
-    h1{
-        font-size: 96px;
-        line-height: 1;
-    }
+/*--------------------------------------------------------Footer Styling--------------------------------------------------------*/
 
-    p{
-        font-size: 32px;
-    }
+footer{
+    margin-top: 0;
 }
 
-@media (max-width:810px){
-    h1{
-        font-size: 56px;
-        line-height: 1;
-    }
+/*---------------------------------------------------------Media Queries--------------------------------------------------------*/
 
-    p{
-        font-size: 18px;
-    }
-}
-/*--------------------------------------------Hide Badges & "Welcome" text @991px and smaller--------------------------------------------*/
-@media (max-width:810px){
+/*Hide Badges & "Welcome" text @810px and smaller*/
+@media (max-width:768px){
     header .badges {
         display: none;
     }
-
-    main h1 {
-        display: none;
-    }
 }
 
-/*--------------------------------------------------Override Bootstrap Container width--------------------------------------------------*/
-@media (min-width: 576px){
-    .container, .container-sm {
-        max-width: 100%;
-        }
-}
-
-/*-------------------------------------------Set the breakpoints for medium screen and larger--------------------------------------------*/
-
-
-@media (min-width: 810px) {
-   header .container-fluid {
-        display: flex;
-        align-items: start;
-        justify-content: center;
+@media(min-width: 991px){
+    .box{
+        width: 90%;
+        border-radius: 30px;
+        background-color: black;
         position: relative;
-        width: 100%;
-        height: 100%;
-        padding: 0;
+        margin-top: -10%;
+        padding: 3%;
+        padding-top: 0;
+        display: flex;
+        flex-direction: column;
     }
+}
 
-    .carouselImage{
-        background: url(/assets/The\ office\ wallpaper\ Desktop.jpg);
-        background-position: center;
-        background-repeat: no-repeat;
-        background-size: cover;
-        width: 100%;
+/*Set the breakpoints for medium screen and larger*/
+@media (min-width: 768px) {
+    .responsive-img{
+        content: url("../assets/The-office-wallpaper-Desktop.jpg"); 
     }
 
     .carousel-caption {
@@ -226,23 +243,11 @@ footer{
         text-align: left;
     }
 
-    .box{
-        width: 90%;
-        border-radius: 30px;
-        background-color: black;
-        position: relative;
-        margin-top: -10%;
-        padding: 3%;
-        padding-top: 0;
-        display: flex;
-        flex-direction: column;
-    }
-
     footer{
         margin-top: 5%;
     }
 
-    .NRM{
+    .section-heading{
         margin-top: 3%;
     }
 }

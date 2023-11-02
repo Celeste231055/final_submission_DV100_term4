@@ -29,14 +29,17 @@ p {
 }
 
 /* Movie Header */
-.movie-info {
+.button {
+    background: linear-gradient(90deg, #FCCE32 0, #F2941E 100%);
+    border-radius: 10px;
+    border: none;
+    font-weight: 600;
+    width: auto;
+    padding: 10px;
     display: flex;
-    justify-content: space-between;
     align-items: center;
-    background-image: url('../assets/Jumanji\ back.jpg');
-    background-size: cover;
-    padding: 30px;
-    color: white;
+    justify-content: center;
+    margin-left: 120px;
 }
 
 .movie-poster img {
@@ -93,3 +96,14 @@ p {
     flex: 1;
 }
 
+/* Reduce the size of the movie poster */
+.detailed-artwork img {
+    max-width: 100%;
+    height: auto;
+}
+
+/* Adjust the width and height of the trailer */
+.detailed-trailer iframe {
+    width: 100%;
+    height: 100%;
+}

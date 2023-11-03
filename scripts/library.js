@@ -1,22 +1,46 @@
 
+const genreArray = {
+  28: 'Action',
+  12: 'Adventure',
+  16: 'Animation',
+  35: 'Comedy',
+  80: 'Crime',
+  99: 'Documentary',
+  18: 'Drama',
+  10751: 'Family',
+  14: 'Fantasy',
+  36: 'History',
+  27: 'Horror',
+  10402: 'Music',
+  9648: 'Mystery',
+  10749: 'Romance',
+  878: 'Science Fiction',
+  10770: 'TV Movie',
+  53: 'Thriller',
+  10752: 'War',
+  37: 'Western'
+};
+
+
 $(document).ready(function(){
 
     // In between the brackets goes the genre. the API use numbers to denote each genre. 35 is for comedy
-    // If you want to filter between two genres eg. comedy + action you can use a comma (,) or pipe (|). eg. allComedyMovies('35', '28');
-
     allComedyMovies('35');
     
-});
+    // // Clear watchlist data when the document loads: Just for the presentation, so that it looks more impressive.
+    // localStorage.removeItem('watchlistMovies');
+    
+
+})
+
 
 // -----------------------------------------------------------------------------------------------------------------------------
-// Here we pull the info from the API
-// To see the genres and their correlating number visit this website: https://www.themoviedb.org/talk/5daf6eb0ae36680011d7e6ee
+// Pull info from the API
 
 function allComedyMovies(genre){
 
    
-    // Currently we are getting movies for adult=false, video=false, language=en-US, page=1, sort_by=popularity.desc, with_genres=35
-    // To add a parameter check out this link https://developer.themoviedb.org/reference/discover-movie
+  //  Api url
     const apiUrl = `https://api.themoviedb.org/3/discover/movie?api_key=a6ca981513c9c7f4fc02008ff4ad8402&include_adult=false&include_video=false&language=en-US&page=1&sort_by=popularity.desc&with_genres=${genre}`;
     
     $.ajax({
@@ -25,79 +49,32 @@ function allComedyMovies(genre){
         dataType: 'json',
         success: function(data){
           //map the api
-          const allMovies = data.results.map((movie) => ({
+          const allMovies = data.results.map(movie => ({
             id: movie.id,
             title: movie.title,
             image: movie.poster_path,
             description: movie.overview,
-            release: movie.release_date,
-            language: movie.original_language,
-            genres: movie.genre_ids,
-          }));
+            genre1: movie.genre_ids[0],
+            genre2: movie.genre_ids[1],
+            genre3: movie.genre_ids[2],
+            
+        }))
 
-          // Find a container element to append the badges
-          var genreContainer = $(".genres");
 
-          // Loop through each genre ID and create a badge for each movie
-        allMovies.forEach((movie) => {
-          movie.genres.forEach((genreId) => {
-              // Map genre IDs to their corresponding names using the mapGenreIdToName function
-              var genreName = mapGenreIdToName(genreId); 
-
-              // Create a badge element and add it to the container
-              var badge = $('<span class="genre pf-4"><b>' + genreName + '</b></span>');
-              genreContainer.append(badge);
-          });
-        });
-
-        displayMovies(allMovies);
-        console.log(data);
-
-    },
-    error: function(data){}
-              
+            //load cards when successful 
+            displayMovies(allMovies);
+            console.log(data);
+        },
+        error: function(data){}
+            
+            
     });
 };
 
-function mapGenreIdToName(genreId) {
-  // Define a mapping of genre IDs to names
-  var genreMapping = {
-    
-    28: 'Action',
-    12: 'Adventure',
-    16: 'Animation',
-    35: 'Comedy',
-    80: 'Crime',
-    99: 'Documentary',
-    18: 'Drama',
-    10751: 'Family',
-    14: 'Fantasy',
-    36: 'History',
-    27: 'Horror',
-    10402: 'Music',
-    9648: 'Mystery',
-    10749: 'Romance',
-    878: 'Science Fiction',
-    10770: 'TV Movie',
-    53: 'Thriller',
-    10752: 'War',
-    37: 'Western',
-    
-  };
-  
-  // Check if the genreId is in the mapping, and return the corresponding name
-  if (genreMapping.hasOwnProperty(genreId)) {
-      return genreMapping[genreId];
-  }
-  
-  // Return a default value or an empty string if the genreId is not found
-  return 'Unknown';
-}
-
-// Here we will display the movies
+// Display the movie cards
 function displayMovies(allMovies){
 
-  // We will append the card to the movie container later
+  // Create a variable for the movie Container
     const movieContainer = $('#movieContainer');
     movieContainer.empty();
     
@@ -126,7 +103,9 @@ function displayMovies(allMovies){
                   <!--Runtime-->
                   <p style="color: white;" class="pf-3">1h 44m</p>
                   <div class="genres">
-                  ${movie.genres.map(genreId => `<span class="genre">${mapGenreIdToName(genreId)}</span>`).join(' ')}
+                    <span class="genre pf-4"><b>${movie.genre1}</b></span>
+                    <span class="genre pf-4"><b>${movie.genre2}</b></span>
+                    <span class="genre pf-4"><b>${movie.genre3}</b></span>
                   </div>
                   <br>
                   <!--Description-->
@@ -146,10 +125,11 @@ function displayMovies(allMovies){
 
         })
         
-        // Here we append the card to the container.
+        // Append the card to the container.
         movieContainer.append(card);
 
-        $(card).find(".bi-plus-circle").click(function(movieId){
+        //when btn is clicked change icon class/display check icon
+        $(card).find(".bi-plus-circle").click(function(){
           $(this).attr('class', 'bi bi-check-circle');
           
         });
@@ -157,31 +137,28 @@ function displayMovies(allMovies){
     });
 }
 
-function createYearFilter(allMovies) {
-  const years = [...new Set(allMovies.map(movie => new Date(movie.release).getFullYear()) )];
-  years.sort((a, b) => b - a); // Sort years in descending order
-    
 
-  const dropdown = $('.dropdown-menu');
-  years.forEach(year => {
-      const item = `<li><a class="dropdown-item" data-year="${year}">${year}</a></li>`;
-      dropdown.append(item);
-      console.log(years)
-  });
+//create function that will be called when plus btn is clicked
+function addToWatchlist(movieId) {
 
-  // Add click event to the filter items
-  dropdown.find('.dropdown-item').click(function() {
-      const selectedYear = $(this).data('year');
-      // Your code to filter movies by the selected year goes here
-  });
-}
-
-// Function to add a movie to the watchlist
-function addToWatchlist(movieId){
   
-  let movieData = JSON.stringify(movieId);
-  localStorage.setItem('watchlistMovies', movieData);
-  console.log(movieData);
-}
+  // get watchlist info from local storage or create an empty array. We want to store everything in one array not hundreds of them.
+  let watchlist = JSON.parse(localStorage.getItem('watchlistMovies')) || [];
 
+  
+  // If watchlist is !not an array then make it one. You shall not pass unless you are an array!
+  if (!Array.isArray(watchlist)) {
+      watchlist = [];
+  }
 
+  // If this movie id is not already in the watchlist then push it to watchlist array. Aka no doubles
+  if (!watchlist.includes(movieId)) {
+  
+  // Add movieId to watchlist
+  watchlist.push(movieId);
+  }
+
+  // Save again to local storage
+  localStorage.setItem('watchlistMovies', JSON.stringify(watchlist));
+  console.log(watchlist);
+};

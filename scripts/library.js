@@ -6,7 +6,7 @@ $(document).ready(function(){
 
     allComedyMovies('35');
     
-})
+});
 
 // -----------------------------------------------------------------------------------------------------------------------------
 // Here we pull the info from the API
@@ -24,24 +24,75 @@ function allComedyMovies(genre){
         method: 'GET',
         dataType: 'json',
         success: function(data){
+          //map the api
+          const allMovies = data.results.map((movie) => ({
+            id: movie.id,
+            title: movie.title,
+            image: movie.poster_path,
+            description: movie.overview,
+            release: movie.release_date,
+            language: movie.original_language,
+            genres: movie.genre_ids,
+          }));
 
-            //map the api
-            const allMovies = data.results.map(movie => ({
-                id: movie.id,
-                title: movie.title,
-                image: movie.poster_path,
-                description: movie.overview,
-                release: movie.release_date,
-            }))
+          // Find a container element to append the badges
+          var genreContainer = $(".genres");
 
-            displayMovies(allMovies);
-            console.log(data);
-        },
-        error: function(data){}
-            
-            
+          // Loop through each genre ID and create a badge for each movie
+        allMovies.forEach((movie) => {
+          movie.genres.forEach((genreId) => {
+              // Map genre IDs to their corresponding names using the mapGenreIdToName function
+              var genreName = mapGenreIdToName(genreId); 
+
+              // Create a badge element and add it to the container
+              var badge = $('<span class="genre pf-4"><b>' + genreName + '</b></span>');
+              genreContainer.append(badge);
+          });
+        });
+
+        displayMovies(allMovies);
+        console.log(data);
+
+    },
+    error: function(data){}
+              
     });
 };
+
+function mapGenreIdToName(genreId) {
+  // Define a mapping of genre IDs to names
+  var genreMapping = {
+    
+    28: 'Action',
+    12: 'Adventure',
+    16: 'Animation',
+    35: 'Comedy',
+    80: 'Crime',
+    99: 'Documentary',
+    18: 'Drama',
+    10751: 'Family',
+    14: 'Fantasy',
+    36: 'History',
+    27: 'Horror',
+    10402: 'Music',
+    9648: 'Mystery',
+    10749: 'Romance',
+    878: 'Science Fiction',
+    10770: 'TV Movie',
+    53: 'Thriller',
+    10752: 'War',
+    37: 'Western',
+    
+  };
+  
+  // Check if the genreId is in the mapping, and return the corresponding name
+  if (genreMapping.hasOwnProperty(genreId)) {
+      return genreMapping[genreId];
+  }
+  
+  // Return a default value or an empty string if the genreId is not found
+  return 'Unknown';
+}
 
 // Here we will display the movies
 function displayMovies(allMovies){
@@ -72,14 +123,10 @@ function displayMovies(allMovies){
                     <div class="col-2"><i class="bi bi-plus-circle" onclick="addToWatchlist(${movie.id})"></i></div>
                   </div>
 
-                  <p style="color: white;" class="pf-3">Directed by Director </Director></p>
-
                   <!--Runtime-->
                   <p style="color: white;" class="pf-3">1h 44m</p>
                   <div class="genres">
-                    <span class="genre pf-4"><b>Comedy</b></span>
-                    <span class="genre pf-4"><b>Sitcom</b></span>
-                    <span class="genre pf-4"><b>Mockumentary</b></span>
+                  ${movie.genres.map(genreId => `<span class="genre">${mapGenreIdToName(genreId)}</span>`).join(' ')}
                   </div>
                   <br>
                   <!--Description-->
@@ -94,6 +141,7 @@ function displayMovies(allMovies){
         
         // Take User to the Individual Movie Page when clicking on the More Info Button
         card.on('click','.more-info',function(){
+
           window.location.href =`http://127.0.0.1:5501/pages/individual.html?id=${movie.id}`;
 
         })

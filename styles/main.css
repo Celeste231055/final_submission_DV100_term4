@@ -62,11 +62,11 @@ header{
     text-align: center;
 }
 
-.badges{
+.genres{
     flex-direction: row;
 }
 
-.badge{
+.genre{
     width: auto;
     margin-top: 1%;
     background: #313131;

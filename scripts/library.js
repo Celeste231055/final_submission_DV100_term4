@@ -132,7 +132,7 @@ function displayMovies(allMovies){
                   <!--Description-->
                   <div class="fadeout"><p class="card-text pf-3">${movie.description}</p></div>
                   <!-- More Info button -->
-                    <button type="button" class="button btn-sm more-info">More Info</button>
+                    <button type="button" class="button btn-default">More Info</button>
 
                 </div>
             </div>

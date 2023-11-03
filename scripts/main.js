@@ -61,4 +61,6 @@ $(document).ready(function() {
         slides.eq(slideIndex - 1).css("display", "block");
         dots.eq(slideIndex - 1).addClass("active");
     }
+
+    
 });

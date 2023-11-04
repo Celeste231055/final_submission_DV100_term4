@@ -10,6 +10,7 @@ $(document).ready(function(){
 // the cards get loaded in the moment the api call is successful. This time, however, I'm getting multiple api calls at once 
 // So when the first movie is pulled from the api, the cards are displayed using that movie. Same info on all cards.
 //  async allows you to pause a function until the 'promise' something else is first resolved. In this case it waits until all the movies are pulled from the api.
+
 async function getWatchlistMovies(){
 
   //get movies from locale storage
@@ -26,9 +27,9 @@ async function getWatchlistMovies(){
     // try and catch errors is essentially the same as the success: and error: from the ajax request
     try {
       //get the api url and wait for it to load all of the api calls: watchlistData.length
-      const response = await fetch(apiUrl);
+      const results = await fetch(apiUrl);
       //get the Json data and wait for it to load all of the information: ${watchlistData[i]}
-      const data = await response.json();
+      const data = await results.json();
 
       // create variable and store the data in here.
       const movie = {

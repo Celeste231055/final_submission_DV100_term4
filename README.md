@@ -1,8 +1,11 @@
 
+<head> <link href="https://fonts.googleapis.com/css2?family=Luckiest+Guy&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet"></head>
+
+<body>
 <div style="background-color: #313131; color: white; padding: 20px;font-family: 'Poppins', sans-serif;">
 <h2>
-    <link href="https://fonts.googleapis.com/css2?family=Luckiest+Guy&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+   
 
 
 ![Project Logo](assets/Logo-Lrg.svg)
@@ -57,3 +60,4 @@ This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md
 
 <p>This product uses the TMDB API but is not endorsed or certified by TMDB. All movie posters and information is provided by TMDB API. Similarly, all icons are sourced from Bootstrap Icons. A special thanks to Carlo Kuyper and Paul Loots for helping with the code.</p>
 </div>
+</body>

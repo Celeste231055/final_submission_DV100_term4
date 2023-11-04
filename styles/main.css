@@ -25,6 +25,20 @@ header{
     width: 100%;
     object-fit: cover;
 }
+
+.responsive-img2{
+  position: relative;
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+}
+
+.responsive-img3{
+  position: relative;
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+}
   
   /* Next & previous buttons */
   .prev, .next {
@@ -221,6 +235,9 @@ footer{
         display: flex;
         flex-direction: column;
     }
+
+
+
 }
 
 /*Set the breakpoints for medium screen and larger*/
@@ -229,6 +246,13 @@ footer{
         content: url("../assets/The-office-wallpaper-Desktop.jpg"); 
     }
 
+    .responsive-img2{
+      content: url("../Assets/Johnny\ English\ poster\ desktop.png"); 
+  }
+
+  .responsive-img3{
+    content: url("../Assets/Jumanji\ \(1\).png"); 
+}
     .carousel-caption {
         position: absolute;
         display: flex;
@@ -251,3 +275,4 @@ footer{
         margin-top: 3%;
     }
 }
+

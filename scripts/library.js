@@ -1,5 +1,28 @@
 
-
+function genreNames(genres) {
+  const genreMap = {
+      28: 'Action',
+      12: 'Adventure',
+      16: 'Animation',
+      35: 'Comedy',
+      80: 'Crime',
+      99: 'Documentary',
+      18: 'Drama',
+      10751: 'Family',
+      14: 'Fantasy',
+      36: 'History',
+      27: 'Horror',
+      10402: 'Music',
+      9648: 'Mystery',
+      10749: 'Romance',
+      878: 'Science Fiction',
+      10770: 'TV Movie',
+      53: 'Thriller',
+      10752: 'War',
+      37: 'Western'
+  };
+  return genres.map(genres => genreMap[genres]);
+};
 
 $(document).ready(function(){
 
@@ -33,8 +56,7 @@ function allComedyMovies(genre){
             title: movie.title,
             image: movie.poster_path,
             description: movie.overview,
-            release: movie.release_date,
-            language: movie.original_language,
+            rating: movie.vote_average,
             genre1: movie.genre_ids[0],
             genre2: movie.genre_ids[1],
             genre3: movie.genre_ids[2]
@@ -81,8 +103,8 @@ function displayMovies(allMovies){
                     <div class="col-2"><i class="bi bi-plus-circle" onclick="addToWatchlist(${movie.id})"></i></div>
                   </div>
 
-                  <!--Runtime-->
-                  <p style="color: white;" class="pf-3">1h 44m</p>
+                  <!--Rating-->
+                  <p style="color: white;" class="pf-3">Rating: ${movie.rating} <i class="bi bi-star-fill"></i></p>
                   <div class="genres">
                     <span class="genre pf-4"><b>${movie.genre1}</b></span>
                     <span class="genre pf-4"><b>${movie.genre2}</b></span>
@@ -98,6 +120,11 @@ function displayMovies(allMovies){
             </div>
         </div>
         `)       
+        
+        //Genres
+      const genres = genreNames([movie.genre1, movie.genre2, movie.genre3]);
+      const genreSpans = genres.map(genre => `<span class="genre pf-4"><b>${genre}</b></span>`).join('');
+      card.find('.genres').html(genreSpans);
         
         // Take User to the Individual Movie Page when clicking on the More Info Button
         card.on('click','.btn-default',function(){

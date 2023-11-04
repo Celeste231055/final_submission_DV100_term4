@@ -48,6 +48,16 @@ function allComedyMovies(genre){
         method: 'GET',
         dataType: 'json',
         success: function(data){
+          //map the api
+          const allMovies = data.results.map((movie) => ({
+            id: movie.id,
+            title: movie.title,
+            image: movie.poster_path,
+            description: movie.overview,
+            release: movie.release_date,
+            language: movie.original_language,
+            genres: movie.genre_ids,
+          }));
 
             //map the api
             const allMovies = data.results.map(movie => ({
@@ -77,7 +87,6 @@ function displayMovies(allMovies){
   // Create a variable for the movie Container
     const movieContainer = $('#movieContainer');
     movieContainer.empty();
-
     
     //Loop though the movies.
     allMovies.forEach(movie => {
@@ -101,8 +110,6 @@ function displayMovies(allMovies){
                     <div class="col-2"><i class="bi bi-plus-circle" onclick="addToWatchlist(${movie.id})"></i></div>
                   </div>
 
-                  <p style="color: white;" class="pf-3">Directed by Director </Director></p>
-
                   <!--Runtime-->
                   <p style="color: white;" class="pf-3">1h 44m</p>
                   <div class="genres">
@@ -125,7 +132,7 @@ function displayMovies(allMovies){
         card.on('click','.btn-default',function(){
           window.location.href =`http://127.0.0.1:5501/pages/individual.html?id=${movie.id}`;
 
-        });
+        })
         
         // Append the card to the container.
         movieContainer.append(card);
@@ -138,7 +145,6 @@ function displayMovies(allMovies){
             
     });
 }
-
 
 //create function that will be called when plus btn is clicked
 function addToWatchlist(movieId) {

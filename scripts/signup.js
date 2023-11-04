@@ -64,35 +64,12 @@ $(document).ready(function() {
                 $('#password').next('.invalid-feedback').text('Please enter a valid password');
                 }
 
-
         }
         $(this).addClass('was-validated');
     });
 
     // ---------------------------------------------------------------------------------------------------
-    // Tggle Between Sign up and Login
-
-    // Initial state: Show the signup form and hide the login form
-    $(".sign-up-container").show();
-    $(".login-container").hide();
-
-    // Click event handler for the "Login" button
-    $("#logIn").click(function() {
-
-        function resetFormValidation(form) {
-            form.removeClass('was-validated');
-            form.find('.form-control').removeClass('is-valid is-invalid');
-            form.find('.invalid-feedback').text('');
-        }
-
-        event.preventDefault();
-
-        // Reset the form validation state
-        resetFormValidation($(this));
-
-        $(".sign-up-container").hide();
-        $(".login-container").show();
-    });
+    // Toggle Between Sign up and Login
 
     // Click event handler for the "Sign up" button
     $("#signUp").click(function() {
@@ -108,8 +85,25 @@ $(document).ready(function() {
         // Reset the form validation state
         resetFormValidation($(this));
 
-        $(".login-container").hide();
-        $(".sign-up-container").show();
+        $('#container').addClass('right-panel-active');
+    });
+
+    // Click event handler for the "Login" button
+    $("#logIn").click(function() {
+
+        function resetFormValidation(form) {
+            form.removeClass('was-validated');
+            form.find('.form-control').removeClass('is-valid is-invalid');
+            form.find('.invalid-feedback').text('');
+        }
+
+        event.preventDefault();
+
+        // Reset the form validation state
+        resetFormValidation($(this));
+
+        $('#container').removeClass('right-panel-active');
+        
     });
     
 });

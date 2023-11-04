@@ -1,67 +1,73 @@
 /*body: This allows footer to stay at bottom of page, but not fixed*/
 
 main {
-  display: flex;
-  justify-content: center; 
-  align-items: center; 
-  height: 80vh; 
-  margin: 50px;
-}
-
-/*Container that wraps all the content and creates a responsive layout*/
-
-main #container{
-    border-radius: 10px;
-	position: relative;
-	overflow: hidden;
-	width: 100%;
-	height: 750px;
-}
-
-/*Sign up/Login Container: Shared layout*/
-
-.form-container{
-    position: absolute;
-    top: 0;
-    height: 100%;
-}
-
-/*Sign up/Login Container: Individual styling and JS Toggle classes*/
-
-.sign-up-container{
-    left: 0;
-    width: 50%;
-    z-index: 2;
-}
-
-.login-container{
-    left: 0;
-    width: 50%;
-    z-index: 1;
-}
-
-/*Sign up/Login Content: Shared styling*/
-
-.form-container form{
-    background-color: black;
-	display: flex;
-	align-items: center;
-	justify-content: center;
-	flex-direction: column;
-	height: 100%;
-	text-align: center;
-}
-
-.header-shape{
+    display: flex;
+    justify-content: center; 
+    align-items: center;
+    flex-direction: column;
+    height: 80vh; 
+    margin: 50px;
+  }
+  
+  /*Container that wraps all the content and creates a responsive layout*/
+  main #container {
+      background-color: black;
+      border-radius: 10px;
+      position: relative;
+      overflow: hidden;
+      width: 70%;
+    height: 750px;
+  }
+  
+  /*Sign up/Login Content: Shared styling*/
+  .form-container {
+      position: absolute;
+      top: 0;
+      height: 100%;
+  }
+  
+  /*Sign up/Login Content: Shared styling*/
+  
+  .form-container form {
+      background-color: black;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+      height: 100%;
+      text-align: center;
+  }
+  
+  /*Sign up/Login Container: Individual styling and JS Toggle classes*/
+  
+  .log-in-container {
+      left: 0;
+      width: 50%;
+      z-index: 2;
+  }
+  
+  .sign-up-container {
+      left: 0;
+      width: 50%;
+      opacity: 0;
+      z-index: 1;
+  }
+  
+  .container.right-panel-active .sign-up-container {
+      opacity: 1;
+      z-index: 5;
+  }
+  
+  .header-shape{
     position: relative;
     width: 100%;
     height: 50%;
     display: flex;
     justify-content: center;
     overflow: hidden;
-}
-
-.header-shape::before{
+  }
+  
+  .header-shape::before{
     content: '';
     position: absolute;
     width: 100%;
@@ -71,37 +77,38 @@ main #container{
     background: linear-gradient(90deg, #FCCE32 0, #F2941E 100%);
     border-radius: 0 0 100% 50%;
     transform: scaleX(1.15);
-}
-
-main .content{
+  }
+  
+  main .content{
     text-align: center;
     position: relative;
     z-index: 1;
     margin: 0 auto;
     margin-top: 10%;
-}
-
-.content h1{ 
+  }
+  
+  .content h1{ 
     font-size: 56px;
     color: white;
-}
-
-.content p{ 
+  }
+  
+  .content p{ 
     font-size: 28px;
     color: black;
     line-height: 0;
-}
-
-.fields{
-    width: 50%;
+  }
+  
+  .fields{
+    width: 60%;
     display: flex;
     justify-content: center;
     align-items: center;
-	flex-direction: column;
-	height: 100%;
-}
-
-.form-control {
+    flex-direction: column;
+    height: 100%;
+    background: black;
+  }
+  
+  .form-control {
     display: block;
     margin-bottom: 10px;
     margin-top: 10px; 
@@ -111,133 +118,187 @@ main .content{
     border-radius: 10px;
     background: rgba(49, 49, 49, 0.60);
     color: #BEBFC5;
-}
-
-main .form-control::placeholder {
+  }
+  
+  main .form-control::placeholder {
     color: #BEBFC5;
     font-size: 16px;
     vertical-align: middle;
     padding: 10px;
-}
-
-.form-control:focus{
+  }
+  
+  .form-control:focus{
     background-color: rgba(49, 49, 49, 0.60);
     padding-left: 10px;
     color: #BEBFC5;
-}
-
-.sign-in {
+  }
+  
+  .sign-in {
     width: 200px !important;
     padding: 10px;
     font-size: 24px;
     height: 50px;
     margin-top: 10px;
     margin-bottom: 10px;
-}
-
-#logIn, #signUp{
+    transition: transform 80ms ease-in;
+  }
+  
+  .sign-in:active{
+    transform: scale(0.95);
+  }
+  
+  #logIn, #signUp{
     background: transparent;
     background: linear-gradient(90deg, #FCCE32 0, #F2941E 100%);
     background-clip: text;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     border: none;
-    transition: transform 80ms ease-in;
-}
-
-main p{
+  }
+  
+  main p{
     color: white;
-}
-
-main a{
+  }
+  
+  main a{
     background: #313131;
     background: linear-gradient(90deg, #FCCE32 0, #F2941E 100%);
     background-clip: text;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
-}
-
-.overlay-container {
-	position: absolute;
-	top: 0;
-	left: 50%;
-	width: 50%;
-	height: 100%;
-	overflow: hidden;
-	z-index: 100;
-}
-
-.overlay {
-	position: relative;
-	left: -100%;
-	height: 100%;
-	width: 200%;
-}
-
-.overlay-panel {
-	position: absolute;
-	height: 100%;
-	width: 50%;
-}
-
-.overlay-left {
+  }
+  
+  .overlay-container {
+      position: absolute;
+      top: 0;
+      left: 50%;
+      width: 50%;
+      height: 100%;
+      overflow: hidden;
+      z-index: 100;
+  }
+  
+  .overlay {
+      position: relative;
+      left: -100%;
+      height: 100%;
+      width: 200%;
+  }
+  
+  .overlay-panel {
+      position: absolute;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+      height: 100%;
+      width: 50%;
+  }
+  
+  .overlay-left {
     background: url(../assets/2157975.png);
-	background-repeat: no-repeat;
-	background-size: cover;
+      background-repeat: no-repeat;
+      background-size: cover;
     background-position: center;
-}
-
-.overlay-right {
-	right: 0;
+  }
+  
+  .overlay-right {
+      right: 0;
     background: url(../assets/2157975.png);
-	background-repeat: no-repeat;
-	background-size: cover;
+      background-repeat: no-repeat;
+      background-size: cover;
     background-position: center;
-}
-
-/*Media Queries*/
-
-@media (max-width: 991px){
-
+  }
+  
+  /*Media Queries*/
+  
+  @media (max-width: 991px){
+  
     main .header-shape{
-       padding-top: 7%;
+      padding-top: 7%;
     }
-
+  
     main .bottom{
-        padding: 0px;
-        width: 100%;
+      padding: 0px;
+      width: 100%;
     }
-}
-
-@media (max-width: 766px){
+  }
+  
+  @media (max-width: 768px){
     .overlay-container{
-        display: none;
+      display: none;
     }
     
     main {
-        height: 100vh; 
-        margin: 10px;
+      height: 100vh; 
+      margin: 10px;
     }
-
+  
     main #container{
-        border-radius: 0;
-
+      border-radius: 0;
     }
-
-    .sign-up-container, .login-container{
-        width: 100%;
+  
+    .sign-up-container, .login-container, .form-container{
+      width: 100%;
     }
-
+  
     .bottom{
-        transform: scale(0.9);
+      transform: scale(0.9);
     }
-
+  
     .content{
-        transform: scale(0.8);
+      transform: scale(0.8);
     }
-}
-
-footer .row>* {
-    padding-right: calc(var(--bs-gutter-x) * .5);
-    padding-left: calc(var(--bs-gutter-x) * .5);
-}
+  
+  }
+  
+  @media (min-width: 991px){
+    .form-container {
+      transition: all 0.6s ease-in-out;
+    }
+  
+    .container.right-panel-active .log-in-container {
+      transform: translateX(100%);
+    }
+  
+    .container.right-panel-active .sign-up-container {
+      transform: translateX(100%);
+      animation: show 0.6s;
+    }
+  
+    @keyframes show {
+      0%, 49.99% {
+        opacity: 0;
+        z-index: 1;
+      }
+      
+      50%, 100% {
+        opacity: 1;
+        z-index: 5;
+      }
+    }
+  
+    .overlay-container {
+      transition: transform 0.6s ease-in-out;
+    }
+    
+    .container.right-panel-active .overlay-container{
+      transform: translateX(-100%);
+    }
+    
+    .overlay {
+      transform: translateX(0);
+      transition: transform 0.6s ease-in-out;
+    }
+    
+    .container.right-panel-active .overlay {
+      transform: translateX(50%);
+    }
+    
+    .overlay-panel {
+      transform: translateX(0);
+      transition: transform 0.6s ease-in-out;
+    }
+    
+  
+  }

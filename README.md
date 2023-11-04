@@ -1,8 +1,14 @@
-<div style="background-color: #313131; color: white; padding: 20px;">
+
+<div style="background-color: #313131; color: white; padding: 20px;font-family: 'Poppins', sans-serif;">
+<h2>
+    <link href="https://fonts.googleapis.com/css2?family=Luckiest+Guy&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
 
 ![Project Logo](assets/Logo-Lrg.svg)
 
-# Welcome to Tee-Hee TV 
+<h1 style="font-family: 'Luckiest Guy', cursive; letter-spacing: 2px;">Welcome to Tee-Hee TV</h2>
+
 
 <p> Tee-Hee TV found that in a world after covid, families needed something to laugh about together. The solution was to create a comedy movie streaming service. Tee-Hee TV is all about, bringing family and friends together one laugh at a time.</p>
 
@@ -16,7 +22,6 @@
 2. Clone the code to your local machine
 2. Commit changes to this repository.
 
-<br>
 
 ### Built With
 * HTML
@@ -51,3 +56,4 @@ This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md
 ### Acknowledgements
 
 <p>This product uses the TMDB API but is not endorsed or certified by TMDB. All movie posters and information is provided by TMDB API. Similarly, all icons are sourced from Bootstrap Icons. A special thanks to Carlo Kuyper and Paul Loots for helping with the code.</p>
+</div>

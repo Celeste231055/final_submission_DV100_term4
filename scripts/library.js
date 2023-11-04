@@ -1,27 +1,3 @@
-
-const genreArray = {
-  28: 'Action',
-  12: 'Adventure',
-  16: 'Animation',
-  35: 'Comedy',
-  80: 'Crime',
-  99: 'Documentary',
-  18: 'Drama',
-  10751: 'Family',
-  14: 'Fantasy',
-  36: 'History',
-  27: 'Horror',
-  10402: 'Music',
-  9648: 'Mystery',
-  10749: 'Romance',
-  878: 'Science Fiction',
-  10770: 'TV Movie',
-  53: 'Thriller',
-  10752: 'War',
-  37: 'Western'
-};
-
-
 $(document).ready(function(){
 
     // In between the brackets goes the genre. the API use numbers to denote each genre. 35 is for comedy
@@ -44,41 +20,72 @@ function allComedyMovies(genre){
     const apiUrl = `https://api.themoviedb.org/3/discover/movie?api_key=a6ca981513c9c7f4fc02008ff4ad8402&include_adult=false&include_video=false&language=en-US&page=1&sort_by=popularity.desc&with_genres=${genre}`;
     
     $.ajax({
+
         url: apiUrl,
         method: 'GET',
         dataType: 'json',
+
         success: function(data){
-          //map the api
-          const allMovies = data.results.map((movie) => ({
-            id: movie.id,
-            title: movie.title,
-            image: movie.poster_path,
-            description: movie.overview,
-            release: movie.release_date,
-            language: movie.original_language,
-            genres: movie.genre_ids,
-          }));
+        //map the api
+        const allMovies = data.results.map((movie) => ({
+          id: movie.id,
+          title: movie.title,
+          image: movie.poster_path,
+          description: movie.overview,
+          release: movie.release_date,
+          language: movie.original_language,
+          genres: movie.genre_ids,
+        }));
 
-            //map the api
-            const allMovies = data.results.map(movie => ({
-                id: movie.id,
-                title: movie.title,
-                image: movie.poster_path,
-                description: movie.overview,
-                genre1: movie.genre_ids[0],
-                genre2: movie.genre_ids[1],
-                genre3: movie.genre_ids[2],
-                
-            }))
+        // find a container element to append the badges
+        var genreContainer = $(".genres");
 
-            //load cards when successful 
-            displayMovies(allMovies);
-            console.log(data);
-        },
-        error: function(data){}
-            
-            
-    });
+        // loop through each genre ID and create a badge for each movie
+        allMovies.forEach((movie) => {
+          movie.genres.forEach((genreId) => {
+              // map genre IDs to their corresponding names using the mapGenreIdToName function
+              var genreName = mapGenreIdToName(genreId);
+
+              //create a badge element and add it to the container
+              var badge = $('<span class="genre pf-4"><b>' + genreName + '</b></span>');
+              genreContainer.append(badge);
+          });
+        });
+
+        displayMovies(allMovies);
+        console.log(data);
+
+      },
+      error: function(data){}
+
+      });
+};
+
+function mapGenreIdToName(genreId) {
+  // define a mapping of genre IDs to names
+  var genreMapping = {
+
+  28: 'Action',
+  12: 'Adventure',
+  16: 'Animation',
+  35: 'Comedy',
+  80: 'Crime',
+  99: 'Documentary',
+  18: 'Drama',
+  10751: 'Family',
+  14: 'Fantasy',
+  36: 'History',
+  27: 'Horror',
+  10402: 'Music',
+  9648: 'Mystery',
+  10749: 'Romance',
+  878: 'Science Fiction',
+  10770: 'TV Movie',
+  53: 'Thriller',
+  10752: 'War',
+  37: 'Western'
+
+  };
 };
 
 // Display the movie cards
@@ -170,3 +177,7 @@ function addToWatchlist(movieId) {
   localStorage.setItem('watchlistMovies', JSON.stringify(watchlist));
   console.log(watchlist);
 };
+
+
+
+

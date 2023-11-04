@@ -36,7 +36,8 @@ async function getWatchlistMovies(){
           id: data.id,
           title: data.title,
           image: data.poster_path,
-          description: data.overview
+          description: data.overview,
+          rating: data.vote_average, 
       };
 
       //after getting an id's data push it to the array watchlistArr.
@@ -81,13 +82,9 @@ function displayMovies(watchlistArr){
 
                   <p style="color: white;" class="pf-3">Directed by Director </Director></p>
 
-                  <!--Runtime-->
-                  <p style="color: white;" class="pf-3">1h 44m</p>
-                  <div class="genres">
-                    <span class="genre pf-4"><b>Comedy</b></span>
-                    <span class="genre pf-4"><b>Sitcom</b></span>
-                    <span class="genre pf-4"><b>Mockumentary</b></span>
-                  </div>
+                  <!--Rating-->
+                  <p style="color: white;" class="pf-3">Rating: ${movie.rating} <i class="bi bi-star-fill"></i></p>
+                  
                   <br>
                   <!--Description-->
                   <div class="fadeout"><p class="card-text pf-3">${movie.description}</p></div>
@@ -99,6 +96,7 @@ function displayMovies(watchlistArr){
         </div>
         `)       
         
+   
 
         card.on('click','.btn-default',function(){
           window.location.href =`http://127.0.0.1:5501/pages/individual.html?id=${movie.id}`;

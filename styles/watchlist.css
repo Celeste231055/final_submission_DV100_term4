@@ -128,15 +128,17 @@
 /* The title floats left while the icon floats right */
 .title{
     overflow-y: hidden;
-    float: left;
-    height: 64px
+    height: 60px;
 }
 
 /* The minus icon can be replaced with a plus if needed. Just change it's name to .bi-plus-circle in the card (in watchlist.js) and css */
 .bi-plus-circle ,.bi-check-circle{
     margin-top: -10px;
-    float: right;
+
     color: #fcc32e;
     font-size: 28px;
 }
 
+.bi-star-fill{
+    color: #fcc32e;
+}

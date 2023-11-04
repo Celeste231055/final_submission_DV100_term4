@@ -1,3 +1,5 @@
+<div style="background-color: #313131; color: white; padding: 20px;">
+
 ![Project Logo](assets/Logo-Lrg.svg)
 
 # Welcome to Tee-Hee TV 

@@ -7,6 +7,7 @@ $(document).ready(function() {
     // ---------------------------------------------------------------------------------------------------
 
     // ---------------------------------------------------------------------------------------------------
+    // Form Validation
     
     // On Submit, prevent the default form submission
 
@@ -49,32 +50,26 @@ $(document).ready(function() {
             event.stopPropagation();
         } else {
             // Add any submission code here, like saving the data to localStorage
-            window.location.href = '../pages/library.html';
+                window.location.href = 'index.html';
+
+                // Get the username input field value
+                var username = $("#username").val();
+
+                // Check if the username is not empty
+                if (username.trim() !== "") {
+                // Save the username in session storage
+                sessionStorage.setItem("username", username);
+                } else {
+                $('#password').addClass('is-invalid');
+                $('#password').next('.invalid-feedback').text('Please enter a valid password');
+                }
+
         }
         $(this).addClass('was-validated');
     });
 
-    // Initial state: Show the signup form and hide the login form
-    $(".sign-up-container").show();
-    $(".login-container").hide();
-
-    // Click event handler for the "Login" button
-    $("#logIn").click(function() {
-
-        function resetFormValidation(form) {
-            form.removeClass('was-validated');
-            form.find('.form-control').removeClass('is-valid is-invalid');
-            form.find('.invalid-feedback').text('');
-        }
-
-        event.preventDefault();
-
-        // Reset the form validation state
-        resetFormValidation($(this));
-
-        $(".sign-up-container").hide();
-        $(".login-container").show();
-    });
+    // ---------------------------------------------------------------------------------------------------
+    // Toggle Between Sign up and Login
 
     // Click event handler for the "Sign up" button
     $("#signUp").click(function() {
@@ -90,23 +85,25 @@ $(document).ready(function() {
         // Reset the form validation state
         resetFormValidation($(this));
 
-        $(".login-container").hide();
-        $(".sign-up-container").show();
+        $('#container').addClass('right-panel-active');
     });
 
-    // When the submit button is clicked
-    $("#submitBtn").click(function() {
-        // Get the username input field value
-        var username = $("#username").val();
-        
-        // Check if the username is not empty
-        if (username.trim() !== "") {
-            // Save the username in local storage
-            localStorage.setItem("username", username);
-        } else {
-            $('#password').addClass('is-invalid');
-            $('#password').next('.invalid-feedback').text('Please enter a valid password');
+    // Click event handler for the "Login" button
+    $("#logIn").click(function() {
+
+        function resetFormValidation(form) {
+            form.removeClass('was-validated');
+            form.find('.form-control').removeClass('is-valid is-invalid');
+            form.find('.invalid-feedback').text('');
         }
+
+        event.preventDefault();
+
+        // Reset the form validation state
+        resetFormValidation($(this));
+
+        $('#container').removeClass('right-panel-active');
+        
     });
     
 });

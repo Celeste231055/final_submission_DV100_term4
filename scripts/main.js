@@ -1,3 +1,31 @@
+
+
+function genreNames(genres) {
+    const genreMap = {
+        28: 'Action',
+        12: 'Adventure',
+        16: 'Animation',
+        35: 'Comedy',
+        80: 'Crime',
+        99: 'Documentary',
+        18: 'Drama',
+        10751: 'Family',
+        14: 'Fantasy',
+        36: 'History',
+        27: 'Horror',
+        10402: 'Music',
+        9648: 'Mystery',
+        10749: 'Romance',
+        878: 'Science Fiction',
+        10770: 'TV Movie',
+        53: 'Thriller',
+        10752: 'War',
+        37: 'Western'
+    };
+    return genres.map(genres => genreMap[genres]);
+  };
+  
+
 $(document).ready(function() {
     // Check if a username is stored in session storage
     var username = sessionStorage.getItem("username");
@@ -71,10 +99,10 @@ $(document).ready(function() {
 
 
 
- function getallComedyMovies(comedy) {
+ function getallComedyMovies(genre) {
 
 
-    const apiUrl = `https://api.themoviedb.org/3/discover/movie?api_key=ff17121dd2ba8f02079e0518b75a1dfb&with_genres=${comedy}&sort_by=popularity.desc`
+    const apiUrl = `https://api.themoviedb.org/3/discover/movie?api_key=ff17121dd2ba8f02079e0518b75a1dfb&with_genres=${genre}&sort_by=popularity.desc`
 
     $.ajax({
         
@@ -116,7 +144,7 @@ $(document).ready(function() {
 function  displaySliderMovies(movies) {
 
     const moviesContainer = $(".slideshow-container")
-    moviesContainer.empty()
+
 
     movies.forEach(movie => {
         

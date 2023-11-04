@@ -1,4 +1,5 @@
 
+
 $(document).ready(function(){
 
     // In between the brackets goes the genre. the API use numbers to denote each genre. 35 is for comedy

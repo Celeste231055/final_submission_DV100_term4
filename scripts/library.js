@@ -31,7 +31,6 @@ function allComedyMovies(genre){
             image: movie.poster_path,
             description: movie.overview,
             release: movie.release_date,
-            language: movie.original_language,
             genres: movie.genre_ids,
           }));
 
@@ -122,6 +121,8 @@ function displayMovies(allMovies){
                     <div class="col-10"><h5 class="title">${movie.title}</h5></div>
                     <div class="col-2"><i class="bi bi-plus-circle" onclick="addToWatchlist(${movie.id})"></i></div>
                   </div>
+
+                  <p style="color: white;" class="pf-3">Directed by Director</p>
 
                   <!--Runtime-->
                   <p style="color: white;" class="pf-3">1h 44m</p>

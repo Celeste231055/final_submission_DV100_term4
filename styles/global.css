@@ -16,6 +16,10 @@ input, a, p, span {
     font-family: 'Poppins', sans-serif;
 }
 
+main{
+    min-height: 90vh;
+}
+
 /* Navigation */
 
 .navbar{

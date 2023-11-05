@@ -14,6 +14,7 @@ h1,h2,h3,h4,h5,h6 {
 /*Add any tags that you use for body text in here*/
 input, a, p, span {
     font-family: 'Poppins', sans-serif;
+    color: white;
 }
 
 main{
@@ -174,6 +175,9 @@ footer{
     color: white;
 }
 
+.TMDB img{
+    width: 40px;
+}
 /*------------------------------------------------Media Queries-----------------------------------------------*/
 
 /* Custom Heading and Body text */
@@ -322,7 +326,7 @@ footer{
     }
     
     /*Set the size of the logo*/
-    footer img{
+    .two img{
         width: 150px;
     }
 

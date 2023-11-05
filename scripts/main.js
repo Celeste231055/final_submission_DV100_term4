@@ -273,7 +273,7 @@ function allComedyMovies(genre){
           `)       
           
           //Genres
-          const genres = genreNames = ([movie.genre1, movie.genre2, movie.genre3]);
+          const genres = genreNames  ([movie.genre1, movie.genre2, movie.genre3]);
           const genreSpans = genres.map(genre => `<span class="genre pf-4"><b>${genre}</b></span>`).join('');
           card.find('.genres').html(genreSpans);
           

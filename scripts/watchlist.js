@@ -45,7 +45,7 @@ for(let i=0; i<watchlistData.length; i++){
     
   } catch (error) {}
 
-};
+  };
 
 displayMovies(watchlistArr);
 

@@ -16,15 +16,12 @@ async function getWatchlistMovies(){
 //get movies from locale storage
 let watchlistData = JSON.parse(localStorage.getItem('watchlistMovies'));
 console.log(watchlistData)
- 
-let watchlistArr=[];
 
-  // get the api information for each of the ids in the watchlist.
-  for(let i=0; i<watchlistData.length; i++){
-    const apiUrl = `https://api.themoviedb.org/3/movie/${watchlistData[i]}?api_key=a6ca981513c9c7f4fc02008ff4ad8402`;
+//an array that stores the movie data
+let watchlistArr = [];
 
 // get the api information for each of the ids in the watchlist.
-for(let i=0; i<watchlistData.length; i++ ){
+for(let i=0; i<watchlistData.length; i++){
   const apiUrl = `https://api.themoviedb.org/3/movie/${watchlistData[i]}?api_key=a6ca981513c9c7f4fc02008ff4ad8402`;
 
   // try and catch errors is essentially the same as the success: and error: from the ajax request
@@ -36,25 +33,22 @@ for(let i=0; i<watchlistData.length; i++ ){
 
     // create variable and store the data in here.
     const movie = {
-      id: data.id,
-      title: data.title,
-      image: data.poster_path,
-      description: data.overview,
-      rating: data.vote_average, 
-  };
-
+        id: data.id,
+        title: data.title,
+        image: data.poster_path,
+        description: data.overview,
+        rating: data.vote_average, 
+    };
 
     //after getting an id's data push it to the array watchlistArr.
     watchlistArr.push(movie);
     
   } catch (error) {}
 
-  };
+};
 
+displayMovies(watchlistArr);
 
-  displayMovies(watchlistArr);
-
-  };
 };
 
 // Display the movies
@@ -73,37 +67,38 @@ function displayMovies(watchlistArr){
           <!-- The Card -->
           <div class="card" value="${movie.id}">
 
-              <!-- Img goes here -->
-                <img src="https://image.tmdb.org/t/p/original${movie.image}" class="poster rounded-1" alt="${movie.title}">
-                
-                <!-- Card Body -->
-                <div class="details">
+            <!-- Img goes here -->
+              <img src="https://image.tmdb.org/t/p/original${movie.image}" class="poster rounded-1" alt="${movie.title}">
+              
+              <!-- Card Body -->
+              <div class="details">
 
-                  <!-- Float title to the left and icon to the right. Here you can change the icon from a minus to a plus. Remember to do the same for css-->
-                  <!-- ---------------------------------------------------------------------------------------------------------------------------------- -->
-                  <div class="row">
-                    <div class="col-10"><h5 class="title">${movie.title}</h5></div>
-                    <div class="col-2"><i class="bi bi-dash-circle"></i></div>
-                  </div>
-
-                  <p style="color: white;" class="pf-3">Directed by Director </Director></p>
-
-                  <!--Rating-->
-                  <p style="color: white;" class="pf-3">Rating: ${movie.rating} <i class="bi bi-star-fill"></i></p>
-                  
-                  <br>
-                  <!--Description-->
-                  <div class="fadeout"><p class="card-text pf-3">${movie.description}</p></div>
-                  <!-- More Info button -->
-                    <button type="button" class="button btn-sm more-info">More Info</button>
-
+                <!-- Float title to the left and icon to the right. Here you can change the icon from a minus to a plus. Remember to do the same for css-->
+                <!-- ---------------------------------------------------------------------------------------------------------------------------------- -->
+                <div class="row">
+                  <div class="col-10"><h5 class="title">${movie.title}</h5></div>
+                  <div class="col-2"><i class="bi bi-plus-circle" onclick="addToWatchlist(${movie.id})"></i></div>
                 </div>
+
+                <p style="color: white;" class="pf-3">Directed by Director </Director></p>
+
+                <!--Rating-->
+                <p style="color: white;" class="pf-3">Rating: ${movie.rating} <i class="bi bi-star-fill"></i></p>
+                
+                <br>
+                <!--Description-->
+                <div class="fadeout"><p class="card-text pf-3">${movie.description}</p></div>
+                <!-- More Info button -->
+                  <button type="button" class="button btn-default">More Info</button>
+
+              </div>
           </div>
       </div>
       `)       
       
+ 
 
-      card.on('click','.more-info',function(){
+      card.on('click','.btn-default',function(){
         window.location.href =`http://127.0.0.1:5501/pages/individual.html?id=${movie.id}`;
 
       })
@@ -114,8 +109,6 @@ function displayMovies(watchlistArr){
       //when btn is clicked select the card clicked on and remove it.
       $(card).find(".bi-dash-circle").click(function(){
       $(card).remove()
-      //Remove card from localStorage so that is does not display again after reloading the page 
-      localStorage.removeItem("watchlistMovies") 
         
       });
           

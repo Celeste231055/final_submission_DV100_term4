@@ -50,7 +50,7 @@
                     <a class="nav-link" href="../pages/watchlist.html">Watchlist</a>
                   </li>
                   <li class="nav-item">
-                    <a class="nav-link active" href="../pages/individual.html">Movie Overview</a>
+                    <a class="nav-link active" href="../pages/individual.html">Single</a>
                   </li>
                 </ul>
                   <button type="button" class="button btn-lg signin" id="signin">Sign In</button>
@@ -63,58 +63,42 @@
               </div>
             </div>
         </nav>
-    </header>
 
 <!-- Movie Header -->
 <br>
 <br>
-<div class="container d-flex flex-column gap-0 row-gap-5">
-    <div class="row d-flex justify-content-center">
-        <div class="col-12 col-md-6 d-flex justify-content-center" style="max-width: 500px;">
-            <div class="detailed-artwork" id="detailed-posterJ">
-                <!-- Movie Poster -->
-            </div>
-        </div>
-        <div class="col-12 col-md-6 info" style="max-width: 500px;">
-            <div class="detailed-movieName">
-                <h1 id="detailed-movieNameJ"></h1>
-            </div>
-            <div class="detailed-director">
-                <p id="detailed-directorJ" class="pf-1">Director: </p>
-            </div>
-            <div class="detailed-year">
-                <p id="detailed-YearJ" class="pf-1">Release Date: </p>
-            </div>
-            <div class="detailed-time">
-                <p id="detailed-runtimeJ" class="pf-1">Runtime: </p>
-            </div>
-            <div class="detailed-rating">
-                <p id="detailed-ratingJ" class="pf-1">Rating: </p>
-            </div>
-            <div class="detailed-rating">
-                <p id="detailed-genreJ" class="pf-1">Genre: </p>
-            </div>
-            <div class="detailed-actors">
-                <h5>Cast:</h5>
-                <p id="detailed-actorsJ" class="pf-1"></p>
-            </div>
-        </div>
+<div class="detailed-mainBox">
+  <div class="detailed-topRow row">
+    <div class="detailed-space col-sm-1"></div>
+    <div class="detailed-artwork col-sm-2" id="detailed-posterJ">
+        <!-- Movie Poster -->
     </div>
-    <div class="row d-flex justify-content-center">
-        <div class="col-12 col-md-6 d-flex justify-content-center" style="max-width: 500px;" >
-            <div class="detailed-trailer" id="detailed-trailer">
-                <!-- Movie Trailer will be embedded here -->
-            </div>
-        </div>
-        <div class="col-12 col-md-6 d-flex justify-content-center flex-column plot" style="max-width: 500px;">
-            <div class="detailed-synopsis pf-1">
-                <p id="detailed-plotJ"></p>
-            </div>
-            <div>
-                <button onclick="addToWatchlist()" class="button btn-lg more-info" type="submit"> Add to Watchlist</button>
-            </div>
-        </div>
+    <div class="detailed-space col-sm-1"></div>
+    <div class="detailed-trailer col-sm-4" id="detailed-trailer">
+        <!-- Movie Trailer will be embedded here -->
     </div>
+  </div>
+
+
+  <div class="detailed-bottomRow row">
+      <div class="detailed-space col-sm-1"></div>
+      <div class="detailed-brLeft col-sm-4">
+          <div class="detailed-movieName" ><h3 id="detailed-movieNameJ"></h3></div>
+          <div class="detailed-year" ><p id="detailed-YearJ"></p></div>
+          <div class="detailed-director" ><h5 id="detailed-directorJ">Director: </h5></div>
+          <div class="detailed-actors" >
+              <h5>Actors:</h5>
+           <p id="detailed-actorsJ"></p>
+          </div>
+      </div>
+      <div class="detailed-brRight col-sm-6">
+          <div class="detailed-time"  ><p id="detailed-runtimeJ">Runtime: </p></div>
+          <div class="detailed-synopsis" ><p id="detailed-plotJ"></p></div>
+          <div class="detailed-rating" ><p id="detailed-ratingJ">Rating: </p></div>
+          <div class="detailed-rating" ><p id="detailed-genreJ">Genre: </p></div>
+      </div>
+  </div>
+  <div><button onclick="addToWatchlist()" class="button btn-default" type="submit"> Add to Watchlist</button></div>
 </div>
 
 
@@ -154,6 +138,3 @@
 
 </body>
 </html>
-
-
-

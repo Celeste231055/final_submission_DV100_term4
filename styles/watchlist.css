@@ -134,7 +134,7 @@
 }
 
 /* The minus icon can be replaced with a plus if needed. Just change it's name to .bi-plus-circle in the card (in watchlist.js) and css */
-.bi-dash-circle {
+.bi-dash-circle, .bi-plus-circle {
     margin-top: -10px;
 
     color: #fcc32e;

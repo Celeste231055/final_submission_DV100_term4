@@ -77,10 +77,8 @@ function displayMovies(watchlistArr){
                 <!-- ---------------------------------------------------------------------------------------------------------------------------------- -->
                 <div class="row">
                   <div class="col-10"><h5 class="title">${movie.title}</h5></div>
-                  <div class="col-2"><i class="bi bi-plus-circle" onclick="addToWatchlist(${movie.id})"></i></div>
+                  <div class="col-2"><i class="bi bi-dash-circle" onclick="addToWatchlist(${movie.id})"></i></div>
                 </div>
-
-                <p style="color: white;" class="pf-3">Directed by Director </Director></p>
 
                 <!--Rating-->
                 <p style="color: white;" class="pf-3">Rating: ${movie.rating} <i class="bi bi-star-fill"></i></p>

@@ -1,5 +1,4 @@
 
-
 function loadMovieContent() {
     const apiKey = 'a6ca981513c9c7f4fc02008ff4ad8402';
     const movieId = new URLSearchParams(window.location.search).get('id'); // Get movie ID from URL

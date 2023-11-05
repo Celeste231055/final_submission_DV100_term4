@@ -10,6 +10,7 @@ $(document).ready(function(){
 // the cards get loaded in the moment the api call is successful. This time, however, I'm getting multiple api calls at once 
 // So when the first movie is pulled from the api, the cards are displayed using that movie. Same info on all cards.
 //  async allows you to pause a function until the 'promise' something else is first resolved. In this case it waits until all the movies are pulled from the api.
+
 async function getWatchlistMovies(){
 
   //get movies from locale storage
@@ -26,16 +27,17 @@ async function getWatchlistMovies(){
     // try and catch errors is essentially the same as the success: and error: from the ajax request
     try {
       //get the api url and wait for it to load all of the api calls: watchlistData.length
-      const response = await fetch(apiUrl);
+      const results = await fetch(apiUrl);
       //get the Json data and wait for it to load all of the information: ${watchlistData[i]}
-      const data = await response.json();
+      const data = await results.json();
 
       // create variable and store the data in here.
       const movie = {
           id: data.id,
           title: data.title,
           image: data.poster_path,
-          description: data.overview
+          description: data.overview,
+          rating: data.vote_average, 
       };
 
       //after getting an id's data push it to the array watchlistArr.
@@ -80,13 +82,9 @@ function displayMovies(watchlistArr){
 
                   <p style="color: white;" class="pf-3">Directed by Director </Director></p>
 
-                  <!--Runtime-->
-                  <p style="color: white;" class="pf-3">1h 44m</p>
-                  <div class="genres">
-                    <span class="genre pf-4"><b>Comedy</b></span>
-                    <span class="genre pf-4"><b>Sitcom</b></span>
-                    <span class="genre pf-4"><b>Mockumentary</b></span>
-                  </div>
+                  <!--Rating-->
+                  <p style="color: white;" class="pf-3">Rating: ${movie.rating} <i class="bi bi-star-fill"></i></p>
+                  
                   <br>
                   <!--Description-->
                   <div class="fadeout"><p class="card-text pf-3">${movie.description}</p></div>
@@ -98,6 +96,7 @@ function displayMovies(watchlistArr){
         </div>
         `)       
         
+   
 
         card.on('click','.btn-default',function(){
           window.location.href =`http://127.0.0.1:5501/pages/individual.html?id=${movie.id}`;

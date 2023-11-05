@@ -237,6 +237,3 @@ function addToWatchlist(movieId) {
   localStorage.setItem('watchlistMovies', JSON.stringify(watchlist));
   console.log(watchlist);
 };
-
-
-

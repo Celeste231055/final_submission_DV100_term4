@@ -50,6 +50,7 @@
     justify-content: center;
 }
 
+
 .card {
     background-color: black;
     width: 300px;
@@ -57,6 +58,7 @@
     transition: ease-out 0.5s;
     border-radius: 5px;
     overflow: hidden;
+    
 }
 
 .poster {
@@ -108,7 +110,7 @@
     color: black;
     border-radius: 10px;
     padding: 5px;
-    font-size: 14px;
+    font-size: 13px;
 }
 
 .fadeout{

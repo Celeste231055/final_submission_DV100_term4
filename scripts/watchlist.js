@@ -37,7 +37,7 @@ for(let i=0; i<watchlistData.length; i++){
         title: data.title,
         image: data.poster_path,
         description: data.overview,
-        rating: data.vote_average, 
+        rating: data.vote_average.toFixed(1)
     };
 
     //after getting an id's data push it to the array watchlistArr.

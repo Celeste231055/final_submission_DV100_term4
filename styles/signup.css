@@ -16,7 +16,7 @@ main {
       position: relative;
       overflow: hidden;
       width: 70%;
-    height: 750px;
+      height: 750px;
   }
   
   /*Sign up/Login Content: Shared styling*/
@@ -236,6 +236,7 @@ main {
   
     main #container{
       border-radius: 0;
+      width: 100%;
     }
   
     .sign-up-container, .login-container, .form-container{

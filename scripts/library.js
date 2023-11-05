@@ -176,8 +176,10 @@ function displayMovies(allMovies){
                     <div class="col-2"><i class="bi bi-plus-circle" onclick="addToWatchlist(${movie.id})"></i></div>
                   </div>
 
-                  <!--Rating-->
-                  <p style="color: white;" class="pf-3">Rating: ${movie.rating} <i class="bi bi-star-fill"></i></p>
+                  <p style="color: white;" class="pf-3">Directed by Director</p>
+
+                  <!--Runtime-->
+                  <p style="color: white;" class="pf-3">1h 44m</p>
                   <div class="genres">
                   ${movie.genres.map(genreId => `<span class="genre">${mapGenreIdToName(genreId)}</span>`).join(' ')}
                   </div>

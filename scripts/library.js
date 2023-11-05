@@ -4,7 +4,7 @@ $(document).ready(function(){
     allComedyMovies('35');
     
     // // Clear watchlist data when the document loads: Just for the presentation, so that it looks more impressive.
-    // localStorage.removeItem('watchlistMovies');
+    localStorage.removeItem('watchlistMovies');
     
 
 })
@@ -140,6 +140,11 @@ function displayMovies(allMovies){
         </div>
         `)       
         
+        //Genres
+        // const genres = genreNames([movie.genre1, movie.genre2, movie.genre3]);
+        // const genreSpans = genres.map(genre => `<span class="genre pf-4"><b>${genre}</b></span>`).join('');
+        // card.find('.genres').html(genreSpans);
+        
         // Take User to the Individual Movie Page when clicking on the More Info Button
         card.on('click','.more-info',function(){
 
@@ -158,7 +163,6 @@ function displayMovies(allMovies){
             
     });
 }
-
 
 //create function that will be called when plus btn is clicked
 function addToWatchlist(movieId) {

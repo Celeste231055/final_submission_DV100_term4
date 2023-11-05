@@ -152,3 +152,6 @@ function addToWatchlist() {
   localStorage.setItem('watchlist', JSON.stringify(watchlist));
   alert('Movie added to your watchlist!');
 }
+
+// Call loadMovieContent when the movie detail page loads
+loadMovieContent();

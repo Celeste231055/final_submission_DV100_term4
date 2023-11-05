@@ -33,11 +33,13 @@ for(let i=0; i<watchlistData.length; i++ ){
 
     // create variable and store the data in here.
     const movie = {
-        id: data.id,
-        title: data.title,
-        image: data.poster_path,
-        description: data.overview
-    };
+      id: data.id,
+      title: data.title,
+      image: data.poster_path,
+      description: data.overview,
+      rating: data.vote_average, 
+  };
+
 
     //after getting an id's data push it to the array watchlistArr.
     watchlistArr.push(movie);
@@ -66,35 +68,31 @@ function displayMovies(watchlistArr){
           <!-- The Card -->
           <div class="card" value="${movie.id}">
 
-            <!-- Img goes here -->
-              <img src="https://image.tmdb.org/t/p/original${movie.image}" class="poster rounded-1" alt="${movie.title}">
-              
-              <!-- Card Body -->
-              <div class="details">
+              <!-- Img goes here -->
+                <img src="https://image.tmdb.org/t/p/original${movie.image}" class="poster rounded-1" alt="${movie.title}">
+                
+                <!-- Card Body -->
+                <div class="details">
 
-                <!-- Float title to the left and icon to the right. Here you can change the icon from a minus to a plus. Remember to do the same for css-->
-                <!-- ---------------------------------------------------------------------------------------------------------------------------------- -->
-                <div class="row">
-                  <div class="col-10"><h5 class="title">${movie.title}</h5></div>
-                  <div class="col-2"><i class="bi bi-dash-circle"></i></div>
+                  <!-- Float title to the left and icon to the right. Here you can change the icon from a minus to a plus. Remember to do the same for css-->
+                  <!-- ---------------------------------------------------------------------------------------------------------------------------------- -->
+                  <div class="row">
+                    <div class="col-10"><h5 class="title">${movie.title}</h5></div>
+                    <div class="col-2"><i class="bi bi-dash-circle"></i></div>
+                  </div>
+
+                  <p style="color: white;" class="pf-3">Directed by Director </Director></p>
+
+                  <!--Rating-->
+                  <p style="color: white;" class="pf-3">Rating: ${movie.rating} <i class="bi bi-star-fill"></i></p>
+                  
+                  <br>
+                  <!--Description-->
+                  <div class="fadeout"><p class="card-text pf-3">${movie.description}</p></div>
+                  <!-- More Info button -->
+                    <button type="button" class="button btn-sm more-info">More Info</button>
+
                 </div>
-
-                <p style="color: white;" class="pf-3">Directed by Director</p>
-
-                <!--Runtime-->
-                <p style="color: white;" class="pf-3">1h 44m</p>
-                <div class="genres">
-                  <span class="genre pf-4"><b>Comedy</b></span>
-                  <span class="genre pf-4"><b>Sitcom</b></span>
-                  <span class="genre pf-4"><b>Mockumentary</b></span>
-                </div>
-                <br>
-                <!--Description-->
-                <div class="fadeout"><p class="card-text pf-3">${movie.description}</p></div>
-                <!-- More Info button -->
-                  <button type="button" class="button btn-sm more-info">More Info</button>
-
-              </div>
           </div>
       </div>
       `)       

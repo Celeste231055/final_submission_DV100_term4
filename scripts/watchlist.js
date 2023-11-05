@@ -21,7 +21,7 @@ async function getWatchlistMovies(){
   let watchlistArr = [];
 
   // get the api information for each of the ids in the watchlist.
-  for(let i=0; i<watchlistData.length; i++ ){
+  for(let i=0; i<watchlistData.length; i++){
     const apiUrl = `https://api.themoviedb.org/3/movie/${watchlistData[i]}?api_key=a6ca981513c9c7f4fc02008ff4ad8402`;
 
     // try and catch errors is essentially the same as the success: and error: from the ajax request

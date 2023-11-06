@@ -50,7 +50,7 @@ $(document).ready(function() {
             event.stopPropagation();
         } else {
             // Add any submission code here, like saving the data to localStorage
-                window.location.href = 'index.html';
+                window.location.href = '../index.html';
 
                 // Get the username input field value
                 var username = $("#username").val();

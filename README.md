@@ -15,7 +15,12 @@
 
 <p> Tee-Hee TV found that in a world after covid, families needed something to laugh about together. The solution was to create a comedy movie streaming service. Tee-Hee TV is all about, bringing family and friends together one laugh at a time.</p>
 
-//Screenshots come in here.
+![Movie Library](assets/movie-library.png)
+![Watchlist](assets/watchlist.png)
+![Sign Up](assets/sign-up.png)
+![Homepage](assets/homepage.png)
+![Individual Page](assets/individual-page.png)
+
 
 <br>
 

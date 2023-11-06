@@ -22,6 +22,9 @@
 ![Individual Page](assets/individual-page.png)
 
 
+### Demo Video
+Watch the [Demo Video](https://drive.google.com/file/d/15_RECWdSXJDPoktQ_CuYh9JkA-WJG0E6/view?usp=drive_link ) for more info.
+
 <br>
 
 ### Getting Started
